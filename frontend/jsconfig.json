@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es2017",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      // "Actions/*": ["src/actions/*"],
+      // "Api/*": ["src/api/*"],
+      // "Assets/*": ["src/assets/*"],
+      // "Components/*": ["src/components/*"],
+      // "Pages/*": ["src/pages/*"],
+      // "Reducers/*": ["src/reducers/*"],
+      // "Redux/*": ["src/redux/*"],
+      // "Routes/*": ["src/routes.jsx"],
+      // "Selectors/*": ["src/selectors/*"],
+      // "Services/*": ["src/services/*"],
+      // "Styles/*": ["src/styles/*"],
+      // "Utils/*": ["src/utils.js"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
