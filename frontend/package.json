@@ -9,16 +9,22 @@
   },
   "author": "Maksym Mariukhin",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
+    "start": "cross-env NODE_ENV=development webpack serve -c ./webpack/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
     "lint": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" --fix",
+    "precommit:lint": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" -c precommit.eslint.json --no-eslintrc --fix",
+    "precommit": "npm run precommit:lint && npm run typecheck && git add .",
     "prettier": "prettier --write \"./src/**/*.{js,jsx,css}\""
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn lint:js && yarn lint:css"
+      "pre-commit": "npm run precommit"
     }
+  },
+  "alias": {
+    "routing": "./src/modules",
+    "pages": "./src/pages"
   },
   "lint-staged": {
     "*.(js|jsx)": [
@@ -50,9 +56,10 @@
     "@types/react-transition-group": "^4.4.0",
     "@types/react-virtualized-auto-sizer": "^1.0.0",
     "@types/react-window": "^1.8.2",
-    "babel-loader": "^8.2.2",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^10.2.4",
     "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "eslint": "^7.4.0",
@@ -65,6 +72,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
     "file-loader": "^6.0.0",
+    "fork-ts-checker-webpack-plugin": "^7.2.7",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
@@ -78,22 +86,23 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
     "terser-webpack-plugin": "^3.0.6",
-    "typescript": "4.0.5",
-    "webpack": "^4.43.0",
-    "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.0.9"
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "4.0.5"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "dayjs": "^1.8.34",
-    "ramda": "^0.27.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "mobx": "^5.15.7",
     "mobx-react": "^6.3.0",
     "mobx-react-router": "^4.1.0",
-    "react-router-dom": "^5.2.0"
+    "ramda": "^0.27.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "ts-loader": "^8.0.9",
+    "webpack": "^5.4.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }
