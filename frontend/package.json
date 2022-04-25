@@ -15,7 +15,8 @@
     "lint": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" --fix",
     "precommit:lint": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" -c precommit.eslint.json --no-eslintrc --fix",
     "precommit": "npm run precommit:lint && npm run typecheck && git add .",
-    "prettier": "prettier --write \"./src/**/*.{js,jsx,css}\""
+    "prettier": "prettier --write \"./src/**/*.{js,jsx,css}\"",
+    "typecheck": "tsc -p . --noEmit"
   },
   "husky": {
     "hooks": {
@@ -56,6 +57,8 @@
     "@types/react-transition-group": "^4.4.0",
     "@types/react-virtualized-auto-sizer": "^1.0.0",
     "@types/react-window": "^1.8.2",
+    "@typescript-eslint/eslint-plugin": "^4.8.0",
+    "@typescript-eslint/parser": "^4.8.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
@@ -66,11 +69,14 @@
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "^5.2.1",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-filenames": "^1.3.2",
     "eslint-import-resolver-webpack": "^0.12.2",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "^7.2.7",
     "html-loader": "^1.1.0",

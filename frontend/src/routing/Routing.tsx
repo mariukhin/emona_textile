@@ -24,12 +24,12 @@ const HomeScreen = React.lazy(() => import('../pages/HomeScreen'));
 // <-- Lazy Components
 
 export const Router = memo(() => (
-  //<AppLayout>
+  // <AppLayout>
   <Suspense>
     <BrowserRouter>
-          <Switch>
-            <Route exact path={ROUTES.HOME} component={HomeScreen} />
-            {/* <Route
+      <Switch>
+        <Route exact path={ROUTES.HOME} component={HomeScreen} />
+        {/* <Route
               exact
               path={AUTHORIZED_ROUTES.PERFORMANCE}
               component={PerformanceScreen}
@@ -116,8 +116,8 @@ export const Router = memo(() => (
               path={AUTHORIZED_ROUTES.IMPORTANT_ALERTS}
               component={ImportantAlertsScreen}
             /> */}
-          </Switch>
-      </BrowserRouter>
-    </Suspense>
+      </Switch>
+    </BrowserRouter>
+  </Suspense>
       // </AppLayout>
 ));

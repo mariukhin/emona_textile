@@ -1,11 +1,11 @@
 {
+  "extends": "./eslint",
   "env": {
     "es6": true,
     "browser": true,
     "node": true,
     "worker": true
   },
-  "parser": "babel-eslint",
   "parserOptions": {
     "project": "tsconfig.json",
     "createDefaultProgram": true,

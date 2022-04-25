@@ -5,6 +5,6 @@ export const ROUTES = {
   // DISCOVER_DETAILS: '/discover/:type/:id',
   // SCRIP_DETAILS: '/scrip/:id',
   // OPTION_CHAIN: '/option-chain/:id',
-  //WALLET_DETAILS: '/user/wallets/:type',
-  //WALLET_TRANSACTION_DETAILS: '/user/wallets/:type/:id',
+  // WALLET_DETAILS: '/user/wallets/:type',
+  // WALLET_TRANSACTION_DETAILS: '/user/wallets/:type/:id',
 };

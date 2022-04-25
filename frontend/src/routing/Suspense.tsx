@@ -2,11 +2,7 @@
 import React, { Suspense as ReactSuspense } from 'react';
 
 const LazyLoader = () => (
-  <div
-    // flex
-    // alignItems="center"
-    // justifyContent="center"
-  >
+  <div>
     {/* <Loading /> */}
   </div>
 );

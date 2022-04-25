@@ -13,7 +13,7 @@ import { Router } from '../routing/Routing';
 
 render(
   // <Provider {...STORES}>
-    <Router />,
+  <Router />,
   // </Provider>,
   window.document.getElementById('root'),
 );
