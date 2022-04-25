@@ -1,7 +1,8 @@
 // node modules
 import React, { memo } from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 // components
+import AppLayout from 'app/AppLayout';
 // routes
 import { ROUTES } from './registration';
 import Suspense from './Suspense';
@@ -24,12 +25,12 @@ const HomeScreen = React.lazy(() => import('../pages/HomeScreen'));
 // <-- Lazy Components
 
 export const Router = memo(() => (
-  // <AppLayout>
-  <Suspense>
-    <BrowserRouter>
-      <Switch>
-        <Route exact path={ROUTES.HOME} component={HomeScreen} />
-        {/* <Route
+  <AppLayout>
+    <Suspense>
+      <BrowserRouter>
+        <Routes>
+          <Route path={ROUTES.HOME} element={<HomeScreen />} />
+          {/* <Route
               exact
               path={AUTHORIZED_ROUTES.PERFORMANCE}
               component={PerformanceScreen}
@@ -116,8 +117,8 @@ export const Router = memo(() => (
               path={AUTHORIZED_ROUTES.IMPORTANT_ALERTS}
               component={ImportantAlertsScreen}
             /> */}
-      </Switch>
-    </BrowserRouter>
-  </Suspense>
-      // </AppLayout>
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
+  </AppLayout>
 ));

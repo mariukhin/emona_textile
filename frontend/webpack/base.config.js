@@ -66,8 +66,8 @@ module.exports = {
     new DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'PROD'),
     }),
-    new ProvidePlugin({
-      process: 'process/browser',
-    }),
+    // new ProvidePlugin({
+    //   process: 'process/browser',
+    // }),
   ],
 };

@@ -1,6 +1,6 @@
 // node modules
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 // modules
 import { Router } from '../routing/Routing';
 // import { Provider } from 'mobx-react';
@@ -11,9 +11,11 @@ import { Router } from '../routing/Routing';
 //   enforceActions: 'observed',
 // });
 
-render(
+const container = document.getElementById('root');
+const root = createRoot(container!);
+
+root.render(
   // <Provider {...STORES}>
   <Router />,
   // </Provider>,
-  window.document.getElementById('root'),
 );
