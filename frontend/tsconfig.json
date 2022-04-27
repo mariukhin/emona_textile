@@ -22,6 +22,8 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
     "sourceMap": true,
     "strict": true,
     "target": "ES5"

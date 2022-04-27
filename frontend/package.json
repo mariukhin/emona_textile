@@ -19,14 +19,10 @@
     "typecheck": "tsc -p . --noEmit",
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run precommit"
-    }
-  },
   "alias": {
     "routing": "./src/routing",
-    "pages": "./src/pages"
+    "pages": "./src/pages",
+    "assets": "./src/assets"
   },
   "lint-staged": {
     "*.(js|jsx)": [
