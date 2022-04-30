@@ -18,15 +18,21 @@ import {
 } from '@mui/material';
 
 const theme = createTheme({
-  typography: {
-    fontFamily: 'Nunito',
-  },
+  // typography: {
+  //   fontFamily: 'Nunito',
+  // },
   components: {
     MuiCssBaseline: {
       styleOverrides: `
         @font-face {
           font-family: 'Nunito';
           src: url('fonts/Nunito/Nunito-Bold.ttf');
+          font-weight: 700;
+        }
+
+        @font-face {
+          font-family: 'Comfortaa';
+          src: url('fonts/Comfortaa/Comfortaa-Bold.ttf');
           font-weight: 700;
         }
       `,
@@ -83,6 +89,7 @@ const StyledStack = styled(Stack)`
 const StyledButton = styled(Button)`
   padding: 6px 18px;
   height: 38px;
+  background-color: ${props => props.variant === 'text' ? 'inherit' : colors.button.default};
 `;
 
 const Header = () => (
