@@ -1,12 +1,12 @@
 // node modules
+import * as R from 'ramda';
 import React from 'react';
 import { colors } from 'utils/color';
+import { observer } from 'mobx-react';
+// modules
+import { CarouselStore, CarouselService } from 'components/Carousel';
 // components
-import {
-  Typography,
-  createTheme,
-  ThemeProvider,
-} from '@mui/material';
+import { Typography, createTheme, ThemeProvider } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import {
   CarouselContainer,
@@ -54,57 +54,63 @@ const ButtonTheme = createTheme({
   },
 });
 
-const items = [
-  { id: '1', isCurrent: false },
-  { id: '2', isCurrent: false },
-  { id: '3', isCurrent: true },
-  { id: '4', isCurrent: false },
-]
+const Carousel = () => {
+  const { carouselItems } = new CarouselStore();
 
+  console.log('carouselItems', carouselItems);
 
-const Carousel = () => (
-  <CarouselContainer>
-    <ContentWrapper>
-      <InfoBlock>
-        <ThemeProvider theme={HeadingTheme}>
-          <CarouselHeading variant="h1">
-            Готельно-рестораний текстиль
-          </CarouselHeading>
-        </ThemeProvider>
-        <ThemeProvider theme={ButtonTheme}>
-          <StyledButton
-            color="warning"
-            size="large"
-            variant="contained"
-          >
-            <Typography variant='button' textTransform="none" fontSize={20} fontWeight={600}>
-              Сауна, СПА, басейн
-            </Typography>
-          </StyledButton>
-        </ThemeProvider>
-      </InfoBlock>
-      <CarouselButtonsBlock>
-        <StyledFab color="default" size="small">
-          <ArrowBack sx={{ color: colors.background.green }} />
-        </StyledFab>
+  const currentItem =
+    carouselItems && R.find((item) => item.isCurrent, carouselItems);
 
-        <ItemsBlock direction="row" spacing={1}>
-          {items.map(({ id, isCurrent }) =>
-            <Item
-              key={id}
-              theme={{ 
-                main: isCurrent ? colors.button.default : colors.background.grey
-              }} 
-            /> 
-          )}
-        </ItemsBlock>
+  return (
+    <CarouselContainer
+      theme={{
+        main: currentItem?.imageUrl,
+      }}
+    >
+      <ContentWrapper>
+        <InfoBlock>
+          <ThemeProvider theme={HeadingTheme}>
+            <CarouselHeading variant="h1">{currentItem?.title}</CarouselHeading>
+          </ThemeProvider>
+          <ThemeProvider theme={ButtonTheme}>
+            <StyledButton color="warning" size="large" variant="contained">
+              <Typography
+                variant="button"
+                textTransform="none"
+                fontSize={20}
+                fontWeight={600}
+              >
+                {currentItem?.buttonText}
+              </Typography>
+            </StyledButton>
+          </ThemeProvider>
+        </InfoBlock>
+        <CarouselButtonsBlock>
+          <StyledFab color="default" size="small">
+            <ArrowBack sx={{ color: colors.background.green }} />
+          </StyledFab>
 
-        <StyledFab color="default" size="small">
-          <ArrowForward sx={{ color: colors.background.green }} />
-        </StyledFab>
-      </CarouselButtonsBlock>
-    </ContentWrapper>
-  </CarouselContainer>
-);
+          <ItemsBlock direction="row" spacing={1}>
+            {carouselItems && carouselItems.map(({ id, isCurrent }) => (
+              <Item
+                key={id}
+                theme={{
+                  main: isCurrent
+                    ? colors.button.default
+                    : colors.background.grey,
+                }}
+              />
+            ))}
+          </ItemsBlock>
 
-export default Carousel;
+          <StyledFab color="default" size="small" onClick={() => CarouselService.changeCurrentItem('Right')}>
+            <ArrowForward sx={{ color: colors.background.green }} />
+          </StyledFab>
+        </CarouselButtonsBlock>
+      </ContentWrapper>
+    </CarouselContainer>
+  );
+};
+
+export default observer(Carousel);

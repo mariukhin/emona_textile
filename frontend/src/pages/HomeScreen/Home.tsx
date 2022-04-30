@@ -1,5 +1,6 @@
 // node modules
-import React, { memo } from 'react';
+import React from 'react';
+import { observer } from 'mobx-react';
 // components
 import Carousel from 'components/Carousel';
 
@@ -7,4 +8,4 @@ const HomePageView = () => (
   <Carousel />
 );
 
-export default memo(HomePageView);
+export default observer(HomePageView);

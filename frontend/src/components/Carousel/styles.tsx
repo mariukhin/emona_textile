@@ -5,7 +5,7 @@ import { Button, Typography, Stack, Fab } from '@mui/material';
 export const CarouselContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url('assets/hotelno-restor.jpeg');
+  background-image: url(${props => props.theme.main});
 `;
 
 export const ContentWrapper = styled.div`
