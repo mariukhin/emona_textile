@@ -8,13 +8,14 @@ const palette = {
 
 export const colors = {
   background: {
+    default: palette.grey2,
     white: palette.white,
     green: palette.green,
-    grey: palette.grey2,
   },
   text: {
     default: palette.grey,
     white: palette.white,
+    green: palette.green,
   },
   button: {
     default: palette.green,
@@ -24,11 +25,12 @@ export const colors = {
 
 declare global {
   type ThemeColors =
+    | 'background.default'
     | 'background.white'
     | 'background.green'
-    | 'background.grey2'
     | 'text.default'
     | 'text.white'
+    | 'text.green'
     | 'button.default'
     | 'button.carousel';
 }

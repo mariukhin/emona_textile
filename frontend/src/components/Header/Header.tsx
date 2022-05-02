@@ -3,36 +3,29 @@ import React from 'react';
 // modules
 import { ROUTES } from 'routing/registration';
 // import { Link as RouterLink } from "react-router-dom";
-import styled from 'styled-components';
 import { colors } from 'utils/color';
 // components
 import {
-  AppBar,
-  Button,
   Typography,
-  IconButton,
-  Stack,
   createTheme,
   ThemeProvider,
   CssBaseline,
 } from '@mui/material';
+// styles
+import {
+  StyledAppBar,
+  StyledLogo,
+  StyledStack,
+  StyledButton,
+} from './styles';
 
 const theme = createTheme({
-  // typography: {
-  //   fontFamily: 'Nunito',
-  // },
   components: {
     MuiCssBaseline: {
       styleOverrides: `
         @font-face {
           font-family: 'Nunito';
           src: url('fonts/Nunito/Nunito-Bold.ttf');
-          font-weight: 700;
-        }
-
-        @font-face {
-          font-family: 'Comfortaa';
-          src: url('fonts/Comfortaa/Comfortaa-Bold.ttf');
           font-weight: 700;
         }
       `,
@@ -66,31 +59,6 @@ const headersData: HeadersData[] = [
     color: colors.text.white,
   },
 ];
-
-const StyledAppBar = styled(AppBar)`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px 60px;
-  background-color: ${colors.background.white};
-  box-shadow: none;
-`;
-
-const StyledLogo = styled(IconButton)`
-  padding: 0;
-`;
-
-const StyledStack = styled(Stack)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
-const StyledButton = styled(Button)`
-  padding: 6px 18px;
-  height: 38px;
-  background-color: ${props => props.variant === 'text' ? 'inherit' : colors.button.default};
-`;
 
 const Header = () => (
   <ThemeProvider theme={theme}>

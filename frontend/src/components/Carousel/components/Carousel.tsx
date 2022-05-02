@@ -1,12 +1,11 @@
 // node modules
-import * as R from 'ramda';
 import React from 'react';
 import { colors } from 'utils/color';
 import { observer } from 'mobx-react';
 // modules
 import CarouselService from '../service';
 // components
-import { Typography, createTheme, ThemeProvider } from '@mui/material';
+import { Typography, ThemeProvider, createTheme } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import {
   CarouselContainer,
@@ -56,11 +55,9 @@ const ButtonTheme = createTheme({
 });
 
 const Carousel = () => {
-  const { carouselItems } = useStore('CarouselStore');
+  const { carouselItems, currentItem } = useStore('CarouselStore');
 
   if (!carouselItems) return null;
-
-  const currentItem = R.find((item) => item.isCurrent, carouselItems);
 
   return (
     <CarouselContainer
@@ -71,7 +68,7 @@ const Carousel = () => {
       <ContentWrapper>
         <InfoBlock>
           <ThemeProvider theme={HeadingTheme}>
-            <CarouselHeading variant="h1">{currentItem?.title}</CarouselHeading>
+            <CarouselHeading variant="h1" sx={{ fontFamily: 'Comfortaa' }}>{currentItem?.title}</CarouselHeading>
           </ThemeProvider>
           <ThemeProvider theme={ButtonTheme}>
             <StyledButton color="warning" size="large" variant="contained">
@@ -98,7 +95,7 @@ const Carousel = () => {
                 theme={{
                   main: isCurrent
                     ? colors.button.default
-                    : colors.background.grey,
+                    : colors.background.default,
                 }}
               />
             ))}
