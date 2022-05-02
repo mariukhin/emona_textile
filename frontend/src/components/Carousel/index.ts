@@ -1,3 +1,2 @@
-export { default } from './Carousel';
-export { default as CarouselStore } from './store';
-export { default as CarouselService } from './service';
+export { default } from './service';
+export { default as Carousel } from './components/Carousel'

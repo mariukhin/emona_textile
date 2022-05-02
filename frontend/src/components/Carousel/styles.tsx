@@ -6,6 +6,8 @@ export const CarouselContainer = styled.div`
   width: 100%;
   height: 100%;
   background-image: url(${props => props.theme.main});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const ContentWrapper = styled.div`

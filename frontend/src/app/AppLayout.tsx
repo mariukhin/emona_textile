@@ -1,5 +1,6 @@
 // node modules
 import React from 'react';
+import { observer } from 'mobx-react';
 // components
 import Header from 'components/Header';
 import ScrollToTop from 'components/ScrollToTop';
@@ -30,4 +31,4 @@ const AppLayout: React.FC<LayoutProps> = ({ children }) => (
   </React.Fragment>
 );
 
-export default AppLayout;
+export default observer(AppLayout);

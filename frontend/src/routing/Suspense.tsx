@@ -1,5 +1,6 @@
 // node modules
 import React, { Suspense as ReactSuspense } from 'react';
+import { observer } from 'mobx-react';
 
 interface SuspenseProps {
   children: React.ReactNode;
@@ -19,4 +20,4 @@ const Suspense: React.FC<SuspenseProps> = ({ children }) => (
   </ReactSuspense>
 );
 
-export default Suspense;
+export default observer(Suspense);

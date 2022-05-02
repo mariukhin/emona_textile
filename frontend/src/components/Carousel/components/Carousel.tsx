@@ -4,7 +4,7 @@ import React from 'react';
 import { colors } from 'utils/color';
 import { observer } from 'mobx-react';
 // modules
-import { CarouselStore, CarouselService } from 'components/Carousel';
+import CarouselService from '../service';
 // components
 import { Typography, createTheme, ThemeProvider } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
@@ -18,7 +18,8 @@ import {
   ItemsBlock,
   StyledFab,
   Item,
-} from './styles';
+} from '../styles';
+import { useStore } from 'modules/Stores';
 
 const HeadingTheme = createTheme({
   typography: {
@@ -55,12 +56,11 @@ const ButtonTheme = createTheme({
 });
 
 const Carousel = () => {
-  const { carouselItems } = new CarouselStore();
+  const { carouselItems } = useStore('CarouselStore');
 
-  console.log('carouselItems', carouselItems);
+  if (!carouselItems) return null;
 
-  const currentItem =
-    carouselItems && R.find((item) => item.isCurrent, carouselItems);
+  const currentItem = R.find((item) => item.isCurrent, carouselItems);
 
   return (
     <CarouselContainer
@@ -87,12 +87,12 @@ const Carousel = () => {
           </ThemeProvider>
         </InfoBlock>
         <CarouselButtonsBlock>
-          <StyledFab color="default" size="small">
+          <StyledFab color="default" size="small" onClick={() => CarouselService.changeCurrentItem('Left')}>
             <ArrowBack sx={{ color: colors.background.green }} />
           </StyledFab>
 
           <ItemsBlock direction="row" spacing={1}>
-            {carouselItems && carouselItems.map(({ id, isCurrent }) => (
+            {carouselItems.map(({ id, isCurrent }) => (
               <Item
                 key={id}
                 theme={{

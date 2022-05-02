@@ -2,7 +2,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 // modules
-import { Router } from '../routing/Routing';
+import { CustomRouter as Router } from '../routing/Routing';
 import { Provider } from 'mobx-react';
 import { configure } from 'mobx';
 import STORES from './stores';
@@ -17,6 +17,6 @@ const root = createRoot(container!);
 
 root.render(
   <Provider {...STORES}>
-    <Router />,
+    <Router />
   </Provider>,
 );

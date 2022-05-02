@@ -1,36 +1,41 @@
 // modules
+import * as R from 'ramda';
 // store
 import CarouselStore from './store';
 
 class CarouselService extends CarouselStore {
   changeCurrentItem = (direction: Directions) => {
-    if (direction === 'Right') {
-      let updatedItemIdx = -1;
-      const mappedData = this.carouselItems?.map((item, idx) => {
-        if (item.isCurrent) {
-          updatedItemIdx = idx + 1;
-  
-          return {
-            ...item,
-            isCurrent: false,
-          }
+    if (!this.carouselItems) return null;
+
+    let updatedItemIdx = -1;
+    const itemsLength = this.carouselItems.length;
+
+    const result = this.carouselItems.map((item, idx) => {
+      if (item.isCurrent) {
+        updatedItemIdx = direction === 'Right' ? idx + 1 : idx - 1;
+
+        if (updatedItemIdx === itemsLength) {
+          updatedItemIdx = 0;
         }
 
-        if (idx === updatedItemIdx) {
-          return {
-            ...item,
-            isCurrent: true,
-          }
+        if (updatedItemIdx == -1) {
+          updatedItemIdx = itemsLength - 1;
         }
 
-        return item;
-      });
+        return {
+          ...item,
+          isCurrent: false,
+        };
+      }
 
-      console.log(mappedData);
-      
-      this.setCarouselItems(mappedData || []);
-    }
-  }
+      return item;
+    });
+
+    const updatedCarouselItems: CarouselData[] =
+      R.update(updatedItemIdx, { ...result[updatedItemIdx], isCurrent: true }, result);
+
+    this.setCarouselItems(updatedCarouselItems);
+  };
 }
 
 export default new CarouselService();
