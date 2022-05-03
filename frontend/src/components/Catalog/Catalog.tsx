@@ -1,20 +1,28 @@
 // node modules
 import React from 'react';
-// modules
-import { ROUTES } from 'routing/registration';
-// import { Link as RouterLink } from "react-router-dom";
-import { colors } from 'utils/color';
 // components
-import {
-  Typography,
-  createTheme,
-  ThemeProvider,
-  CssBaseline,
-} from '@mui/material';
+import BlockInfoComponent from 'components/BlockInfoComponent';
+import CatalogItem from './components/CatalogItem';
 // styles
+import {
+  CatalogWrapper,
+  StyledGridContainer,
+} from './styles';
 
-const Catalog = () => (
-  <div></div>
+type CatalogProps = {
+  catalogItems: CatalogData[],
+}
+
+const Catalog: React.FC<CatalogProps> = ({ catalogItems }) => (
+  <CatalogWrapper>
+    <BlockInfoComponent title="Каталог" subtitle="Якісні товари" />
+
+    <StyledGridContainer container spacing={3}>
+      {catalogItems.map((item) => (
+        <CatalogItem key={item.id} title={item.title} imageUrl={item.imageUrl} />
+      ))}
+    </StyledGridContainer>
+  </CatalogWrapper>
 );
 
 export default Catalog;

@@ -28,6 +28,18 @@ const theme = createTheme({
           src: url('fonts/Nunito/Nunito-Bold.ttf');
           font-weight: 700;
         }
+
+        @font-face {
+          font-family: 'Comfortaa';
+          src: url('fonts/Comfortaa/Comfortaa-Bold.ttf');
+          font-weight: 700;
+        }
+
+        @font-face {
+          font-family: 'Montserrat';
+          src: url('fonts/Montserrat/Montserrat-SemiBold.ttf');
+          font-weight: 600;
+        }
       `,
     },
   },

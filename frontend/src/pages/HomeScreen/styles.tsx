@@ -1,17 +1,11 @@
 import styled from 'styled-components';
-import { Grid, Paper } from '@mui/material';
+import { colors } from 'utils/color';
 
-export const CatalogueWrapper = styled.div`
-  margin: 120px 59px;
+export const ClientsBlockWrapper = styled.div`
+  background-color: ${colors.background.white};
+  height: 424px;
 `;
 
-export const StyledStack = styled(Grid)`
-  margin: 0 auto;
-  width: 90%;
-`;
-
-export const StyledPaper = styled(Paper)`
-  width: 410px;
-  height: 312px;
-  border-radius: 20px;
+export const ClientsBlockTitleWrapper = styled.div`
+  padding-top: 80px;
 `;

@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 // modules
 import CarouselService from '../service';
 // components
-import { Typography, ThemeProvider, createTheme } from '@mui/material';
+import { Typography } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import {
   CarouselContainer,
@@ -20,40 +20,6 @@ import {
 } from '../styles';
 import { useStore } from 'modules/Stores';
 
-const HeadingTheme = createTheme({
-  typography: {
-    fontFamily: 'Comfortaa',
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          font-family: 'Comfortaa';
-          src: url('fonts/Comfortaa/Comfortaa-Bold.ttf');
-          font-weight: 700;
-        }
-      `,
-    },
-  },
-});
-
-const ButtonTheme = createTheme({
-  typography: {
-    fontFamily: 'Montserrat',
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          font-family: 'Montserrat';
-          src: url('fonts/Montserrat/Montserrat-SemiBold.ttf');
-          font-weight: 600;
-        }
-      `,
-    },
-  },
-});
-
 const Carousel = () => {
   const { carouselItems, currentItem } = useStore('CarouselStore');
 
@@ -67,24 +33,27 @@ const Carousel = () => {
     >
       <ContentWrapper>
         <InfoBlock>
-          <ThemeProvider theme={HeadingTheme}>
-            <CarouselHeading variant="h1" sx={{ fontFamily: 'Comfortaa' }}>{currentItem?.title}</CarouselHeading>
-          </ThemeProvider>
-          <ThemeProvider theme={ButtonTheme}>
-            <StyledButton color="warning" size="large" variant="contained">
-              <Typography
-                variant="button"
-                textTransform="none"
-                fontSize={20}
-                fontWeight={600}
-              >
-                {currentItem?.buttonText}
-              </Typography>
-            </StyledButton>
-          </ThemeProvider>
+          <CarouselHeading variant="body1" sx={{ fontFamily: 'Comfortaa' }}>
+            {currentItem?.title}
+          </CarouselHeading>
+          <StyledButton color="warning" size="large" variant="contained">
+            <Typography
+              variant="button"
+              textTransform="none"
+              fontSize={20}
+              fontWeight={600}
+              sx={{ fontFamily: 'Montserrat' }}
+            >
+              {currentItem?.buttonText}
+            </Typography>
+          </StyledButton>
         </InfoBlock>
         <CarouselButtonsBlock>
-          <StyledFab color="default" size="small" onClick={() => CarouselService.changeCurrentItem('Left')}>
+          <StyledFab
+            color="default"
+            size="small"
+            onClick={() => CarouselService.changeCurrentItem('Left')}
+          >
             <ArrowBack sx={{ color: colors.background.green }} />
           </StyledFab>
 
@@ -101,7 +70,11 @@ const Carousel = () => {
             ))}
           </ItemsBlock>
 
-          <StyledFab color="default" size="small" onClick={() => CarouselService.changeCurrentItem('Right')}>
+          <StyledFab
+            color="default"
+            size="small"
+            onClick={() => CarouselService.changeCurrentItem('Right')}
+          >
             <ArrowForward sx={{ color: colors.background.green }} />
           </StyledFab>
         </CarouselButtonsBlock>
