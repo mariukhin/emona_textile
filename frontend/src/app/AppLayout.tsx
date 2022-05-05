@@ -3,6 +3,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 // components
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 import ScrollToTop from 'components/ScrollToTop';
 import {
   Toolbar,
@@ -28,6 +29,7 @@ const AppLayout: React.FC<LayoutProps> = ({ children }) => (
     </ChildrenWrapper>
 
     <ScrollToTop />
+    <Footer />
   </React.Fragment>
 );
 

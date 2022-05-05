@@ -40,6 +40,12 @@ const theme = createTheme({
           src: url('fonts/Montserrat/Montserrat-SemiBold.ttf');
           font-weight: 600;
         }
+
+        @font-face {
+          font-family: 'Montserrat';
+          src: url('fonts/Montserrat/Montserrat-Regular.ttf');
+          font-weight: 400;
+        }
       `,
     },
   },
