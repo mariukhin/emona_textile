@@ -25,4 +25,11 @@ export const StyledButton = styled(Button)`
   padding: 6px 18px;
   height: 38px;
   background-color: ${props => props.variant === 'text' ? 'inherit' : colors.button.default};
+
+  :hover{
+    background-color: ${props => props.variant === 'text' ? 'inherit' : colors.button.default};
+    p {
+      color: ${colors.text.orange};
+    }
+  }
 `;

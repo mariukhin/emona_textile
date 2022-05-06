@@ -46,4 +46,14 @@ export const CatalogButton = styled(Button)`
   background-color: ${colors.button.default};
   border-radius: 12px;
   opacity: 0.8;
+
+  span:first-of-type {
+    display: none;
+  }
+
+  :hover span:first-of-type {
+    margin-top: 8px;
+    display: block;
+    transition: display 5s;
+  }
 `;

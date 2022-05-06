@@ -2,6 +2,7 @@
 import React from 'react';
 // components
 import { Typography } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
 // styles
 import {
   StyledPaper,
@@ -23,7 +24,7 @@ const CatalogItem: React.FC<CatalogItem> = ({ title, imageUrl }) => (
           main: imageUrl,
         }}
       >
-        <CatalogButton color="success" variant="contained">
+        <CatalogButton color="success" variant="contained" endIcon={<ArrowForward />}>
           <Typography
             textTransform="none"
             fontSize={20}
