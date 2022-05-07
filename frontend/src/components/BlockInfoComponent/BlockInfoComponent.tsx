@@ -14,8 +14,8 @@ type BlockInfoComponentProps = {
 
 const BlockInfoComponent: React.FC<BlockInfoComponentProps> = ({ title, subtitle }) => (
   <BlockContainer>
-    <BlockHeading sx={{ fontFamily: 'Comfortaa' }}>{title}</BlockHeading>
-    <BlockSubHeading sx={{ fontFamily: 'Montserrat' }}>{subtitle}</BlockSubHeading>
+    <BlockHeading>{title}</BlockHeading>
+    <BlockSubHeading>{subtitle}</BlockSubHeading>
   </BlockContainer>
 );
 

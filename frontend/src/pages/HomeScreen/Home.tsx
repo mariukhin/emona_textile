@@ -2,13 +2,21 @@
 import React, { useState } from 'react';
 import Ticker from 'react-ticker';
 // components
+import AdvantagesBlock from 'components/AdvantagesBlock';
 import BlockInfoComponent from 'components/BlockInfoComponent';
 import { Carousel } from 'components/Carousel';
 import Catalog from 'components/Catalog';
 // mocks
 import { mockedCatalogItems } from 'components/Catalog/mocks';
+import { mockedAdvantages } from 'components/AdvantagesBlock/mocks';
 // styles
-import { ClientsBlockWrapper, ClientsBlockTitleWrapper, ClientTicker, TickerWrapper, TickerImage } from './styles';
+import {
+  ClientsBlockWrapper,
+  ClientsBlockTitleWrapper,
+  ClientTicker,
+  TickerWrapper,
+  TickerImage,
+} from './styles';
 
 const logos = [
   'assets/ClientLogos/image-1.svg',
@@ -58,7 +66,7 @@ const HomePageView = () => {
           <BlockInfoComponent title="Клієнти" subtitle="Серед них" />
   
           <TickerWrapper onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
-            <Ticker speed={8} mode='await' move={isMouseOverTicker} onNext={(index: number) => console.log(index)}>
+            <Ticker speed={8} mode='await' move={isMouseOverTicker}>
               {() => (
                 <ClientTicker>
                   {logos.map(item => (
@@ -70,6 +78,8 @@ const HomePageView = () => {
           </TickerWrapper>
         </ClientsBlockTitleWrapper>
       </ClientsBlockWrapper>
+
+      <AdvantagesBlock advantageItems={mockedAdvantages} />
     </>
   );
 };

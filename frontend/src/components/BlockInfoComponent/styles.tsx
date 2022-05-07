@@ -11,11 +11,15 @@ export const BlockHeading = styled(Typography)`
   line-height: 52px;
   color: ${colors.text.default};
   margin-bottom: 10px;
+  font-family: 'Comfortaa';
+  font-weight: 700;
 `;
 
 export const BlockSubHeading = styled(Typography)`
   font-size: 20px;
   line-height: 22px;
   color: ${colors.text.green};
+  font-family: 'Montserrat';
+  font-weight: 700;
 `;
 

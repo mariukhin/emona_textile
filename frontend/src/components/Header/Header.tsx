@@ -6,7 +6,6 @@ import { ROUTES } from 'routing/registration';
 import { colors } from 'utils/color';
 // components
 import {
-  Typography,
   createTheme,
   ThemeProvider,
   CssBaseline,
@@ -17,6 +16,7 @@ import {
   StyledLogo,
   StyledStack,
   StyledButton,
+  StyledButtonText,
 } from './styles';
 
 const theme = createTheme({
@@ -98,18 +98,9 @@ const Header = () => (
               size: 'small',
             }}
           >
-            <Typography
-              variant="body1"
-              fontSize="16px"
-              lineHeight="1"
-              color={color}
-              textTransform="uppercase"
-              sx={{
-                fontFamily: 'Nunito',
-              }}
-            >
+            <StyledButtonText color={color}>
               {label}
-            </Typography>
+            </StyledButtonText>
           </StyledButton>
         ))}
       </StyledStack>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
-import { Button, AppBar, Stack, IconButton } from '@mui/material';
+import { Button, AppBar, Stack, IconButton, Typography } from '@mui/material';
 
 export const StyledAppBar = styled(AppBar)`
   display: flex;
@@ -29,7 +29,19 @@ export const StyledButton = styled(Button)`
   :hover{
     background-color: ${props => props.variant === 'text' ? 'inherit' : colors.button.default};
     p {
-      color: ${colors.text.orange};
+      color: ${props => props.variant === 'text' ? colors.text.orange : 'inherit'}
     }
   }
+`;
+
+export const StyledButtonText = styled(Typography)`
+  font-size: 16px;
+  line-height: 1;
+  text-transform: uppercase;
+  font-family: 'Nunito';
+`;
+
+export const StyledButtonWrapper = styled.div`
+  text-align: center;
+  margin-top: 52px;
 `;
