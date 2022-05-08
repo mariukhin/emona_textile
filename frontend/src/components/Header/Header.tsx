@@ -10,6 +10,7 @@ import {
   ThemeProvider,
   CssBaseline,
 } from '@mui/material';
+import { KeyboardArrowDown } from '@mui/icons-material';
 // styles
 import {
   StyledAppBar,
@@ -27,6 +28,12 @@ const theme = createTheme({
           font-family: 'Nunito';
           src: url('fonts/Nunito/Nunito-Bold.ttf');
           font-weight: 700;
+        }
+
+        @font-face {
+          font-family: 'Nunito';
+          src: url('fonts/Nunito/Nunito-Regular.ttf');
+          font-weight: 400;
         }
 
         @font-face {
@@ -78,34 +85,42 @@ const headersData: HeadersData[] = [
   },
 ];
 
-const Header = () => (
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
+const Header = () => {
 
-    <StyledAppBar position="fixed">
-      <StyledLogo>
-        <img src='assets/logo.svg' alt="Emona logo" />
-      </StyledLogo>
-
-      <StyledStack direction="row" spacing={1}>
-        {headersData.map(({ label, href, variant, color }) => (
-          <StyledButton
-            {...{
-              key: label,
-              color: 'success',
-              href,
-              variant,
-              size: 'small',
-            }}
-          >
-            <StyledButtonText color={color}>
-              {label}
-            </StyledButtonText>
-          </StyledButton>
-        ))}
-      </StyledStack>
-    </StyledAppBar>
-  </ThemeProvider>
-);
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+  
+      <StyledAppBar position="fixed">
+        <StyledLogo>
+          <img src='assets/logo.svg' alt="Emona logo" />
+        </StyledLogo>
+  
+        <StyledStack direction="row" spacing={1}>
+          {headersData.map(({ label, href, variant, color }) => (
+            <StyledButton
+              {...{
+                key: label,
+                color: 'success',
+                href,
+                variant,
+                size: 'small',
+                endIcon:  
+                  label === 'Каталог' && 
+                    <KeyboardArrowDown
+                      fontSize="large"
+                    />,
+              }}
+            >
+              <StyledButtonText color={color}>
+                {label}
+              </StyledButtonText>
+            </StyledButton>
+          ))}
+        </StyledStack>
+      </StyledAppBar>
+    </ThemeProvider>
+  );
+};
 
 export default Header;

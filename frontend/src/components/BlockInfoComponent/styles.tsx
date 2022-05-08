@@ -2,15 +2,11 @@ import styled from 'styled-components';
 import { colors } from 'utils/color';
 import { Typography } from '@mui/material';
 
-export const BlockContainer = styled.div`
-  text-align: center;  
-`
-
 export const BlockHeading = styled(Typography)`
   font-size: 48px;
   line-height: 52px;
   color: ${colors.text.default};
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   font-family: 'Comfortaa';
   font-weight: 700;
 `;

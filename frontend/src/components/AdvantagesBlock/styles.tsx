@@ -48,19 +48,7 @@ export const BlockSubHeading = styled(Typography)`
   font-weight: 400;
 `;
 
-export const CatalogButton = styled(Button)`
-  max-width: 75%;
+export const StyledButton = styled(Button)`
+  padding: 10px 28px;
   background-color: ${colors.button.default};
-  border-radius: 12px;
-  opacity: 0.8;
-
-  span:first-of-type {
-    display: none;
-  }
-
-  :hover span:first-of-type {
-    margin-top: 8px;
-    display: block;
-    transition: display 5s;
-  }
 `;

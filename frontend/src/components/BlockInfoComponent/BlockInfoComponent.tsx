@@ -2,7 +2,6 @@
 import React from 'react';
 // styles
 import {
-  BlockContainer,
   BlockHeading,
   BlockSubHeading,
 } from './styles';
@@ -10,13 +9,14 @@ import {
 type BlockInfoComponentProps = {
   title: string;
   subtitle: string;
+  textAlign?: CanvasTextAlign;
 }
 
-const BlockInfoComponent: React.FC<BlockInfoComponentProps> = ({ title, subtitle }) => (
-  <BlockContainer>
+const BlockInfoComponent: React.FC<BlockInfoComponentProps> = ({ title, subtitle, textAlign = 'center' }) => (
+  <div style={{ textAlign }}>
     <BlockHeading>{title}</BlockHeading>
     <BlockSubHeading>{subtitle}</BlockSubHeading>
-  </BlockContainer>
+  </div>
 );
 
 export default BlockInfoComponent;

@@ -26,6 +26,15 @@ export const StyledButton = styled(Button)`
   height: 38px;
   background-color: ${props => props.variant === 'text' ? 'inherit' : colors.button.default};
 
+  span {
+    margin-left: 4px;
+
+    svg {
+      color: ${colors.text.default};
+      font-size: 24px !important;
+    }
+  }
+
   :hover{
     background-color: ${props => props.variant === 'text' ? 'inherit' : colors.button.default};
     p {
@@ -36,9 +45,10 @@ export const StyledButton = styled(Button)`
 
 export const StyledButtonText = styled(Typography)`
   font-size: 16px;
-  line-height: 1;
+  line-height: 26px;
   text-transform: uppercase;
   font-family: 'Nunito';
+  font-weight: 700;
 `;
 
 export const StyledButtonWrapper = styled.div`

@@ -14,12 +14,13 @@ export const colors = {
     green: palette.green,
   },
   text: {
-    default: palette.grey,
+    default: palette.greyLight,
     white: palette.white,
     green: palette.green,
     grey: palette.grey2,
     orange: palette.orange,
     greyLight: palette.greyLight,
+    greyDark: palette.grey,
   },
   button: {
     default: palette.green,
@@ -38,6 +39,7 @@ declare global {
     | 'text.grey'
     | 'text.orange'
     | 'text.greyLight'
+    | 'text.greyDark'
     | 'button.default'
     | 'button.carousel';
 }

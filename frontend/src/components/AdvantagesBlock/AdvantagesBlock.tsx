@@ -4,8 +4,8 @@ import React from 'react';
 import BlockInfoComponent from 'components/BlockInfoComponent';
 import AdvantagesBlockItem from './components/AdvantagesBlockItem';
 // styles
-import { AdvantagesBlockWrapper, StyledGridContainer } from './styles';
-import { StyledButton, StyledButtonText, StyledButtonWrapper } from 'components/Header/styles';
+import { AdvantagesBlockWrapper, StyledGridContainer, StyledButton } from './styles';
+import { StyledButtonText, StyledButtonWrapper } from 'components/Header/styles';
 import { colors } from 'utils/color';
 
 type AdvantagesBlockProps = {

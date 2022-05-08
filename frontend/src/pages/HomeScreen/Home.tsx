@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Ticker from 'react-ticker';
 // components
+import AboutUsBlock from 'components/AboutUsBlock';
 import AdvantagesBlock from 'components/AdvantagesBlock';
 import BlockInfoComponent from 'components/BlockInfoComponent';
 import { Carousel } from 'components/Carousel';
@@ -80,6 +81,8 @@ const HomePageView = () => {
       </ClientsBlockWrapper>
 
       <AdvantagesBlock advantageItems={mockedAdvantages} />
+
+      <AboutUsBlock />
     </>
   );
 };
