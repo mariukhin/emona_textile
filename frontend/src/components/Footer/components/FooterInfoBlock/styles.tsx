@@ -43,7 +43,6 @@ export const ContactBlockTextLink = styled(Link)`
   font-size: 16px;
   line-height: 22px;
   margin-left: 15px;
-  color: ${colors.text.grey};
   font-family: 'Montserrat';
   text-decoration: none;
 

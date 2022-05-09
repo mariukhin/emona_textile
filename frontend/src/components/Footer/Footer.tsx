@@ -64,7 +64,7 @@ const Footer = () => (
 
       <BlockContainer>
         <BlockHeading>Контакти</BlockHeading>
-        <ContactsBlock />
+        <ContactsBlock isFooter />
       </BlockContainer>
     </InfoWrapper>
 
