@@ -1,4 +1,5 @@
 // node modules
+import * as R from 'ramda';
 import React, { useRef, useEffect, RefObject } from 'react';
 import { observer } from 'mobx-react';
 // components
@@ -52,13 +53,10 @@ const ContactsAndFormBlock = () => {
     setPhone,
     setEmail,
     setDescription,
-    formIsValid,
     errors,
+    clearErrorByKey,
     handleValidateForm,
   } = useStore('ContactsAndFormBlockStore');
-
-  console.log(formIsValid);
-  console.log(errors);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
@@ -77,9 +75,17 @@ const ContactsAndFormBlock = () => {
     }
   };
 
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    clearErrorByKey(event.target.id);
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    handleValidateForm();
+    const formIsValid = handleValidateForm();
+
+    if (formIsValid) {
+      console.log('Send request');
+    }
   }
 
   return (
@@ -95,7 +101,7 @@ const ContactsAndFormBlock = () => {
           </Wrapper>
         </InfoContainer>
 
-        <StyledPaper>
+        <StyledPaper sx={{ height: !R.isEmpty(errors) ? '550px' : '484px' }}>
           <PaperWrapper>
             <FormHeader>Заповніть форму</FormHeader>
 
@@ -113,10 +119,11 @@ const ContactsAndFormBlock = () => {
                     id="name"
                     value={name}
                     onChange={handleChange}
+                    onFocus={handleFocus}
                     margin="dense"
                     type="text"
                     label="Ім'я"
-                    error={errors.name}
+                    error={!!errors.name}
                   />
                   {errors.name && <FormHelperText error>{errors.name}</FormHelperText>}
                 </StyledFormControl>
@@ -126,10 +133,13 @@ const ContactsAndFormBlock = () => {
                     id="phone"
                     value={phone}
                     onChange={handleChange}
+                    onFocus={handleFocus}
                     margin="dense"
                     type="tel"
                     label="Телефон"
+                    error={!!errors.phone}
                   />
+                  {errors.phone && <FormHelperText error>{errors.phone}</FormHelperText>}
                 </StyledFormControl>
               </div>
               <StyledFormControl style={{ marginTop: '12px', width: '100%' }}>
@@ -138,11 +148,12 @@ const ContactsAndFormBlock = () => {
                   id="email"
                   value={email}
                   onChange={handleChange}
+                  onFocus={handleFocus}
                   label="Електронна пошта"
                   fullWidth
                   margin="dense"
                   type="email"
-                  error={errors.email}
+                  error={!!errors.email}
                 />
                 {errors.email && <FormHelperText error>{errors.email}</FormHelperText>}
               </StyledFormControl>
@@ -152,13 +163,16 @@ const ContactsAndFormBlock = () => {
                   id="description"
                   value={description}
                   onChange={handleChange}
+                  onFocus={handleFocus}
                   multiline
                   rows={6}
                   label="Опис замовлення"
                   fullWidth
                   margin="dense"
                   type="text"
+                  error={!!errors.description}
                 />
+                {errors.description && <FormHelperText error>{errors.description}</FormHelperText>}
               </StyledFormControl>
 
               <StyledButton color="success" variant="contained" size="small" onClick={handleSubmit}>

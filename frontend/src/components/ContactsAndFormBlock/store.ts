@@ -1,15 +1,14 @@
 // node modules
 import { action, makeObservable, observable } from 'mobx';
-// mocks
+import * as R from 'ramda';
 
 export default class ContactsBlockStore {
   // properties
-  @observable name: string | null = null;
-  @observable phone: string | null = null;
-  @observable email: string | null = null;
-  @observable description: string | null = null;
+  @observable name: string = '';
+  @observable phone: string = '';
+  @observable email: string = '';
+  @observable description: string = '';
 
-  @observable formIsValid: boolean = true;
   @observable errors: any = {};
 
   constructor() {
@@ -33,14 +32,14 @@ export default class ContactsBlockStore {
     this.description = data;
   };
 
-  @action setFormIsValid = (data: boolean) => {
-    this.formIsValid = data;
-  };
-
   @action setErrors = (key: string, errorText: string) => {
     this.errors = {
       ...this.errors,
       [key]: errorText,
     };
+  };
+
+  @action clearErrorByKey = (key: string) => {
+    this.errors = R.dissoc(key, this.errors);
   };
 }

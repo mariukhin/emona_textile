@@ -5,39 +5,52 @@ class ContactsBlockService extends ContactsBlockStore {
   handleValidateForm = () => {
     let currentFormIsValid = true;
 
-    console.log('Here');
-
     //Name
     if (!this.name) {
       currentFormIsValid = false;
-      console.log('Here1');
-      this.setErrors('name', 'Необхідно заповнити')
+      this.setErrors('name', 'Необхідно заповнити');
     }
 
     if (this.name) {
       if (!this.name.match(/^[a-zA-Z]+$/)) {
         currentFormIsValid = false;
-        this.setErrors('name', 'Має містити тільки букви')
+        this.setErrors('name', 'Має містити тільки букви');
+      }
+    }
+
+     //Phone
+     if (!this.phone) {
+      currentFormIsValid = false;
+      this.setErrors('phone', 'Необхідно заповнити');
+    }
+
+    if (this.phone) {
+      if (!this.phone.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)) {
+        currentFormIsValid = false;
+        this.setErrors('phone', 'Має бути номер телефону');
       }
     }
 
     //Email
     if (!this.email) {
       currentFormIsValid = false;
-      console.log('Here2');
-      this.setErrors('email', 'Необхідно заповнити')
+      this.setErrors('email', 'Необхідно заповнити');
     }
 
     if (this.email) {
       if (!this.email.match(/[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g)) {
         currentFormIsValid = false;
-        this.setErrors('email', 'Має бути у форматі email')
+        this.setErrors('email', 'Має бути у форматі email');
       }
     }
 
-    console.log('currentFormIsValid', currentFormIsValid);
+     //Description
+     if (!this.description) {
+      currentFormIsValid = false;
+      this.setErrors('description', 'Необхідно заповнити');
+    }
 
-    this.setFormIsValid(currentFormIsValid);
+    return currentFormIsValid;
   }
 }
 

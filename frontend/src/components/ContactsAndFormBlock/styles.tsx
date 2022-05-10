@@ -32,7 +32,6 @@ export const StyledMapComponent = styled.div`
 
 export const StyledPaper = styled(Paper)`
   width: 536px;
-  height: 484px;
   border-radius: 20px;
   box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.12);
   background-color: #fff;

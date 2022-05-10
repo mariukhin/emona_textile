@@ -1,5 +1,5 @@
 // node modules
-import React from 'react';
+import React, { useId } from 'react';
 // styles
 import {
   BlockContainer,
@@ -16,7 +16,7 @@ const FooterInfoBlock: React.FC<FooterInfoBlockComponentProps> = ({ title, subIt
   <BlockContainer>
     <BlockHeading>{title}</BlockHeading>
 
-    {subItems.map(item => <BlockSubItem>{item}</BlockSubItem> )}
+    {subItems.map(item => <BlockSubItem key={useId()}>{item}</BlockSubItem> )}
   </BlockContainer>
 );
 
