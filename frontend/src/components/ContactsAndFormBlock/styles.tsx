@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
-import { Paper, Button, Typography, OutlinedInput } from '@mui/material';
+import { Paper, Button, Typography, FormControl } from '@mui/material';
 
 export const ContactsAndFormBlockWrapper = styled.div`
   margin: 0 0 80px;
@@ -52,14 +52,12 @@ export const FormHeader = styled(Typography)`
   text-align: center;
 `;
 
-export const StyledOutlinedInput = styled(OutlinedInput)`
-  MuiOutlinedInput-input {
+export const StyledFormControl = styled(FormControl)`
+  .Mui-focused {
     color: ${colors.background.green};
-  }
 
-  .MuiOutlinedInput-root {
-    .Mui-focused fieldset {
-      border-color: ${colors.background.green};
+    .MuiOutlinedInput-notchedOutline {
+      border-color: ${colors.background.green} !important;
     }
   }
 `;

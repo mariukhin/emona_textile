@@ -7,7 +7,7 @@ import AdvantagesBlock from 'components/AdvantagesBlock';
 import BlockInfoComponent from 'components/BlockInfoComponent';
 import { Carousel } from 'components/Carousel';
 import Catalog from 'components/Catalog';
-import ContactsAndFormBlock from 'components/ContactsAndFormBlock';
+import { ContactsAndFormBlock } from 'components/ContactsAndFormBlock';
 // mocks
 import { mockedCatalogItems } from 'components/Catalog/mocks';
 import { mockedAdvantages } from 'components/AdvantagesBlock/mocks';
