@@ -1,6 +1,6 @@
 export const ROUTES = {
   HOME: '/',
-  // PERFORMANCE: '/my-performance',
+  CATALOG: '/catalog',
   // DISCOVER: '/discover',
   // DISCOVER_DETAILS: '/discover/:type/:id',
   // SCRIP_DETAILS: '/scrip/:id',

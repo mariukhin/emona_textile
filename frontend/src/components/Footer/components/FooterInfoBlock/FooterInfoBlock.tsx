@@ -8,15 +8,15 @@ import {
 } from './styles';
 
 type FooterInfoBlockComponentProps = {
-  title: string;
-  subItems: string[];
+  title: FooterData['title'];
+  subItems: FooterData['subItems'];
 }
 
 const FooterInfoBlock: React.FC<FooterInfoBlockComponentProps> = ({ title, subItems }) => (
   <BlockContainer>
     <BlockHeading>{title}</BlockHeading>
 
-    {subItems.map(item => <BlockSubItem key={useId()}>{item}</BlockSubItem> )}
+    {subItems.map(item => <BlockSubItem key={useId()} href={item.href}>{item.label}</BlockSubItem> )}
   </BlockContainer>
 );
 

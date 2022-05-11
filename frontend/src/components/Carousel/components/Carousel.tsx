@@ -4,9 +4,10 @@ import { colors } from 'utils/color';
 import { observer } from 'mobx-react';
 // modules
 import CarouselService from '../service';
+import { useStore } from 'modules/Stores';
 // components
-import { Typography } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
+// styles
 import {
   CarouselContainer,
   CarouselButtonsBlock,
@@ -14,11 +15,11 @@ import {
   ContentWrapper,
   InfoBlock,
   StyledButton,
+  StyledButtonText,
   ItemsBlock,
   StyledFab,
   Item,
 } from '../styles';
-import { useStore } from 'modules/Stores';
 
 const Carousel = () => {
   const { carouselItems, currentItem } = useStore('CarouselStore');
@@ -33,19 +34,13 @@ const Carousel = () => {
     >
       <ContentWrapper>
         <InfoBlock>
-          <CarouselHeading variant="body1" sx={{ fontFamily: 'Comfortaa' }}>
+          <CarouselHeading>
             {currentItem?.title}
           </CarouselHeading>
           <StyledButton color="warning" size="large" variant="contained">
-            <Typography
-              variant="button"
-              textTransform="none"
-              fontSize={20}
-              fontWeight={600}
-              sx={{ fontFamily: 'Montserrat' }}
-            >
+            <StyledButtonText>
               {currentItem?.buttonText}
-            </Typography>
+            </StyledButtonText>
           </StyledButton>
         </InfoBlock>
         <CarouselButtonsBlock>

@@ -35,7 +35,7 @@ const HomePageView = () => {
   return (
     <>
       <Carousel />
-      <Catalog catalogItems={mockedCatalogItems} />
+      <Catalog catalogItems={mockedCatalogItems} isMainPage />
   
       <ClientsBlockWrapper>
         <ClientsBlockTitleWrapper>

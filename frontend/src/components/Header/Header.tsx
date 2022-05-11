@@ -1,9 +1,10 @@
 // node modules
-import React from 'react';
+import React, { useId } from 'react';
+import { observer } from 'mobx-react';
 // modules
 import { ROUTES } from 'routing/registration';
-// import { Link as RouterLink } from "react-router-dom";
 import { colors } from 'utils/color';
+import { useStore } from 'modules/Stores';
 // components
 import {
   createTheme,
@@ -67,7 +68,7 @@ const headersData: HeadersData[] = [
   },
   {
     label: 'Каталог',
-    href: ROUTES.HOME,
+    href: ROUTES.CATALOG,
     variant: 'text',
     color: colors.text.default,
   },
@@ -86,6 +87,15 @@ const headersData: HeadersData[] = [
 ];
 
 const Header = () => {
+  const { isOnRoute } = useStore('RoutingStore');
+
+  const getItemColor = (href: string, itemColor: string) => {
+    if (href !== ROUTES.HOME && isOnRoute(href)) {
+      return colors.text.orange;
+    } else {
+      return itemColor;
+    }
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -100,7 +110,7 @@ const Header = () => {
           {headersData.map(({ label, href, variant, color }) => (
             <StyledButton
               {...{
-                key: label,
+                key: useId(),
                 color: 'success',
                 href,
                 variant,
@@ -112,7 +122,7 @@ const Header = () => {
                     />,
               }}
             >
-              <StyledButtonText color={color}>
+              <StyledButtonText color={getItemColor(href, color)}>
                 {label}
               </StyledButtonText>
             </StyledButton>
@@ -123,4 +133,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default observer(Header);

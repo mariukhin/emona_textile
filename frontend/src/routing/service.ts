@@ -8,9 +8,9 @@ import { syncHistoryWithStore } from 'mobx-react-router';
 import RoutingStore from './store';
 
 class RoutingService extends RoutingStore {
-  // public closeWindow = () => {
-  //   window.close();
-  // };
+  public closeWindow = () => {
+    window.close();
+  };
 
   // public goToRoute = <T extends RouteKeys>(
   //   link: T,
@@ -76,17 +76,15 @@ class RoutingService extends RoutingStore {
   //   return window.open(url, target);
   // };
 
-  // getExternalLinkByKey = (key: ExternalRoutesKeys) => EXTERNAL_LINKS[key][ENV];
+  public goBack = (useHistory = false) => {
+    if (useHistory) {
+      this.history.goBack();
+    } else {
+      this.goBack();
+    }
+  };
 
-  // public goBack = (useHistory = false) => {
-  //   if (useHistory) {
-  //     this.history.goBack();
-  //   } else {
-  //     this.goBack();
-  //   }
-  // };
-
-  // public openInNewTab = (url: string) => window.open(url, '_blank');
+  public openInNewTab = (url: string) => window.open(url, '_blank');
 
   // public changeQuery = <K extends QueryRouterKeys>(
   //   key: keyof QueryRoutes[K],
@@ -113,7 +111,7 @@ class RoutingService extends RoutingStore {
   //   this.push({ search: queryString });
   // }
 
-  // isOnRoute = (route: RouteKeys) => this.location.pathname.includes(route);
+  isOnRoute = (route: RouteKeys) => this.location.pathname.includes(route);
 
   // public stringifyQuery = <Q extends BaseObject>(
   //   query: Q,

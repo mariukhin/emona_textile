@@ -1,30 +1,23 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
-import { Button, Typography, Stack, Fab } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
-export const CarouselContainer = styled.div`
+export const CatalogPhotoContainer = styled.div`
   width: 100%;
-  height: 100%;
-  background-image: url(${props => props.theme.main});
+  height: 366px;
+  background-image: url('assets/hotelno-restor.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
-`;
-
-export const ContentWrapper = styled.div`
-  width: 100%;
-  height: 604px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 `;
 
 export const InfoBlock = styled.div`
-  width: 80%;
-  margin: 0 auto;
+  width: 20%;
   height: 148px;
-  padding-top: 220px;
   display: flex;
+  margin-right: 15%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -53,28 +46,4 @@ export const StyledButtonText = styled(Typography)`
   font-weight: 600;
   color: ${colors.text.white};
   text-transform: none;
-`;
-
-export const StyledFab = styled(Fab)`
-  background-color: #FFFFFF;
-  opacity: 0.75;
-`;
-
-export const CarouselButtonsBlock = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 320px;
-  justify-content: space-between;
-`;
-
-export const ItemsBlock = styled(Stack)`
-  display: flex;
-  margin: 0 20px;
-`;
-
-export const Item = styled.span`
-  width: 28px;
-  height: 6px;
-  border-radius: 4px;
-  background-color: ${(props) => props.theme.main};
 `;

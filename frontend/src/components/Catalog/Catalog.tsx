@@ -11,11 +11,12 @@ import {
 
 type CatalogProps = {
   catalogItems: CatalogData[],
+  isMainPage?: boolean,
 }
 
-const Catalog: React.FC<CatalogProps> = ({ catalogItems }) => (
-  <CatalogWrapper>
-    <BlockInfoComponent title="Каталог" subtitle="Якісні товари" />
+const Catalog: React.FC<CatalogProps> = ({ catalogItems, isMainPage = false }) => (
+  <CatalogWrapper style={{ marginTop: isMainPage ? '120px' : '40px' }}>
+    {isMainPage && <BlockInfoComponent title="Каталог" subtitle="Якісні товари" />}
 
     <StyledGridContainer container spacing={3}>
       {catalogItems.map((item) => (

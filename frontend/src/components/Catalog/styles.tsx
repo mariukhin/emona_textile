@@ -9,7 +9,7 @@ export const CatalogWrapper = styled.div`
 export const StyledGridContainer = styled(Grid)`
   margin: 0 auto;
   margin-top: 20px;
-  width: 90%;
+  width: 100%;
 `;
 
 export const StyledGrid = styled(Grid)`

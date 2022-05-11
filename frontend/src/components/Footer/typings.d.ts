@@ -1,6 +1,9 @@
-type HeadersData = {
+type FooterData = {
+  title: string;
+  subItems: FooterSubItem[]
+};
+
+type FooterSubItem = {
   label: string;
   href: string;
-  variant: 'text' | 'outlined' | 'contained';
-  color: string;
 };

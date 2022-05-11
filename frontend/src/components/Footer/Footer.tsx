@@ -2,6 +2,7 @@
 import React from 'react';
 // modules
 import { colors } from 'utils/color';
+import { ROUTES } from 'routing/registration';
 // components
 import ContactsBlock from './components/ContactsBlock';
 import FooterInfoBlock from './components/FooterInfoBlock';
@@ -26,20 +27,25 @@ import {
   BlockHeading,
 } from './components/FooterInfoBlock/styles';
 
-const firstBlock = {
+const firstBlock: FooterData = {
   title: 'Сторінки',
-  subItems: ['Головна', 'Каталог', 'Про нас', 'Контакти'],
+  subItems: [
+    { label: 'Головна', href: ROUTES.HOME },
+    { label: 'Каталог', href: ROUTES.CATALOG },
+    { label: 'Про нас', href: ROUTES.HOME },
+    { label: 'Контакти', href: ROUTES.HOME },
+  ],
 };
 
-const secondBlock = {
+const secondBlock: FooterData = {
   title: 'Каталог',
   subItems: [
-    'Постільна білизна',
-    'Постільні пріналежності',
-    'Столова білизна',
-    'Махрові вироби',
-    'Рекламно-сувенірне',
-    'Стрейчові чохли',
+    { label: 'Постільна білизна', href: ROUTES.HOME },
+    { label: 'Постільні пріналежності', href: ROUTES.HOME },
+    { label: 'Столова білизна', href: ROUTES.HOME },
+    { label: 'Махрові вироби', href: ROUTES.HOME },
+    { label: 'Рекламно-сувенірне', href: ROUTES.HOME },
+    { label: 'Стрейчові чохли', href: ROUTES.HOME },
   ],
 };
 
