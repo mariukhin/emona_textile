@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import { colors } from 'utils/color';
 import { Button, Typography } from '@mui/material';
 
-export const CatalogPhotoContainer = styled.div`
+export const PagePhotoBlockContainer = styled.div`
   width: 100%;
   height: 366px;
-  background-image: url('assets/hotelno-restor.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -24,7 +23,7 @@ export const InfoBlock = styled.div`
   text-align: center;
 `;
 
-export const CarouselHeading = styled(Typography)`
+export const Heading = styled(Typography)`
   font-size: 60px;
   line-height: 90px;
   color: ${colors.text.white};

@@ -32,7 +32,7 @@ const firstBlock: FooterData = {
   subItems: [
     { label: 'Головна', href: ROUTES.HOME },
     { label: 'Каталог', href: ROUTES.CATALOG },
-    { label: 'Про нас', href: ROUTES.HOME },
+    { label: 'Про нас', href: ROUTES.ABOUT },
     { label: 'Контакти', href: ROUTES.HOME },
   ],
 };

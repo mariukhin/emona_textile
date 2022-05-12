@@ -74,7 +74,7 @@ const headersData: HeadersData[] = [
   },
   {
     label: 'Про нас',
-    href: ROUTES.HOME,
+    href: ROUTES.ABOUT,
     variant: 'text',
     color: colors.text.default,
   },

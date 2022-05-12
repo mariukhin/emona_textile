@@ -2,31 +2,14 @@
 import React from 'react';
 // components
 import Catalog from 'components/Catalog';
+import PagePhotoBlock from 'components/PagePhotoBlock';
 // mocks
 import { mockedCatalogItems } from 'components/Catalog/mocks';
-// styles
-import {
-  CatalogPhotoContainer,
-  CarouselHeading,
-  InfoBlock,
-  StyledButton,
-  StyledButtonText,
-} from './styles';
 
 const CatalogScreenView = () => {
   return (
     <div>
-      <CatalogPhotoContainer>
-        <InfoBlock>
-          <CarouselHeading>Каталог</CarouselHeading>
-          <StyledButton color="warning" size="large" variant="contained">
-            <StyledButtonText>
-              Якісні товари
-            </StyledButtonText>
-          </StyledButton>
-        </InfoBlock>
-      </CatalogPhotoContainer>
-
+      <PagePhotoBlock heading="Каталог" btnText="Якісні товари" imageUrl='assets/hotelno-restor.jpeg'/>
       <Catalog catalogItems={mockedCatalogItems} />
     </div>
   );
