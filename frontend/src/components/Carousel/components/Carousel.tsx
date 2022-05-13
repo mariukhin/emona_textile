@@ -34,13 +34,9 @@ const Carousel = () => {
     >
       <ContentWrapper>
         <InfoBlock>
-          <CarouselHeading>
-            {currentItem?.title}
-          </CarouselHeading>
+          <CarouselHeading>{currentItem?.title}</CarouselHeading>
           <StyledButton color="warning" size="large" variant="contained">
-            <StyledButtonText>
-              {currentItem?.buttonText}
-            </StyledButtonText>
+            <StyledButtonText>{currentItem?.buttonText}</StyledButtonText>
           </StyledButton>
         </InfoBlock>
         <CarouselButtonsBlock>
