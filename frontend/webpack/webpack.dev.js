@@ -2,8 +2,6 @@
 const path = require('path');
 // config
 const config = require('./dev.config');
-// plugins
-// const { DefinePlugin } = require('webpack');
 
 const DIST_FOLDER = `dist`;
 

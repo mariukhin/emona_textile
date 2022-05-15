@@ -1,21 +1,11 @@
 // node modules
 const path = require('path');
-const fs = require('fs');
-const parser = require('xml2json');
 // config
-const config = require('@upstox/ui-config-react/webpack/prod.config');
+const config = require('./prod.config');
 // plugins
-const { DefinePlugin } = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 
-// consts
-const ENV = process.env.ENV || 'UAT';
-const LOCAL = process.env.LOCAL || 'FALSE';
-const DIST_FOLDER = `dist/${ENV}`;
-const POM_FILE = fs.readFileSync(path.resolve(__dirname, '../pom.xml'));
-const VERSION = parser.toJson(POM_FILE, { object: true }).project.version;
-
-console.info(`ENV=${ENV}, VERSION=${VERSION}, LOCAL=${LOCAL}`);
+const DIST_FOLDER = `dist`;
 
 module.exports = {
   ...config,
@@ -33,9 +23,7 @@ module.exports = {
     ...config.output,
     path: path.resolve(process.cwd(), DIST_FOLDER),
   },
-  devtool: ENV === 'PROD' ? false : 'source-map',
-  ...(ENV === 'PROD' &&
-    LOCAL === 'FALSE' && {
+  devtool: {
       module: {
         ...config.module,
         rules: [
@@ -61,7 +49,7 @@ module.exports = {
           },
         ],
       },
-    }),
+    },
   plugins: [
     ...config.plugins,
     new CopyPlugin({
@@ -71,11 +59,6 @@ module.exports = {
           to: path.resolve(process.cwd(), DIST_FOLDER),
         },
       ],
-    }),
-    new DefinePlugin({
-      'process.env.LOCAL': JSON.stringify(LOCAL),
-      'process.env.ENV': JSON.stringify(ENV),
-      'process.env.VERSION': JSON.stringify(VERSION),
-    }),
+    })
   ],
 };

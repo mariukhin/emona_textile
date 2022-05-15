@@ -16,8 +16,7 @@
     "precommit:lint": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" -c precommit.eslint.json --no-eslintrc --fix",
     "precommit": "npm run precommit:lint && npm run typecheck && git add .",
     "prettier": "prettier --write \"./src/**/*.{js,jsx,css}\"",
-    "typecheck": "tsc -p . --noEmit",
-    "prepare": "husky install"
+    "typecheck": "tsc -p . --noEmit"
   },
   "alias": {
     "routing": "./src/routing",

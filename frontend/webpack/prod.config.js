@@ -15,18 +15,6 @@ module.exports = {
       maxInitialRequests: 30,
       automaticNameDelimiter: '~',
       enforceSizeThreshold: 200 * 1000,
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]((?!(@upstox)).*)[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-        },
-        uilib: {
-          test: /[\\/]node_modules[\\/](@upstox)[\\/]/,
-          name: 'ui',
-          chunks: 'all',
-        },
-      },
     },
   },
 };
