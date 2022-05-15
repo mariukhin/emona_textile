@@ -1,9 +1,7 @@
 // node modules
 import { createBrowserHistory } from 'history';
 import { syncHistoryWithStore } from 'mobx-react-router';
-// modules
-// import { EXTERNAL_LINKS } from 'app/routing/registration';
-// import AuthStore from 'modules/Auth';
+import { stringify, StringifyOptions } from 'query-string';
 // store
 import RoutingStore from './store';
 
@@ -12,69 +10,34 @@ class RoutingService extends RoutingStore {
     window.close();
   };
 
-  // public goToRoute = <T extends RouteKeys>(
-  //   link: T,
-  //   options?: {
-  //     params?: BaseObject;
-  //     query?: BaseObject<string, any>;
-  //     inNewTab?: boolean;
-  //   },
-  // ) => {
-  //   let path = link as string;
+  public goToRoute = <T extends RouteKeys>(
+    link: T,
+    options?: {
+      params?: BaseObject;
+      query?: BaseObject<string, any>;
+      inNewTab?: boolean;
+    },
+  ) => {
+    let path = link as unknown as string;
 
-  //   if (options?.params) {
-  //     path = Object.entries(options.params).reduce(
-  //       (prev, [optionKey, optionValue]) =>
-  //         prev.replace(`:${optionKey}`, optionValue as string),
-  //       path,
-  //     );
-  //   }
+    if (options?.params) {
+      path = Object.entries(options.params).reduce(
+        (prev, [optionKey, optionValue]) =>
+          prev.replace(`:${optionKey}`, optionValue as string),
+        path,
+      );
+    }
 
-  //   if (options?.query) {
-  //     path = `${path}?${this.stringifyQuery(options.query)}`;
-  //   }
+    if (options?.query) {
+      path = `${path}?${this.stringifyQuery(options.query)}`;
+    }
 
-  //   if (options?.inNewTab) {
-  //     return this.openInNewTab(path);
-  //   }
+    if (options?.inNewTab) {
+      return this.openInNewTab(path);
+    }
 
-  //   this.push(path);
-  // };
-
-  // goToExternalRoute = <Q extends BaseObject>(
-  //   linkKey: ExternalRoutesKeys,
-  //   config: ExternalRoutesOptions<Q> = {},
-  // ) => {
-  //   const { query, target, withToken, betaStyle } = config;
-
-  //   const fullUrl = this.getExternalLinkByKey(linkKey);
-
-  //   const [path, hash] = fullUrl.split('#');
-
-  //   let url = path;
-
-  //   if (query || withToken || betaStyle) {
-  //     url += '?';
-
-  //     const _query: BaseObject = { ...(query || {}) };
-
-  //     if (withToken) {
-  //       _query.at = AuthStore.loginKey;
-  //     }
-
-  //     if (betaStyle) {
-  //       _query.appvariant = '4.0';
-  //     }
-
-  //     url += this.stringifyQuery(_query);
-  //   }
-
-  //   if (hash) {
-  //     url += `#${hash}`;
-  //   }
-
-  //   return window.open(url, target);
-  // };
+    this.push(path);
+  };
 
   public goBack = (useHistory = false) => {
     if (useHistory) {
@@ -113,16 +76,16 @@ class RoutingService extends RoutingStore {
 
   isOnRoute = (route: RouteKeys) => this.location.pathname.includes(route);
 
-  // public stringifyQuery = <Q extends BaseObject>(
-  //   query: Q,
-  //   config?: StringifyOptions,
-  // ) => {
-  //   const stringifiedQuery = stringify(query, config);
+  public stringifyQuery = <Q extends BaseObject>(
+    query: Q,
+    config?: StringifyOptions,
+  ) => {
+    const stringifiedQuery = stringify(query, config);
 
-  //   if (stringifiedQuery) return stringifiedQuery;
+    if (stringifiedQuery) return stringifiedQuery;
 
-  //   return '';
-  // };
+    return '';
+  };
 }
 
 const _RoutingService = new RoutingService();
