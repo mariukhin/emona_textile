@@ -10,7 +10,7 @@
   "author": "Maksym Mariukhin",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve -c ./webpack/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "build": "cross-env NODE_ENV=production webpack -c ./webpack/webpack.prod.js",
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
     "lint": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" --fix",
     "precommit:lint": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" -c precommit.eslint.json --no-eslintrc --fix",
