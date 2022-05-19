@@ -10,7 +10,7 @@ export const AboutUsBlockWrapper = styled.div`
 export const AboutUsPhotoBlock = styled.div`
   width: 832px;
   height: 734px;
-  background-image: url('assets/about-us.jpeg');
+  background-image: url('assets/about-us.png');
   border-radius: 0 20px 20px 0;
   background-size: cover;
   background-position: center;

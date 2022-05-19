@@ -9,7 +9,7 @@ import { mockedCatalogItems } from 'components/Catalog/mocks';
 const CatalogScreenView = () => {
   return (
     <div>
-      <PagePhotoBlock heading="Каталог" btnText="Якісні товари" imageUrl='assets/hotelno-restor.jpeg'/>
+      <PagePhotoBlock heading="Каталог" btnText="Якісні товари" imageUrl='assets/hotelno-restor.png'/>
       <Catalog catalogItems={mockedCatalogItems} />
     </div>
   );

@@ -11,7 +11,7 @@ const AboutUsScreenView = () => (
     <PagePhotoBlock
       heading="Про нас"
       btnText="Досвід компанії"
-      imageUrl="assets/about-us.jpeg"
+      imageUrl="assets/about-us.png"
     />
 
     <AboutUsWrapper>
@@ -42,7 +42,7 @@ const AboutUsScreenView = () => (
         ресторанів професійними текстильними виробами.
       </AboutUsText>
 
-      <BlockImage src="assets/CataloguePhotos/Постільна-білизна.jpeg"/>
+      <BlockImage src="assets/CataloguePhotos/Постільна-білизна.png"/>
 
       <AboutUsText marginTop="60px" marginBottom="40px">
         У нашому асортименті великий вибір готельно-ресторанного та домашнього текстилю:<br/>
@@ -52,7 +52,7 @@ const AboutUsScreenView = () => (
         - для дому - постільна білизна, постільні речі, махрові вироби, скатертини, серветки, чохли на меблі, декоративні подушки, сувенірна текстильна продукція.
       </AboutUsText>
 
-      <BlockImage src="assets/CataloguePhotos/рекламно-сувенірна-продукція.jpeg"/>
+      <BlockImage src="assets/CataloguePhotos/рекламно-сувенірна-продукція.png"/>
     </AboutUsWrapper>
   </div>
 );
