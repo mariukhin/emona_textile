@@ -2,6 +2,7 @@
 const path = require('path');
 // config
 const config = require('./prod.config');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const DIST_FOLDER = `dist`;
 
@@ -21,16 +22,12 @@ module.exports = {
         },
       },
       {
-        test: /\.(cur|png|jpg|jpeg|svg|woff|woff2|eot|ttf)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name]~[hash].[ext]',
-              outputPath: 'assets',
-            },
-          },
-        ],
+        test: /\.(png|jpg|svg|gif|ico|ttf|woff|woff2|eot)$/,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: ['html-loader'],
       },
       {
         test: /\.css$/,
@@ -38,21 +35,23 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    ...config.optimization,
-    splitChunks: {
-      ...config.optimization.splitChunks,
-      minChunks: 5,
-      minSize: 100 * 1000,
-      maxSize: 250 * 1000,
-      enforceSizeThreshold: 250 * 1000,
-    },
-  },
   output: {
     ...config.output,
     path: path.resolve(process.cwd(), DIST_FOLDER),
   },
   plugins: [
     ...config.plugins,
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(process.cwd(), 'src/assets'),
+          to: path.resolve(process.cwd(), `${DIST_FOLDER}/assets`),
+        },
+        {
+          from: path.resolve(process.cwd(), 'src/fonts'),
+          to: path.resolve(process.cwd(), `${DIST_FOLDER}/fonts`),
+        },
+      ],
+    }),
   ],
 };
