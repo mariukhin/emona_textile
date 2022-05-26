@@ -1,14 +1,11 @@
 package cmd
 
 import (
-	"amifactory.team/sequel/coton-app-backend/app/logger"
-	"amifactory.team/sequel/coton-app-backend/app/mailgun"
-	"amifactory.team/sequel/coton-app-backend/app/model"
-	api "amifactory.team/sequel/coton-app-backend/app/rest"
-	"amifactory.team/sequel/coton-app-backend/app/template"
+	"backend/app/logger"
+	"backend/app/model"
+	api "backend/app/rest"
+	"backend/app/template"
 	"context"
-	"github.com/pkg/errors"
-	"github.com/sirupsen/logrus"
 	"os"
 	"os/signal"
 	"syscall"
@@ -182,16 +179,16 @@ func (c *ServerCommand) newServerApp(appLogger *logrus.Logger) (*serverApp, erro
 
 	linkBuilder := api.NewLinkBuilder(c.BackOfficeHost, c.AdminPanelHost)
 
-	mailgunSenderOpts := mailgun.NewSenderOptions()
-	mailgunSenderOpts.DomainName = c.Mailgun.DomainName
-	mailgunSenderOpts.ApiKey = c.Mailgun.ApiKey
-	mailgunSenderOpts.FromEmail = c.Mailgun.FromEmail
-	mailgunSenderOpts.APIBase = c.Mailgun.APIBase()
+	//mailgunSenderOpts := mailgun.NewSenderOptions()
+	//mailgunSenderOpts.DomainName = c.Mailgun.DomainName
+	//mailgunSenderOpts.ApiKey = c.Mailgun.ApiKey
+	//mailgunSenderOpts.FromEmail = c.Mailgun.FromEmail
+	//mailgunSenderOpts.APIBase = c.Mailgun.APIBase()
 
-	sender, err := mailgunSenderOpts.Sender()
-	if err != nil {
-		return nil, errors.Wrap(err, "fail to create email sender")
-	}
+	//sender, err := mailgunSenderOpts.Sender()
+	//if err != nil {
+	//	return nil, errors.Wrap(err, "fail to create email sender")
+	//}
 
 	tokenAuthorityConf := api.NewTokenAuthorityConf(c.AppSecret)
 	tokenAuthorityConf.AccessTokenDuration, err = time.ParseDuration(c.AccessTokenDuration)
@@ -250,8 +247,8 @@ func (c *ServerCommand) newServerApp(appLogger *logrus.Logger) (*serverApp, erro
 		PhoneService: model.SharedPhoneService,
 
 		RefBookStore: refBookStore,
-		MailSender:   sender,
-		LinkBuilder:  linkBuilder,
+		// MailSender:   sender,
+		LinkBuilder: linkBuilder,
 
 		TokenAuthority: tokenAuthority,
 		EmailTemplates: emailTemplates,
