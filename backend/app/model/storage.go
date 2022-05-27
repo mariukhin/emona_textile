@@ -24,7 +24,7 @@ type StorageOptions struct {
 func NewStorageOptions() *StorageOptions {
 	return &StorageOptions{
 		MongoURI:      "mongodb://localhost:27017/",
-		MongoDatabase: "coton",
+		MongoDatabase: "EmonaDB",
 	}
 }
 

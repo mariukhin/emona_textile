@@ -1,7 +1,7 @@
 package api
 
 import (
-	"amifactory.team/sequel/coton-app-backend/app/logger"
+	"backend/app/logger"
 	"context"
 	"time"
 )
