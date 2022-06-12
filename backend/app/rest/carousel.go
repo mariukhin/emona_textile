@@ -5,7 +5,6 @@ import (
 	"backend/app/model"
 	"context"
 	"github.com/sirupsen/logrus"
-	"log"
 	"net/http"
 )
 
@@ -16,8 +15,6 @@ type carouselManagement struct {
 
 func (cm *carouselManagement) list(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
-
-	log.Print("Here")
 
 	carouselItems, total, err := cm.store.FetchList()
 	if err != nil {

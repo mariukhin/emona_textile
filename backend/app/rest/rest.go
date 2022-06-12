@@ -60,7 +60,7 @@ func (s *Rest) Run(port int) {
 }
 
 func (s *Rest) Shutdown() {
-	s.AppLog.Warn("Shutdown CotonSMS REST API server")
+	s.AppLog.Warn("Shutdown EmonaTextile API server")
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
@@ -70,7 +70,7 @@ func (s *Rest) Shutdown() {
 		if err := s.httpServer.Shutdown(ctx); err != nil {
 			s.AppLog.Errorf("shutdown error, %v", err)
 		}
-		s.AppLog.Debug("Shutdown CotonSMS REST API server completed")
+		s.AppLog.Debug("Shutdown EmonaTextile API server completed")
 	}
 
 	s.lock.Unlock()
@@ -81,7 +81,7 @@ func (s *Rest) makeHTTPServer(port int, router http.Handler) *http.Server {
 		Addr:              fmt.Sprintf(":%d", port),
 		Handler:           router,
 		ReadHeaderTimeout: 5 * time.Second,
-		// WriteTimeout:      120 * time.Second, // TODO: such a long timeout needed for blocking export (backup) request
+		// WriteTimeout:      120 * time.Second,
 		IdleTimeout: 30 * time.Second,
 	}
 }
@@ -118,7 +118,6 @@ func (s *Rest) routes() chi.Router {
 	// processing should be stopped.
 	rootRouter.Use(middleware.Timeout(60 * time.Second))
 
-	// Back-office routes
 	rootRouter.Route("/", func(r chi.Router) {
 		r.Get("/carousel", s.carouselManagement.list)
 	})

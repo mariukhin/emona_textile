@@ -76,9 +76,9 @@ func (c *ServerCommand) Execute(args []string) error {
 }
 
 func (c *ServerCommand) newServerApp(appLogger *logrus.Logger) (*serverApp, error) {
-	//ctx := logger.WithLogger(context.Background(), appLogger.WithFields(logrus.Fields{
-	//	"init": "ensure_indexes",
-	//}))
+	ctx := logger.WithLogger(context.Background(), appLogger.WithFields(logrus.Fields{
+		"init": "ensure_indexes",
+	}))
 
 	storageOpts := model.NewStorageOptions()
 	storageOpts.MongoURI = c.MongoURI
@@ -92,6 +92,11 @@ func (c *ServerCommand) newServerApp(appLogger *logrus.Logger) (*serverApp, erro
 	carouselStore, err := model.NewCarouselStore(storage)
 	if err != nil {
 		return nil, errors.Wrap(err, "fail to create carousel storage")
+	}
+
+	err = carouselStore.EnsureIndexes(ctx)
+	if err != nil {
+		return nil, errors.Wrap(err, "fail to ensure carousel storage indexes")
 	}
 
 	srv := &api.Rest{
