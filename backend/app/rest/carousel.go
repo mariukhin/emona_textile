@@ -4,6 +4,7 @@ import (
 	"backend/app/logger"
 	"backend/app/model"
 	"context"
+	"fmt"
 	"github.com/sirupsen/logrus"
 	"net/http"
 )
@@ -16,23 +17,25 @@ type carouselManagement struct {
 func (cm *carouselManagement) list(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
-	carouselItems, total, err := cm.store.FetchList()
+	fmt.Printf("w - %v", w)
+
+	carouselItems, err := cm.store.FetchList()
 	if err != nil {
 		cm.getLog(ctx).Errorf("Fail to fetch carousel list - %v", err)
 		httpResponseError(w, http.StatusInternalServerError, "internal")
 		return
 	}
 
-	if total == 0 {
-		httpResponseError(w, http.StatusNotFound, "result__not_found")
-		return
-	}
+	//if total == 0 {
+	//	httpResponseError(w, http.StatusNotFound, "result__not_found")
+	//	return
+	//}
 
 	resp := struct {
-		Total  int               `json:"total"`
+		// Total  int               `json:"total"`
 		Result []*model.Carousel `json:"result"`
 	}{
-		Total:  total,
+		// Total:  total,
 		Result: carouselItems,
 	}
 

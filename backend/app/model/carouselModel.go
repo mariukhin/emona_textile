@@ -9,7 +9,7 @@ import (
 )
 
 type Carousel struct {
-	ID string `bson:"_id" json:"_id"`
+	ID string `bson:"_id" json:"id"`
 
 	Title      string `bson:"title" json:"title"`
 	ButtonText string `bson:"btnText" json:"btnText"`
@@ -20,7 +20,7 @@ type Carousel struct {
 type CarouselStore interface {
 	EnsureIndexes(ctx context.Context) error
 
-	FetchList() ([]*Carousel, int, error)
+	FetchList() ([]*Carousel, error)
 }
 
 func NewCarouselStore(store Storage) (CarouselStore, error) {
@@ -62,28 +62,21 @@ func (cs *carouselStore) EnsureIndexes(ctx context.Context) error {
 	return nil
 }
 
-func (cs *carouselStore) FetchList() ([]*Carousel, int, error) {
+func (cs *carouselStore) FetchList() ([]*Carousel, error) {
 	ctx, _ := context.WithTimeout(context.TODO(), time.Second*10)
 
-	filter := bson.D{}
-
-	count, err := cs.store.Collection("carousel").CountDocuments(ctx, filter)
-	if err != nil {
-		return nil, 0, fmt.Errorf("fail to fetch carousel count - %v", err)
-	}
-
 	carouselItems := make([]*Carousel, 0)
-	cur, err := cs.store.Collection("carousel").Find(ctx, filter)
+	cur, err := cs.store.Collection("carousel").Find(ctx, bson.D{})
 	if err != nil {
-		return nil, 0, fmt.Errorf("fail to fetch carousel - %v", err)
+		return nil, fmt.Errorf("fail to fetch carousel - %v", err)
 	}
 
 	defer cur.Close(ctx)
 
 	err = cur.All(ctx, &carouselItems)
 	if err != nil {
-		return nil, 0, fmt.Errorf("fail to fetch users - %v", err)
+		return nil, fmt.Errorf("fail to fetch carousel - %v", err)
 	}
 
-	return carouselItems, int(count), nil
+	return carouselItems, nil
 }

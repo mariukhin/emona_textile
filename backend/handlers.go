@@ -1,9 +1,14 @@
 package main
 
 import (
+	"context"
+	"encoding/json"
 	"fmt"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"net/http"
-	"strconv"
+	"time"
 )
 
 // Define a home handler function which writes a byte slice containing
@@ -16,19 +21,66 @@ func home(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Hello from Emona backend"))
 }
 
-func category(w http.ResponseWriter, r *http.Request) {
-	// Extract the value of the id parameter from the query string and try to
-	// convert it to an integer using the strconv.Atoi() function. If it can't
-	// be converted to an integer, or the value is less than 1, we return a 404 page
-	//not found response.
-	name, err := strconv.Atoi(r.URL.Query().Get("name"))
-	if err != nil || name < 1 {
+func httpJsonResponse(w http.ResponseWriter, resp interface{}) {
+	httpJsonResponseCode(w, resp, http.StatusOK)
+}
+
+func httpJsonResponseCode(w http.ResponseWriter, resp interface{}, code int) {
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("X-Content-Type-Options", "nosniff")
+	w.WriteHeader(code)
+
+	err := json.NewEncoder(w).Encode(resp)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, `{
+			"error": [
+				"internal"
+			]
+		}`)
+		return
+	}
+}
+
+type MongoDBCommand struct {
+	MongoURI      string `long:"mongo-uri" env:"MONGO_URI" default:"mongodb+srv://zorkiy:admin@emonacluster.udns5gz.mongodb.net/?retryWrites=true&w=majority"`
+	MongoDatabase string `long:"mongo-database" env:"MONGO_DB" default:"EmonaDB" description:"MongoDB database name"`
+}
+
+type Carousel struct {
+	ID string `bson:"_id" json:"id"`
+
+	Title      string `bson:"title" json:"title"`
+	ButtonText string `bson:"btnText" json:"btnText"`
+	ImageUrl   string `bson:"imageUrl" json:"imageUrl"`
+	IsCurrent  bool   `bson:"isCurrent" json:"isCurrent"`
+}
+
+func carousel(w http.ResponseWriter, r *http.Request) {
+	ctx, _ := context.WithTimeout(context.TODO(), time.Second*10)
+
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb+srv://zorkiy:admin@emonacluster.udns5gz.mongodb.net/?retryWrites=true&w=majority"))
+	if err != nil {
+		panic(err)
+	}
+	defer func() {
+		if err := client.Disconnect(ctx); err != nil {
+			panic(err)
+		}
+	}()
+
+	coll := client.Database("EmonaDB").Collection("carousel")
+
+	carouselItems := make([]*Carousel, 0)
+	cursor, err := coll.Find(context.TODO(), bson.D{})
+
+	err = cursor.All(ctx, &carouselItems)
+	if err != nil {
 		http.NotFound(w, r)
 		return
 	}
-	// Use the fmt.Fprintf() function to interpolate the name value with our response
-	//and write it to the http.ResponseWriter.
-	fmt.Fprintf(w, "Display a catehory name from URL %d...", name)
+
+	httpJsonResponse(w, carouselItems)
 }
 
 func createSnippet(w http.ResponseWriter, r *http.Request) {
