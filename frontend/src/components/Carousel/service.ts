@@ -1,9 +1,16 @@
 // modules
 import * as R from 'ramda';
+import axios from 'axios';
 // store
 import CarouselStore from './store';
 
 class CarouselService extends CarouselStore {
+  getCarouselItems = async () => {
+    const { data } = await axios.get('/carousel');
+
+    if (data) this.setCarouselItems(data);
+  }
+
   changeCurrentItem = (direction: Directions) => {
     if (!this.carouselItems) return null;
 

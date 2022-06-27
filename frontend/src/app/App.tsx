@@ -6,6 +6,7 @@ import { CustomRouter as Router } from '../routing/Routing';
 import { Provider } from 'mobx-react';
 import { configure } from 'mobx';
 import STORES from './stores';
+import 'axios/axiosDefaults';
 
 configure({
   computedRequiresReaction: true,

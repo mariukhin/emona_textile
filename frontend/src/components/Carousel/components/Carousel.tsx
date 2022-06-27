@@ -36,7 +36,7 @@ const Carousel = () => {
         <InfoBlock>
           <CarouselHeading>{currentItem?.title}</CarouselHeading>
           <StyledButton color="warning" size="large" variant="contained">
-            <StyledButtonText>{currentItem?.buttonText}</StyledButtonText>
+            <StyledButtonText>{currentItem?.btnText}</StyledButtonText>
           </StyledButton>
         </InfoBlock>
         <CarouselButtonsBlock>
