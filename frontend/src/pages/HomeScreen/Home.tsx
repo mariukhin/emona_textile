@@ -6,11 +6,10 @@ import AboutUsBlock from 'components/AboutUsBlock';
 import AdvantagesBlock from 'components/AdvantagesBlock';
 import BlockInfoComponent from 'components/BlockInfoComponent';
 import { Carousel } from 'components/Carousel';
-import Catalog from 'components/Catalog';
+import { Catalog } from 'components/Catalog';
 import { ContactsAndFormBlock } from 'components/ContactsAndFormBlock';
 import { useStore } from 'modules/Stores';
 // mocks
-import { mockedCatalogItems } from 'components/Catalog/mocks';
 import { mockedAdvantages } from 'components/AdvantagesBlock/mocks';
 import { logos } from './mocks';
 // styles
@@ -26,9 +25,11 @@ const HomePageView = () => {
   const [isMouseOverTicker, setIsMouseOverTicker] = useState(true);
 
   const { getCarouselItems } = useStore('CarouselStore');
+  const { getCatalogItems } = useStore('CatalogStore');
 
   useEffect(() => {
     getCarouselItems();
+    getCatalogItems();
   }, []);
 
   const handleMouseOver = () => {
@@ -42,7 +43,7 @@ const HomePageView = () => {
   return (
     <>
       <Carousel />
-      <Catalog catalogItems={mockedCatalogItems} isMainPage />
+      <Catalog isMainPage />
   
       <ClientsBlockWrapper>
         <ClientsBlockTitleWrapper>

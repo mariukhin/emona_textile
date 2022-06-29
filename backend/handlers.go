@@ -56,6 +56,13 @@ type Carousel struct {
 	IsCurrent  bool   `bson:"isCurrent" json:"isCurrent"`
 }
 
+type Catalog struct {
+	ID string `bson:"_id" json:"id"`
+
+	Title      string `bson:"title" json:"title"`
+	ImageUrl   string `bson:"imageUrl" json:"imageUrl"`
+}
+
 func carousel(w http.ResponseWriter, r *http.Request) {
 	ctx, _ := context.WithTimeout(context.TODO(), time.Second*10)
 
@@ -81,6 +88,33 @@ func carousel(w http.ResponseWriter, r *http.Request) {
 	}
 
 	httpJsonResponse(w, carouselItems)
+}
+
+func catalog(w http.ResponseWriter, r *http.Request) {
+	ctx, _ := context.WithTimeout(context.TODO(), time.Second*10)
+
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb+srv://zorkiy:admin@emonacluster.udns5gz.mongodb.net/?retryWrites=true&w=majority"))
+	if err != nil {
+		panic(err)
+	}
+	defer func() {
+		if err := client.Disconnect(ctx); err != nil {
+			panic(err)
+		}
+	}()
+
+	coll := client.Database("EmonaDB").Collection("catalog")
+
+	catalogItems := make([]*Catalog, 0)
+	cursor, err := coll.Find(context.TODO(), bson.D{})
+
+	err = cursor.All(ctx, &catalogItems)
+	if err != nil {
+		http.NotFound(w, r)
+		return
+	}
+
+	httpJsonResponse(w, catalogItems)
 }
 
 func createSnippet(w http.ResponseWriter, r *http.Request) {

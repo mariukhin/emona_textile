@@ -1,1 +1,2 @@
-export { default } from './Catalog';
+export { default } from './service';
+export { default as Catalog } from './Catalog';

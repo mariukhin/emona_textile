@@ -62,6 +62,7 @@ func main() {
 
 	r.Get("/", home)
 	r.Get("/carousel", carousel)
+	r.Get("/catalog", catalog)
 	//r.Post("/create", createSnippet)
 
 	log.Printf("Starting server on %s", *addr)
