@@ -16,7 +16,7 @@ interface LayoutProps {
 }
 
 const ChildrenWrapper = styled.div`
-  padding: 20px 0;
+  width: 100%;
 `;
 
 const AppLayout: React.FC<LayoutProps> = ({ children }) => (

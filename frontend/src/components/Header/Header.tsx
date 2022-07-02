@@ -12,6 +12,7 @@ import {
   CssBaseline,
 } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
+import MenuIcon from '@mui/icons-material/Menu';
 // styles
 import {
   StyledAppBar,
@@ -19,9 +20,19 @@ import {
   StyledStack,
   StyledButton,
   StyledButtonText,
+  StyledBurger,
 } from './styles';
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 320, // phone
+      sm: 780, // tablets
+      md: 1024, // small laptop
+      lg: 1440, // desktop
+      xl: 2560 // large screens
+    }
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: `
@@ -107,6 +118,18 @@ const Header = () => {
         </StyledLogo>
   
         <StyledStack direction="row" spacing={1}>
+          <StyledBurger
+            size="large"
+            edge="start"
+            aria-label="menu"
+            sx={{
+              mt: 1,
+              mr: 2,
+            }}
+          >
+            <MenuIcon fontSize="large" />
+          </StyledBurger>
+
           {headersData.map(({ label, href, variant, color }) => (
             <StyledButton
               {...{
@@ -115,11 +138,11 @@ const Header = () => {
                 href,
                 variant,
                 size: 'small',
-                endIcon:  
-                  label === 'Каталог' && 
-                    <KeyboardArrowDown
-                      fontSize="large"
-                    />,
+                // endIcon:  
+                //   label === 'Каталог' && 
+                //     <KeyboardArrowDown
+                //       fontSize="large"
+                //     />,
               }}
             >
               <StyledButtonText color={getItemColor(href, color)}>

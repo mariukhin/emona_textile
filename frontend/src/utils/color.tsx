@@ -12,6 +12,7 @@ export const colors = {
     default: palette.grey2,
     white: palette.white,
     green: palette.green,
+    grey: palette.grey,
   },
   text: {
     default: palette.greyLight,
@@ -33,6 +34,7 @@ declare global {
     | 'background.default'
     | 'background.white'
     | 'background.green'
+    | 'background.grey'
     | 'text.default'
     | 'text.white'
     | 'text.green'

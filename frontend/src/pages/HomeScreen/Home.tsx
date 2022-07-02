@@ -41,7 +41,7 @@ const HomePageView = () => {
   }
 
   return (
-    <>
+    <div style={{ width: '100%' }}>
       <Carousel />
       <Catalog isMainPage />
   
@@ -68,7 +68,7 @@ const HomePageView = () => {
       <AboutUsBlock />
 
       <ContactsAndFormBlock />
-    </>
+    </div>
   );
 };
 
