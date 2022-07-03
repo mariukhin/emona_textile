@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
+import { device } from 'utils/deviceBreakpoints';
 import { Grid, Paper, Button } from '@mui/material';
 
 export const CatalogWrapper = styled.div`
-  margin: 120px 59px;
+  @media ${device.tablet} {
+    margin: 120px 22px;
+  }
+
+  @media ${device.laptopL} {
+    margin: 120px 59px;
+  }
 `;
 
 export const StyledGridContainer = styled(Grid)`
@@ -13,8 +20,17 @@ export const StyledGridContainer = styled(Grid)`
 `;
 
 export const StyledGrid = styled(Grid)`
-  width: 32%;
-  height: 312px;
+  @media ${device.tablet} {
+    height: 312px;
+
+    :nth-of-type(2n+1) {
+      padding-left: 0;
+    }
+  }
+
+  @media ${device.laptopL} {
+    padding-left: 24px !important;
+  }
 `;
 
 export const StyledPaper = styled(Paper)`

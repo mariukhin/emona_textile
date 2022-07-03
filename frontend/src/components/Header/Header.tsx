@@ -6,12 +6,7 @@ import { ROUTES } from 'routing/registration';
 import { colors } from 'utils/color';
 import { useStore } from 'modules/Stores';
 // components
-import {
-  createTheme,
-  ThemeProvider,
-  CssBaseline,
-} from '@mui/material';
-import { KeyboardArrowDown } from '@mui/icons-material';
+// import { KeyboardArrowDown } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 // styles
 import {
@@ -22,53 +17,6 @@ import {
   StyledButtonText,
   StyledBurger,
 } from './styles';
-
-const theme = createTheme({
-  breakpoints: {
-    values: {
-      xs: 320, // phone
-      sm: 780, // tablets
-      md: 1024, // small laptop
-      lg: 1440, // desktop
-      xl: 2560 // large screens
-    }
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          font-family: 'Nunito';
-          src: url('fonts/Nunito/Nunito-Bold.ttf');
-          font-weight: 700;
-        }
-
-        @font-face {
-          font-family: 'Nunito';
-          src: url('fonts/Nunito/Nunito-Regular.ttf');
-          font-weight: 400;
-        }
-
-        @font-face {
-          font-family: 'Comfortaa';
-          src: url('fonts/Comfortaa/Comfortaa-Bold.ttf');
-          font-weight: 700;
-        }
-
-        @font-face {
-          font-family: 'Montserrat';
-          src: url('fonts/Montserrat/Montserrat-SemiBold.ttf');
-          font-weight: 600;
-        }
-
-        @font-face {
-          font-family: 'Montserrat';
-          src: url('fonts/Montserrat/Montserrat-Regular.ttf');
-          font-weight: 400;
-        }
-      `,
-    },
-  },
-});
 
 const headersData: HeadersData[] = [
   {
@@ -109,9 +57,7 @@ const Header = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-  
+    <div>  
       <StyledAppBar position="fixed">
         <StyledLogo>
           <img src='assets/logo.svg' alt="Emona logo" />
@@ -152,7 +98,7 @@ const Header = () => {
           ))}
         </StyledStack>
       </StyledAppBar>
-    </ThemeProvider>
+    </div>
   );
 };
 
