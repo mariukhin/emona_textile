@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from 'utils/color';
 import { Divider, Typography } from '@mui/material';
 
-export const FooterWrapper = styled.div`
+export const FooterWrapper = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

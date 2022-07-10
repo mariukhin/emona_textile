@@ -57,7 +57,6 @@ const Header = () => {
   }
 
   return (
-    <div>  
       <StyledAppBar position="fixed">
         <StyledLogo>
           <img src='assets/logo.svg' alt="Emona logo" />
@@ -98,7 +97,6 @@ const Header = () => {
           ))}
         </StyledStack>
       </StyledAppBar>
-    </div>
   );
 };
 

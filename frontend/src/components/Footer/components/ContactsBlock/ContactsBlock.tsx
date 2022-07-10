@@ -10,7 +10,7 @@ import {
 } from '@mui/icons-material';
 // styles
 import {
-  BlockContainer,
+  ContactsBlockContainer,
   ContactItem,
   ContactItemPhoneBlock,
   ContactBlockTextLink,
@@ -25,7 +25,7 @@ const ContactsBlock: React.FC<ContactsBlockType> = ({ isFooter = false }) => {
   const textColor = isFooter ? colors.text.grey : colors.text.greyDark;
 
   return (
-    <BlockContainer>
+    <ContactsBlockContainer>
       <ContactItem>
         <LocationOnOutlined sx={{ color: iconColor }} />
         <ContactBlockTextLink
@@ -56,7 +56,7 @@ const ContactsBlock: React.FC<ContactsBlockType> = ({ isFooter = false }) => {
           emona.textile@gmail.com
         </ContactBlockTextLink>
       </ContactItem>
-    </BlockContainer>
+    </ContactsBlockContainer>
   );
 };
 

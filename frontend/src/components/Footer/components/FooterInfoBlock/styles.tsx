@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
+import { device } from 'utils/deviceBreakpoints';
 import { Typography, Link } from '@mui/material';
+
+export const ContactsBlockContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${device.mobile} {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media ${device.laptopL} {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+`;
 
 export const BlockContainer = styled.div`
   display: flex;

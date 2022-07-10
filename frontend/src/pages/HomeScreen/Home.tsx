@@ -47,7 +47,7 @@ const HomePageView = () => {
     ))
 
   return (
-    <div style={{ width: '100%' }}>
+    <div>
       <Carousel />
       <Catalog isMainPage />
   
