@@ -18,10 +18,22 @@ export const ContactsBlockContainer = styled.div`
   }
 `;
 
-export const BlockContainer = styled.div`
-  display: flex;
+export const BlockContainer = styled.div<{ isFooter: boolean; }>`
   flex-direction: column;
   justify-content: flex-start;
+
+  @media ${device.mobile} {
+    display: ${props => props.isFooter ? 'none' : 'flex'};
+    margin-bottom: 60px;
+  }
+
+  @media ${device.tablet} {
+    margin-bottom: 0;
+  }
+
+  @media ${device.laptopL} {
+    display: flex;
+  }
 `;
 
 export const BlockHeading = styled(Typography)`

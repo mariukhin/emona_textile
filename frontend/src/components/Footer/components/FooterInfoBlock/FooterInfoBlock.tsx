@@ -13,7 +13,7 @@ type FooterInfoBlockComponentProps = {
 }
 
 const FooterInfoBlock: React.FC<FooterInfoBlockComponentProps> = ({ title, subItems }) => (
-  <BlockContainer>
+  <BlockContainer isFooter={false}>
     <BlockHeading>{title}</BlockHeading>
 
     {subItems.map(item => <BlockSubItem key={useId()} href={item.href}>{item.label}</BlockSubItem> )}
