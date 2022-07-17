@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
+import { device } from 'utils/deviceBreakpoints';
 import { Typography } from '@mui/material';
 
 export const BannerContainer = styled.div`
   border: 2px solid ${colors.background.green};
   border-radius: 20px;
   height: 106px;
+
+  @media ${device.mobile} {
+    margin-bottom: 20px;
+  }
+
+  @media ${device.tablet} {
+    margin-bottom: 0;
+  }
 `;
 
 export const BannerWrapper = styled.div`
@@ -17,11 +26,19 @@ export const BannerWrapper = styled.div`
 `;
 
 export const BannerHeading = styled(Typography)`
-  font-size: 36px;
-  line-height: 40px;
   color: ${colors.text.greyDark};
   font-family: 'Comfortaa';
   font-weight: 700;
+
+  @media ${device.mobile} {
+    font-size: 30px;
+    line-height: 35px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 36px;
+    line-height: 40px;
+  }
 `;
 
 export const BannerSubHeading = styled(Typography)`

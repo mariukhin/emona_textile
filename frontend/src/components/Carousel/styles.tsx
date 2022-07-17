@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
+import { device } from 'utils/deviceBreakpoints';
 import { Button, Typography, Stack, Fab } from '@mui/material';
 
 export const CarouselContainer = styled.div`
@@ -7,37 +8,77 @@ export const CarouselContainer = styled.div`
   height: 100%;
   background-image: url(${props => props.theme.main});
   background-repeat: no-repeat;
-  background-size: cover;
+
+  @media ${device.mobile} {
+    background-position: top;
+    background-size: cover;
+  }
+
+  @media ${device.tablet} {
+    background-size: cover;
+    background-position: top;
+  }
 `;
 
 export const ContentWrapper = styled.div`
   width: 100%;
-  height: 604px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media ${device.mobile} {
+    height: 496px;
+  }
+
+  @media ${device.laptopL} {
+    height: 604px;
+  }
 `;
 
 export const InfoBlock = styled.div`
-  width: 80%;
   margin: 0 auto;
   height: 148px;
-  padding-top: 220px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
+
+  @media ${device.mobile} {
+    width: 90%;
+    padding-top: 100px;
+  }
+
+  @media ${device.laptop} {
+    width: 80%;
+  }
+
+  @media ${device.laptopL} {
+    padding-top: 220px;
+  }
 `;
 
 export const CarouselHeading = styled(Typography)`
-  font-size: 60px;
-  line-height: 90px;
   color: ${colors.text.white};
   text-shadow: 0px 2px 24px #000000;
   margin-bottom: 20px;
   font-family: 'Comfortaa';
+
+  @media ${device.mobile} {
+    font-size: 36px;
+    line-height: 54px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 48px;
+    line-height: 72px;
+  }
+
+  @media ${device.laptopL} {
+    font-size: 60px;
+    line-height: 90px;
+  }
 `;
 
 export const StyledButton = styled(Button)`
@@ -63,8 +104,19 @@ export const StyledFab = styled(Fab)`
 export const CarouselButtonsBlock = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 320px;
   justify-content: space-between;
+
+  @media ${device.mobile} {
+    margin-top: 270px;
+  }
+
+  @media ${device.tablet} {
+    margin-top: 250px;
+  }
+
+  @media ${device.laptopL} {
+    margin-top: 320px;
+  }
 `;
 
 export const ItemsBlock = styled(Stack)`

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
+import { device } from 'utils/deviceBreakpoints';
 import { Paper, Button, Typography } from '@mui/material';
 
 export const AdvantagesBlockWrapper = styled.div`
@@ -8,16 +9,50 @@ export const AdvantagesBlockWrapper = styled.div`
 
 export const StyledGridContainer = styled.div`
   margin: 0 auto;
-  margin-top: 40px;
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  flex-wrap: wrap;
+
+  @media ${device.mobile} {
+    width: 92%;
+    margin-top: 58px;
+  }
+
+  @media ${device.tablet} {
+    width: 95%;
+    margin-top: 40px;
+  }
+
+  @media ${device.laptopL} {
+    width: 90%;
+  }
 `;
 
 export const StyledPaper = styled(Paper)`
-  width: 24%;
   height: 254px;
   border-radius: 20px;
+
+  @media ${device.mobile} {
+    width: 100%;
+    margin-bottom: 23px;
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @media ${device.tablet} {
+    width: 48.5%;
+
+    :nth-last-child(2)  {
+      margin-bottom: 0;
+    }
+  }
+
+  @media ${device.laptopL} {
+    width: 24%;
+    margin-bottom: 0;
+  }
 `;
 
 export const BlockWrapper = styled.div`

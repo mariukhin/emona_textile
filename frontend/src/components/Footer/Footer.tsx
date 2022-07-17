@@ -68,7 +68,7 @@ const Footer = () => (
         subItems={secondBlock.subItems}
       />
 
-      <BlockContainer>
+      <BlockContainer isFooter>
         <BlockHeading>Контакти</BlockHeading>
         <ContactsBlock isFooter />
       </BlockContainer>

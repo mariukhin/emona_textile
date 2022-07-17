@@ -1,11 +1,39 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
+import { device } from 'utils/deviceBreakpoints';
 import { Typography, Link } from '@mui/material';
 
-export const BlockContainer = styled.div`
+export const ContactsBlockContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media ${device.mobile} {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media ${device.laptopL} {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+`;
+
+export const BlockContainer = styled.div<{ isFooter: boolean; }>`
+  flex-direction: column;
   justify-content: flex-start;
+
+  @media ${device.mobile} {
+    display: ${props => props.isFooter ? 'none' : 'flex'};
+    margin-bottom: 60px;
+  }
+
+  @media ${device.tablet} {
+    margin-bottom: 0;
+  }
+
+  @media ${device.laptopL} {
+    display: flex;
+  }
 `;
 
 export const BlockHeading = styled(Typography)`

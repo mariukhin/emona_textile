@@ -17,7 +17,7 @@ type CatalogItem = {
 };
 
 const CatalogItem: React.FC<CatalogItem> = ({ title, imageUrl }) => (
-  <StyledGrid item xs={2} sm={4} md={4}>
+  <StyledGrid item xs={12} sm={6} md={6} lg={4}>
     <StyledPaper>
       <CatalogItemImageWrapper
         theme={{

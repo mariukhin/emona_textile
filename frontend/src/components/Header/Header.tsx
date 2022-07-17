@@ -6,12 +6,8 @@ import { ROUTES } from 'routing/registration';
 import { colors } from 'utils/color';
 import { useStore } from 'modules/Stores';
 // components
-import {
-  createTheme,
-  ThemeProvider,
-  CssBaseline,
-} from '@mui/material';
-import { KeyboardArrowDown } from '@mui/icons-material';
+// import { KeyboardArrowDown } from '@mui/icons-material';
+import MenuIcon from '@mui/icons-material/Menu';
 // styles
 import {
   StyledAppBar,
@@ -19,45 +15,8 @@ import {
   StyledStack,
   StyledButton,
   StyledButtonText,
+  StyledBurger,
 } from './styles';
-
-const theme = createTheme({
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          font-family: 'Nunito';
-          src: url('fonts/Nunito/Nunito-Bold.ttf');
-          font-weight: 700;
-        }
-
-        @font-face {
-          font-family: 'Nunito';
-          src: url('fonts/Nunito/Nunito-Regular.ttf');
-          font-weight: 400;
-        }
-
-        @font-face {
-          font-family: 'Comfortaa';
-          src: url('fonts/Comfortaa/Comfortaa-Bold.ttf');
-          font-weight: 700;
-        }
-
-        @font-face {
-          font-family: 'Montserrat';
-          src: url('fonts/Montserrat/Montserrat-SemiBold.ttf');
-          font-weight: 600;
-        }
-
-        @font-face {
-          font-family: 'Montserrat';
-          src: url('fonts/Montserrat/Montserrat-Regular.ttf');
-          font-weight: 400;
-        }
-      `,
-    },
-  },
-});
 
 const headersData: HeadersData[] = [
   {
@@ -87,7 +46,7 @@ const headersData: HeadersData[] = [
 ];
 
 const Header = () => {
-  const { isOnRoute } = useStore('RoutingStore');
+  const { isOnRoute, goToRoute } = useStore('RoutingStore');
 
   const getItemColor = (href: string, itemColor: string) => {
     if (href !== ROUTES.HOME && isOnRoute(href)) {
@@ -97,16 +56,27 @@ const Header = () => {
     }
   }
 
+  const handleLogoClick = () => goToRoute(ROUTES.HOME);
+
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-  
       <StyledAppBar position="fixed">
-        <StyledLogo>
+        <StyledLogo onClick={handleLogoClick}>
           <img src='assets/logo.svg' alt="Emona logo" />
         </StyledLogo>
   
         <StyledStack direction="row" spacing={1}>
+          <StyledBurger
+            size="large"
+            edge="start"
+            aria-label="menu"
+            sx={{
+              mt: 1,
+              mr: 2,
+            }}
+          >
+            <MenuIcon fontSize="medium" />
+          </StyledBurger>
+
           {headersData.map(({ label, href, variant, color }) => (
             <StyledButton
               {...{
@@ -115,11 +85,11 @@ const Header = () => {
                 href,
                 variant,
                 size: 'small',
-                endIcon:  
-                  label === 'Каталог' && 
-                    <KeyboardArrowDown
-                      fontSize="large"
-                    />,
+                // endIcon:  
+                //   label === 'Каталог' && 
+                //     <KeyboardArrowDown
+                //       fontSize="large"
+                //     />,
               }}
             >
               <StyledButtonText color={getItemColor(href, color)}>
@@ -129,7 +99,6 @@ const Header = () => {
           ))}
         </StyledStack>
       </StyledAppBar>
-    </ThemeProvider>
   );
 };
 

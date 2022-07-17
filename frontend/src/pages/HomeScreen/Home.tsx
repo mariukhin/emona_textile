@@ -19,6 +19,7 @@ import {
   ClientTicker,
   TickerWrapper,
   TickerImage,
+  LogoContainer,
 } from './styles';
 
 const HomePageView = () => {
@@ -40,8 +41,13 @@ const HomePageView = () => {
     setIsMouseOverTicker(true);
   }
 
+  const mappedTickerItems =
+    logos.map(item => (
+      <TickerImage key={item} src={item} alt="logo" />
+    ))
+
   return (
-    <>
+    <div>
       <Carousel />
       <Catalog isMainPage />
   
@@ -53,13 +59,13 @@ const HomePageView = () => {
             <Ticker speed={8} mode='await' move={isMouseOverTicker}>
               {() => (
                 <ClientTicker>
-                  {logos.map(item => (
-                    <TickerImage key={item} src={item} alt="logo" />
-                  ))}
+                  {mappedTickerItems}
                 </ClientTicker>
               )}
             </Ticker>
           </TickerWrapper>
+
+          <LogoContainer>{mappedTickerItems}</LogoContainer>
         </ClientsBlockTitleWrapper>
       </ClientsBlockWrapper>
 
@@ -68,7 +74,7 @@ const HomePageView = () => {
       <AboutUsBlock />
 
       <ContactsAndFormBlock />
-    </>
+    </div>
   );
 };
 

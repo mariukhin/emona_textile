@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
+import { device } from 'utils/deviceBreakpoints';
 import { Paper, Button, Typography, FormControl } from '@mui/material';
 
 export const ContactsAndFormBlockWrapper = styled.div`
@@ -8,33 +9,84 @@ export const ContactsAndFormBlockWrapper = styled.div`
 
 export const BlockContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 75%;
   margin: 0 auto;
   padding-top: 40px;
+
+  @media ${device.mobile} {
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 95%;
+  }
+
+  @media ${device.laptopL} {
+    justify-content: space-between;
+    flex-direction: row;
+    width: 75%;
+  }
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 40%;
-  height: 430px;
-  padding: 30px 0 0;
+
+  @media ${device.mobile} {
+    padding: 60px 0 0;
+    width: 100%;
+    height: 430px;
+    align-items: center;
+  }
+
+  @media ${device.tablet} {
+    height: 630px;
+  }
+
+  @media ${device.laptop} {
+    height: 780px;
+  }
+
+  @media ${device.laptopL} {
+    align-items: flex-start;
+    padding: 30px 0 0;
+    width: 40%;
+    height: 430px;
+  }
 `;
 
 export const StyledMapComponent = styled.div`
   border: 2px solid ${colors.background.green};
   border-radius: 20px;
   width: 100%;
-  height: 248px;
+
+  @media ${device.mobile} {
+    height: 224px;
+  }
+
+  @media ${device.tablet} {
+    height: 418px;
+  }
+
+  @media ${device.laptop} {
+    height: 567px;
+  }
+
+  @media ${device.laptopL} {
+    height: 248px;
+  }
 `;
 
 export const StyledPaper = styled(Paper)`
-  width: 536px;
   border-radius: 20px;
   box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.12);
   background-color: #fff;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
+
+  @media ${device.tablet} {
+    width: 536px;
+  }
 `;
 
 export const PaperWrapper = styled.div`

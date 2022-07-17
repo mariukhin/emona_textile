@@ -1,19 +1,49 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
+import { device } from 'utils/deviceBreakpoints';
 import { Paper, Button, Typography } from '@mui/material';
 
 export const AboutUsBlockWrapper = styled.div`
-  margin: 0 0 120px;
   position: relative;
+
+  @media ${device.mobile} {
+    margin: 0 0 920px;
+  }
+
+  @media ${device.tablet} {
+    margin: 0 0 440px;
+  }
+
+  @media ${device.laptop} {
+    margin: 0 0 120px;
+  }
 `;
 
 export const AboutUsPhotoBlock = styled.div`
-  width: 832px;
   height: 734px;
   background-image: url('assets/about-us.png');
   border-radius: 0 20px 20px 0;
   background-size: cover;
-  background-position: center;
+
+  @media ${device.mobile} {
+    width: 359px;
+    height: 317px;
+    background-position: right;
+  }
+
+  @media ${device.tablet} {
+    width: 644px;
+    height: 569px;
+  }
+
+  @media ${device.laptop} {
+    width: 832px;
+    height: 734px;
+  }
+
+  @media ${device.laptopL} {
+    background-position: center;
+  }
 `;
 
 export const StyledGridContainer = styled.div`
@@ -26,13 +56,35 @@ export const StyledGridContainer = styled.div`
 
 export const StyledPaper = styled(Paper)`
   position: absolute;
-  width: 669px;
-  height: 636px;
   border-radius: 20px;
   box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.12);
   background-color: #fff;
-  left: 708px;
-  top: 52px;
+
+  @media ${device.mobile} {
+    left: 16px;
+    top: 159px;
+    width: 359px;
+    height: 976px;
+  }
+
+  @media ${device.tablet} {
+    left: 124px;
+    top: 249px;
+    width: 620px;
+    height: 636px;
+  }
+
+  @media ${device.laptop} {
+    left: 397px;
+    top: 52px;
+    width: 610px;
+  }
+
+  @media ${device.laptopL} {
+    left: 708px;
+    top: 52px;
+    width: 669px;
+  }
 `;
 
 export const PaperWrapper = styled.div`
@@ -50,9 +102,21 @@ export const BlockText = styled(Typography)`
 
 export const BannerContainer = styled.div`
   display: flex;
-  width: 90%;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 44px;
+
+  @media ${device.mobile} {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  @media ${device.tablet} {
+    margin-bottom: 44px;
+  }
+
+  @media ${device.laptopL} {
+    width: 90%;
+  }
 `;
 
 export const StyledButton = styled(Button)`

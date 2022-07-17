@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
+import { device } from 'utils/deviceBreakpoints';
 import { Typography } from '@mui/material';
 
 export const AboutUsWrapper = styled.div`
-  width: 60%;
   margin: 0 auto;
-  padding: 80px 0 140px;
+
+  @media ${device.mobile} {
+    width: 95%;
+    padding: 80px 0 120px;
+  }
+
+  @media ${device.laptopL} {
+    width: 60%;
+    padding: 80px 0 140px;
+  }
 `;
 
 export const AboutUsText = styled(Typography)`
@@ -18,9 +27,31 @@ export const AboutUsText = styled(Typography)`
 
 export const BannerContainer = styled.div`
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin: 60px 0;
+  flex-wrap: wrap;
+
+  @media ${device.mobile} {
+    height: 382px;
+    justify-content: space-evenly;
+    align-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  @media ${device.tablet} {
+    height: 244px;
+    width: 80%;
+  }
+
+  @media ${device.laptop} {
+    height: 106px;
+    width: 100%;
+  }
+
+  @media ${device.laptopL} {
+    justify-content: space-between;
+  }
 `;
 
 export const BlockImage = styled.img`

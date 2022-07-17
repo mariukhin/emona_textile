@@ -7,6 +7,7 @@ import { Provider } from 'mobx-react';
 import { configure } from 'mobx';
 import STORES from './stores';
 import 'axios/axiosDefaults';
+import './style.css';
 
 configure({
   computedRequiresReaction: true,
