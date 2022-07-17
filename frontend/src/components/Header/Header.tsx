@@ -72,7 +72,7 @@ const Header = () => {
               mr: 2,
             }}
           >
-            <MenuIcon fontSize="large" />
+            <MenuIcon fontSize="medium" />
           </StyledBurger>
 
           {headersData.map(({ label, href, variant, color }) => (

@@ -61,6 +61,14 @@ export const TickerImage = styled.img`
 
   @media ${device.mobile} {
     vertical-align: middle;
+    width: 42%;
+    max-width: 171px;
+    margin-right: 12px;
+    margin-bottom: 50px;
+  }
+
+  @media ${device.tablet} {
+    vertical-align: middle;
     width: 18%;
     max-width: 190px;
     margin-right: 12px;

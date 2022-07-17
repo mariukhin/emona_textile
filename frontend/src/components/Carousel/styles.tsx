@@ -8,7 +8,16 @@ export const CarouselContainer = styled.div`
   height: 100%;
   background-image: url(${props => props.theme.main});
   background-repeat: no-repeat;
-  background-size: cover;
+
+  @media ${device.mobile} {
+    background-position: top;
+    background-size: cover;
+  }
+
+  @media ${device.tablet} {
+    background-size: cover;
+    background-position: top;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -19,10 +28,6 @@ export const ContentWrapper = styled.div`
   align-items: center;
 
   @media ${device.mobile} {
-    height: 404px;
-  }
-
-  @media ${device.tablet} {
     height: 496px;
   }
 
@@ -40,7 +45,7 @@ export const InfoBlock = styled.div`
   align-items: center;
   text-align: center;
 
-  @media ${device.tablet} {
+  @media ${device.mobile} {
     width: 90%;
     padding-top: 100px;
   }
@@ -59,6 +64,11 @@ export const CarouselHeading = styled(Typography)`
   text-shadow: 0px 2px 24px #000000;
   margin-bottom: 20px;
   font-family: 'Comfortaa';
+
+  @media ${device.mobile} {
+    font-size: 36px;
+    line-height: 54px;
+  }
 
   @media ${device.tablet} {
     font-size: 48px;
@@ -95,6 +105,10 @@ export const CarouselButtonsBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media ${device.mobile} {
+    margin-top: 270px;
+  }
 
   @media ${device.tablet} {
     margin-top: 250px;

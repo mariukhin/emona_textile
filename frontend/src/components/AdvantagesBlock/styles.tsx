@@ -9,13 +9,18 @@ export const AdvantagesBlockWrapper = styled.div`
 
 export const StyledGridContainer = styled.div`
   margin: 0 auto;
-  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 
+  @media ${device.mobile} {
+    width: 92%;
+    margin-top: 58px;
+  }
+
   @media ${device.tablet} {
     width: 95%;
+    margin-top: 40px;
   }
 
   @media ${device.laptopL} {

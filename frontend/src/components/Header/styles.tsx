@@ -11,7 +11,11 @@ export const StyledAppBar = styled(AppBar)`
   box-shadow: none;
 
   @media ${device.mobile} {
-    padding: 0 24px;
+    padding: 17px 16px;
+  }
+
+  @media ${device.tablet} {
+    padding: 22px 24px;
   }
 
   @media ${device.laptopL} {
@@ -21,6 +25,27 @@ export const StyledAppBar = styled(AppBar)`
 
 export const StyledLogo = styled(IconButton)`
   padding: 0;
+
+  @media ${device.mobile} {
+    img {
+      width: 128px;
+      height: 22px;
+    }
+  }
+
+  @media ${device.tablet} {
+    img {
+      width: 213px;
+      height: 36px;
+    }
+  }
+
+  @media ${device.laptopL} {
+    img {
+      width: 241px;
+      height: 40px;
+    }
+  }
 `;
 
 export const StyledStack = styled(Stack)`
@@ -34,6 +59,12 @@ export const StyledStack = styled(Stack)`
       display: none;
     }
 
+    a:last-child {
+      margin-right: 30px;
+    }
+  }
+
+  @media ${device.tablet} {
     a:last-child {
       margin-right: 35px;
     }
@@ -72,14 +103,30 @@ export const StyledButton = styled(Button)`
       color: ${props => props.variant === 'text' ? colors.text.orange : 'inherit'}
     }
   }
+
+  @media ${device.mobile} {
+    height: 32px;
+  }
+
+  @media ${device.tablet} {
+    height: 38px;
+  }
 `;
 
 export const StyledButtonText = styled(Typography)`
-  font-size: 16px;
-  line-height: 26px;
   text-transform: uppercase;
   font-family: 'Nunito';
   font-weight: 700;
+
+  @media ${device.mobile} {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 16px;
+    line-height: 26px;
+  }
 `;
 
 export const StyledButtonWrapper = styled.div`
@@ -91,6 +138,10 @@ export const StyledBurger = styled(IconButton)`
   color: ${colors.background.grey};
   display: block;
   margin-right: 0;
+
+  @media ${device.mobile} {
+    padding: 0 !important;
+  }
 
   @media ${device.laptopL} {
     display: none;

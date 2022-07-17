@@ -4,6 +4,10 @@ import { device } from 'utils/deviceBreakpoints';
 import { Grid, Paper, Button } from '@mui/material';
 
 export const CatalogWrapper = styled.div`
+  @media ${device.mobile} {
+    margin: 100px 0;
+  }
+
   @media ${device.tablet} {
     margin: 120px 22px;
   }
@@ -20,12 +24,19 @@ export const StyledGridContainer = styled(Grid)`
 `;
 
 export const StyledGrid = styled(Grid)`
-  @media ${device.tablet} {
-    height: 312px;
+  @media ${device.mobile} {
+    height: 272px;
+    padding-left: 0 !important;
+  }
 
+  @media ${device.tablet} {
     :nth-of-type(2n+1) {
       padding-left: 0;
     }
+  }
+
+  @media ${device.laptop} {
+    height: 312px;
   }
 
   @media ${device.laptopL} {
@@ -35,8 +46,8 @@ export const StyledGrid = styled(Grid)`
 
 export const StyledPaper = styled(Paper)`
   position: relative;
-  width: 100%;
   height: 100%;
+  width: 100%;
   border-radius: 20px;
   box-shadow: 0px 4px 4px 0px #00000040;
 `;
