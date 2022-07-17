@@ -46,7 +46,7 @@ const headersData: HeadersData[] = [
 ];
 
 const Header = () => {
-  const { isOnRoute } = useStore('RoutingStore');
+  const { isOnRoute, goToRoute } = useStore('RoutingStore');
 
   const getItemColor = (href: string, itemColor: string) => {
     if (href !== ROUTES.HOME && isOnRoute(href)) {
@@ -56,9 +56,11 @@ const Header = () => {
     }
   }
 
+  const handleLogoClick = () => goToRoute(ROUTES.HOME);
+
   return (
       <StyledAppBar position="fixed">
-        <StyledLogo>
+        <StyledLogo onClick={handleLogoClick}>
           <img src='assets/logo.svg' alt="Emona logo" />
         </StyledLogo>
   

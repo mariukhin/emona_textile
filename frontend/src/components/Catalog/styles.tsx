@@ -30,17 +30,26 @@ export const StyledGrid = styled(Grid)`
   }
 
   @media ${device.tablet} {
+    padding-left: 18px !important;
+
     :nth-of-type(2n+1) {
-      padding-left: 0;
+      padding-left: 0 !important;
     }
   }
 
   @media ${device.laptop} {
+    padding-left: 24px !important;
     height: 312px;
   }
 
   @media ${device.laptopL} {
-    padding-left: 24px !important;
+    :nth-of-type(3n+1) {
+      padding-left: 0 !important;
+    }
+
+    :nth-of-type(2n+1):not(:first-of-type) {
+      padding-left: 24px !important;
+    }
   }
 `;
 
