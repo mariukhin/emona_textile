@@ -1,21 +1,30 @@
 // node modules
-import React, { useId } from 'react';
+import React, { useId, useState } from 'react';
 import { observer } from 'mobx-react';
 // modules
 import { ROUTES } from 'routing/registration';
 import { colors } from 'utils/color';
 import { useStore } from 'modules/Stores';
 // components
-// import { KeyboardArrowDown } from '@mui/icons-material';
+import { /* KeyboardArrowDown, */ Close } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, SwipeableDrawer, IconButton, ListItem } from '@mui/material';
 // styles
 import {
-  StyledAppBar,
+  StyledToolbar,
   StyledLogo,
   StyledStack,
   StyledButton,
   StyledButtonText,
+  StyledButtonTextDrawer,
   StyledBurger,
+  DrawerHeader,
+  StyledDrawerList,
+  StyledDrawerButton,
+  StyledDrawerContactButton,
+  StyledButtonTextAnd,
+  StyledContactItemPhoneBlock,
+  StyledContactBlockTextLink,
 } from './styles';
 
 const headersData: HeadersData[] = [
@@ -47,6 +56,9 @@ const headersData: HeadersData[] = [
 
 const Header = () => {
   const { isOnRoute, goToRoute } = useStore('RoutingStore');
+  const [open, setOpen] = useState(false);
+
+  const drawerWidth = 326;
 
   const getItemColor = (href: string, itemColor: string) => {
     if (href !== ROUTES.HOME && isOnRoute(href)) {
@@ -56,49 +68,105 @@ const Header = () => {
     }
   }
 
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+
   const handleLogoClick = () => goToRoute(ROUTES.HOME);
 
   return (
-      <StyledAppBar position="fixed">
-        <StyledLogo onClick={handleLogoClick}>
-          <img src='assets/logo.svg' alt="Emona logo" />
-        </StyledLogo>
-  
-        <StyledStack direction="row" spacing={1}>
-          <StyledBurger
-            size="large"
-            edge="start"
-            aria-label="menu"
-            sx={{
-              mt: 1,
-              mr: 2,
-            }}
-          >
-            <MenuIcon fontSize="medium" />
-          </StyledBurger>
-
-          {headersData.map(({ label, href, variant, color }) => (
-            <StyledButton
-              {...{
-                key: useId(),
-                color: 'success',
-                href,
-                variant,
-                size: 'small',
-                // endIcon:  
-                //   label === 'Каталог' && 
-                //     <KeyboardArrowDown
-                //       fontSize="large"
-                //     />,
+      <AppBar position="fixed">
+        <StyledToolbar>
+          <StyledLogo onClick={handleLogoClick}>
+            <img src='assets/logo.svg' alt="Emona logo" />
+          </StyledLogo>
+    
+          <StyledStack direction="row" spacing={1}>
+            <StyledBurger
+              size="large"
+              edge="start"
+              aria-label="menu"
+              sx={{
+                mt: 1,
+                mr: 2,
               }}
+              onClick={toggleDrawer}
             >
-              <StyledButtonText color={getItemColor(href, color)}>
-                {label}
-              </StyledButtonText>
-            </StyledButton>
-          ))}
-        </StyledStack>
-      </StyledAppBar>
+              <MenuIcon fontSize="medium" />
+            </StyledBurger>
+
+            {headersData.map(({ label, href, variant, color }) => (
+              <StyledButton
+                {...{
+                  key: useId(),
+                  color: 'success',
+                  href,
+                  variant,
+                  size: 'small',
+                  // endIcon:  
+                  //   label === 'Каталог' && 
+                  //     <KeyboardArrowDown
+                  //       fontSize="large"
+                  //     />,
+                }}
+              >
+                <StyledButtonText color={getItemColor(href, color)}>
+                  {label}
+                </StyledButtonText>
+              </StyledButton>
+            ))}
+          </StyledStack>
+        </StyledToolbar>
+        <SwipeableDrawer
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
+              width: drawerWidth,
+            },
+          }}
+          onClose={toggleDrawer}
+          onOpen={toggleDrawer}
+          anchor="right"
+          open={open}
+        >
+          <DrawerHeader>
+            <IconButton style={{ color: colors.background.grey }} onClick={toggleDrawer}>
+              <Close />
+            </IconButton>
+          </DrawerHeader>
+          <StyledDrawerList>
+            {headersData.slice(0, -1).map(({ label, href, color }) => (
+              <ListItem key={label} disablePadding>
+                <StyledDrawerButton onClick={() => {
+                  goToRoute(href);
+                  toggleDrawer();
+                }}>
+                  <StyledButtonTextDrawer color={getItemColor(href, color)}>
+                    {label}
+                  </StyledButtonTextDrawer>
+                </StyledDrawerButton>
+              </ListItem>
+            ))}
+            <StyledDrawerContactButton href={ROUTES.HOME} variant='contained' size="small">
+              <StyledButtonTextDrawer color={colors.text.white} textTransform="none">
+                Зв’язатися
+              </StyledButtonTextDrawer>
+            </StyledDrawerContactButton>
+            <StyledButtonTextAnd>
+              або
+            </StyledButtonTextAnd>
+            <StyledContactItemPhoneBlock>
+              <StyledContactBlockTextLink href="tel:+380444868610" sx={{ color: colors.text.default }}>
+                +38 044 486 86 10
+              </StyledContactBlockTextLink>
+              <StyledContactBlockTextLink href="tel:+380444868596" sx={{ color: colors.text.default }}>
+                +38 044 486 85 96
+              </StyledContactBlockTextLink>
+            </StyledContactItemPhoneBlock>
+          </StyledDrawerList>
+        </SwipeableDrawer>
+      </AppBar>
   );
 };
 

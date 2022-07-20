@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
 import { device } from 'utils/deviceBreakpoints';
-import { Button, AppBar, Stack, IconButton, Typography } from '@mui/material';
+import { Button, Toolbar, Stack, IconButton, Typography, List, ListItemButton } from '@mui/material';
+import {
+  ContactBlockTextLink,
+} from 'components/Footer/components/FooterInfoBlock/styles';
 
-export const StyledAppBar = styled(AppBar)`
+export const StyledToolbar = styled(Toolbar)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -127,6 +130,72 @@ export const StyledButtonText = styled(Typography)`
     font-size: 16px;
     line-height: 26px;
   }
+`;
+
+export const StyledButtonTextDrawer = styled(Typography)`
+  font-family: 'Comfortaa';
+  font-weight: 700;
+
+  @media ${device.mobile} {
+    font-size: 24px;
+    line-height: 36px;
+  }
+`;
+
+export const StyledButtonTextAnd = styled(Typography)`
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 20px;
+
+  @media ${device.mobile} {
+    font-size: 18px;
+    line-height: 28px;
+  }
+`;
+
+export const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: 'flex-start',
+}));
+
+export const StyledDrawerList = styled(List)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  padding-top: 50%;
+`;
+
+export const StyledDrawerButton = styled(ListItemButton)`
+  justify-content: center;
+`;
+
+export const StyledDrawerContactButton = styled(StyledButton)`
+  max-width: 60%;
+  margin: 0 auto;
+  margin-top: 8px;
+
+  @media ${device.mobile} {
+    height: 48px;
+  }
+`;
+
+export const StyledContactItemPhoneBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  margin: 0 auto;
+`;
+
+export const StyledContactBlockTextLink = styled(ContactBlockTextLink)`
+  padding-bottom: 12px;
 `;
 
 export const StyledButtonWrapper = styled.div`

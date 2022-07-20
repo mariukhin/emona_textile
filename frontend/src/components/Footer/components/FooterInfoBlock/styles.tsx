@@ -73,6 +73,7 @@ export const ContactBlockTextLink = styled(Link)`
   margin-left: 15px;
   font-family: 'Montserrat';
   text-decoration: none;
+  text-align: center;
 
   :hover {
     text-decoration: underline;

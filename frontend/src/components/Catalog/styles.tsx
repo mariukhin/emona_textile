@@ -5,7 +5,7 @@ import { Grid, Paper, Button } from '@mui/material';
 
 export const CatalogWrapper = styled.div`
   @media ${device.mobile} {
-    margin: 100px 0;
+    margin: 100px 12px;
   }
 
   @media ${device.tablet} {
