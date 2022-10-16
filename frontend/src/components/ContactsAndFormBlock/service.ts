@@ -1,7 +1,25 @@
+// node modules
+import { send } from 'emailjs-com';
 // store
 import ContactsBlockStore from './store';
 
 class ContactsBlockService extends ContactsBlockStore {
+  sendEmail = () => {
+    const form = {
+      name: this.name,
+      description: this.description,
+      phone: this.phone,
+      email: this.email,
+    };
+
+    send('service_t92asb2', 'template_rfkanrl', form, 'ZS1c3SKSTN5IRcFmW')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  }
+
   handleValidateForm = () => {
     let currentFormIsValid = true;
 

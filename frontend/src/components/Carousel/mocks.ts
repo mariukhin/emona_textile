@@ -5,6 +5,7 @@ export const mockedCarouselItems: CarouselData[] = [
     title: 'Готельно-рестораний текстиль',
     btnText: 'Сауна, СПА, басейн',
     isCurrent: true,
+    image: '',
   },
   {
     id: '324234',
@@ -12,6 +13,7 @@ export const mockedCarouselItems: CarouselData[] = [
     title: 'Готельно-рестораний текстиль',
     btnText: 'Готель',
     isCurrent: false,
+    image: '',
   },
   {
     id: '345322',
@@ -19,5 +21,6 @@ export const mockedCarouselItems: CarouselData[] = [
     title: 'Готельно-рестораний текстиль',
     btnText: 'Ресторан',
     isCurrent: false,
+    image: '',
   }
 ]

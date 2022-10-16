@@ -40,8 +40,7 @@ module.exports = {
   },
   devServer: {
     ...config.devServer,
-    host: 'dev.emona.com',
-    port: 443,
+    host: 'localhost',
     open: true,
   },
   output: {

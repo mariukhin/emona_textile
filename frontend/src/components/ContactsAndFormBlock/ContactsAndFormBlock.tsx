@@ -56,6 +56,7 @@ const ContactsAndFormBlock = () => {
     errors,
     clearErrorByKey,
     handleValidateForm,
+    sendEmail,
   } = useStore('ContactsAndFormBlockStore');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,7 +85,7 @@ const ContactsAndFormBlock = () => {
     const formIsValid = handleValidateForm();
 
     if (formIsValid) {
-      console.log('Send request');
+      sendEmail();
     }
   }
 
