@@ -26,11 +26,11 @@ const HomePageView = () => {
   const [isMouseOverTicker, setIsMouseOverTicker] = useState(true);
 
   const { getCarouselItems } = useStore('CarouselStore');
-  // const { getCatalogItems } = useStore('CatalogStore');
+  const { getCatalogItems } = useStore('CatalogStore');
 
   useEffect(() => {
     getCarouselItems();
-    // getCatalogItems();
+    getCatalogItems();
   }, []);
 
   const handleMouseOver = () => {

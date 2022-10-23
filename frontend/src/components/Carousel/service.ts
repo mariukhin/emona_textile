@@ -9,12 +9,7 @@ class CarouselService extends CarouselStore {
     const { data } = await axios.get('/carousel');
 
     if (data) {
-      const mappedData = data.map(item => ({
-        ...item,
-        image: Buffer.from(item.new).toString('base64'),
-      }));
-
-      this.setCarouselItems(mappedData);
+      this.setCarouselItems(data);
     } 
   }
 
