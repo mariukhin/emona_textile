@@ -49,6 +49,7 @@
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "7.16.7",
     "@types/google.maps": "^3.48.8",
+    "@types/history": "^5.0.0",
     "@types/node": "^18.11.0",
     "@types/ramda": "^0.28.11",
     "@types/react": "^18.0.6",

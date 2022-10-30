@@ -90,9 +90,11 @@ class RoutingService extends RoutingStore {
 
 const _RoutingService = new RoutingService();
 
+const browserHistory = createBrowserHistory();
+
 export const history = syncHistoryWithStore(
   // @ts-ignore: Unreachable code error
-  createBrowserHistory(),
+  browserHistory,
   _RoutingService,
 );
 
