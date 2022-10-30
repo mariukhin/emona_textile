@@ -16,6 +16,7 @@ const AboutUsScreen = React.lazy(() => import('../pages/AboutUsScreen'));
 // <-- Lazy Components
 
 export const CustomRouter = memo(() => (
+  // @ts-ignore: Unreachable code error
   <Router history={history}>
     <AppLayout>
       <Suspense>

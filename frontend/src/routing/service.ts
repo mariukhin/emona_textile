@@ -41,7 +41,7 @@ class RoutingService extends RoutingStore {
 
   public goBack = (useHistory = false) => {
     if (useHistory) {
-      this.history.goBack();
+      this.history.back();
     } else {
       this.goBack();
     }
@@ -93,7 +93,6 @@ const _RoutingService = new RoutingService();
 const browserHistory = createBrowserHistory();
 
 export const history = syncHistoryWithStore(
-  // @ts-ignore: Unreachable code error
   browserHistory,
   _RoutingService,
 );
