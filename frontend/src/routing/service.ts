@@ -1,5 +1,5 @@
 // node modules
-import { createBrowserHistory, History } from 'history';
+import { createBrowserHistory } from 'history';
 import { syncHistoryWithStore } from 'mobx-react-router';
 import { parse, stringify, StringifyOptions } from 'query-string';
 // store
@@ -90,11 +90,9 @@ class RoutingService extends RoutingStore {
 
 const _RoutingService = new RoutingService();
 
-const browserHistory: History = createBrowserHistory();
-
 export const history = syncHistoryWithStore(
   // @ts-ignore: Unreachable code error
-  browserHistory,
+  createBrowserHistory(),
   _RoutingService,
 );
 
