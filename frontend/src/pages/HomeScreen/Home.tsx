@@ -1,5 +1,5 @@
 // node modules
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Ticker from 'react-ticker';
 // components
 import AboutUsBlock from 'components/AboutUsBlock';
@@ -8,7 +8,7 @@ import BlockInfoComponent from 'components/BlockInfoComponent';
 import { Carousel } from 'components/Carousel';
 import { Catalog } from 'components/Catalog';
 import { ContactsAndFormBlock } from 'components/ContactsAndFormBlock';
-import { useStore } from 'modules/Stores';
+// import { useStore } from 'modules/Stores';
 // mocks
 import { mockedAdvantages } from 'components/AdvantagesBlock/mocks';
 import { logos } from './mocks';
@@ -25,13 +25,13 @@ import {
 const HomePageView = () => {
   const [isMouseOverTicker, setIsMouseOverTicker] = useState(true);
 
-  const { getCarouselItems } = useStore('CarouselStore');
-  const { getCatalogItems } = useStore('CatalogStore');
+  // const { getCarouselItems } = useStore('CarouselStore');
+  // const { getCatalogItems } = useStore('CatalogStore');
 
-  useEffect(() => {
-    getCarouselItems();
-    getCatalogItems();
-  }, []);
+  // useEffect(() => {
+  //   getCarouselItems();
+  //   getCatalogItems();
+  // }, []);
 
   const handleMouseOver = () => {
     setIsMouseOverTicker(false);
