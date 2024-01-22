@@ -5,7 +5,7 @@ import { Typography } from '@mui/material';
 
 export const BlockHeading = styled(Typography)`
   line-height: 52px;
-  color: ${colors.text.default};
+  color: ${colors.text.greyDark};
   margin-bottom: 16px;
   font-family: 'Comfortaa';
   font-weight: 700;

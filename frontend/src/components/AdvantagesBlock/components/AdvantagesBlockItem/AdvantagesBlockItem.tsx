@@ -4,6 +4,7 @@ import React from 'react';
 import {
   StyledPaper,
   BlockHeading,
+  BlockHeadingContainer,
   BlockSubHeading,
   BlockWrapper,
   BlockImage,
@@ -23,7 +24,9 @@ const AdvantagesBlockItem: React.FC<AdvantagesBlockItemProps> = ({
   <StyledPaper elevation={0}>
     <BlockWrapper>
       <BlockImage src={iconUrl} alt="AdvantageBlockIcon" />
-      <BlockHeading>{title}</BlockHeading>
+      <BlockHeadingContainer>
+        <BlockHeading>{title}</BlockHeading>
+      </BlockHeadingContainer>
       <BlockSubHeading>{subtitle}</BlockSubHeading>
     </BlockWrapper>
   </StyledPaper>

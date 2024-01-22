@@ -21,7 +21,7 @@ const Catalog: React.FC<CatalogProps> = ({ isMainPage = false }) => {
 
   return (
     <CatalogWrapper style={{ marginTop: isMainPage ? '120px' : '40px' }}>
-      {isMainPage && <BlockInfoComponent title="Каталог" subtitle="Якісні товари" />}
+      {isMainPage && <BlockInfoComponent title="Каталог"/>}
   
       <StyledGridContainer container spacing={3}>
         {catalogItems && catalogItems.map((item) => (

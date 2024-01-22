@@ -7,15 +7,19 @@ export const AboutUsBlockWrapper = styled.div`
   position: relative;
 
   @media ${device.mobile} {
-    margin: 0 0 920px;
+    margin: 0 0 1820px;
   }
 
   @media ${device.tablet} {
-    margin: 0 0 440px;
+    margin: 0 0 800px;
   }
 
   @media ${device.laptop} {
-    margin: 0 0 120px;
+    margin: 0 0 450px;
+  }
+
+  @media ${device.laptopL} {
+    margin: 0 0 400px;
   }
 `;
 
@@ -64,26 +68,28 @@ export const StyledPaper = styled(Paper)`
     left: 16px;
     top: 159px;
     width: 359px;
-    height: 976px;
+    height: 1900px;
   }
 
   @media ${device.tablet} {
     left: 124px;
     top: 249px;
     width: 620px;
-    height: 636px;
+    height: 1060px;
   }
 
   @media ${device.laptop} {
     left: 397px;
     top: 52px;
     width: 610px;
+    height: 1080px;
   }
 
   @media ${device.laptopL} {
-    left: 708px;
+    left: 620px;
     top: 52px;
-    width: 669px;
+    width: 757px;
+    height: 940px;
   }
 `;
 
@@ -115,7 +121,7 @@ export const BannerContainer = styled.div`
   }
 
   @media ${device.laptopL} {
-    width: 90%;
+    width: 80%;
   }
 `;
 

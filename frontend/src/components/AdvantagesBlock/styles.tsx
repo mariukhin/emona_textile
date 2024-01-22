@@ -29,7 +29,6 @@ export const StyledGridContainer = styled.div`
 `;
 
 export const StyledPaper = styled(Paper)`
-  height: 254px;
   border-radius: 20px;
 
   @media ${device.mobile} {
@@ -66,21 +65,31 @@ export const BlockImage = styled.img`
   margin-bottom: 25px;
 `;
 
+export const BlockHeadingContainer = styled.div`
+  @media ${device.mobile} {
+    margin-bottom: 10px;
+  }
+
+  @media ${device.laptopL} {
+    height: 72px;
+  }
+`;
+
 export const BlockHeading = styled(Typography)`
   font-size: 24px;
   line-height: 30px;
-  color: ${colors.text.default};
-  margin-bottom: 6px;
+  color: ${colors.text.greyDark};
   font-family: 'Comfortaa';
   font-weight: 700;
 `;
 
 export const BlockSubHeading = styled(Typography)`
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   color: ${colors.text.greyLight};
   font-family: 'Montserrat';
   font-weight: 400;
+  letter-spacing: 0.48px;
 `;
 
 export const StyledButton = styled(Button)`

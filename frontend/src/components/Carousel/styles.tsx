@@ -85,7 +85,7 @@ export const StyledButton = styled(Button)`
   padding: 6px 18px;
   height: 38px;
   background-color: ${colors.button.carousel};
-  border-radius: 12px;
+  border-radius: 24px;
 `;
 
 export const StyledButtonText = styled(Typography)`
