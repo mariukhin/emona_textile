@@ -41,7 +41,7 @@ class RoutingService extends RoutingStore {
 
   public goBack = (useHistory = false) => {
     if (useHistory) {
-      this.history.goBack();
+      this.history.back();
     } else {
       this.goBack();
     }
@@ -90,8 +90,10 @@ class RoutingService extends RoutingStore {
 
 const _RoutingService = new RoutingService();
 
+const browserHistory = createBrowserHistory();
+
 export const history = syncHistoryWithStore(
-  createBrowserHistory(),
+  browserHistory,
   _RoutingService,
 );
 

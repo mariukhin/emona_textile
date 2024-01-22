@@ -8,7 +8,9 @@ class CarouselService extends CarouselStore {
   getCarouselItems = async () => {
     const { data } = await axios.get('/carousel');
 
-    if (data) this.setCarouselItems(data);
+    if (data) {
+      this.setCarouselItems(data);
+    } 
   }
 
   changeCurrentItem = (direction: Directions) => {
