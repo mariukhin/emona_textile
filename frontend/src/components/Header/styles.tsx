@@ -14,15 +14,15 @@ export const StyledToolbar = styled(Toolbar)`
   box-shadow: none;
 
   @media ${device.mobile} {
-    padding: 17px 16px;
+    padding: 8px 16px;
   }
 
   @media ${device.tablet} {
-    padding: 22px 24px;
+    padding: 12px 24px;
   }
 
   @media ${device.laptopL} {
-    padding: 22px 60px;
+    padding: 20px 60px;
   }
 `;
 
@@ -32,7 +32,7 @@ export const StyledLogo = styled(IconButton)`
   @media ${device.mobile} {
     img {
       width: 128px;
-      height: 22px;
+      height: 30px;
     }
   }
 

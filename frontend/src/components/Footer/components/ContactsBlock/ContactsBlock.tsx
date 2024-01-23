@@ -25,7 +25,7 @@ const ContactsBlock: React.FC<ContactsBlockType> = ({ isFooter = false }) => {
   const textColor = isFooter ? colors.text.grey : colors.text.greyDark;
 
   return (
-    <ContactsBlockContainer>
+    <ContactsBlockContainer isFooter={ isFooter }>
       <ContactItem>
         <LocationOnOutlined sx={{ color: iconColor }} />
         <ContactBlockTextLink

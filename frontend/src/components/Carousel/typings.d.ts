@@ -4,7 +4,7 @@ type CarouselData = {
   title: string;
   btnText: string;
   isCurrent: boolean;
-  image: string;
+  image?: string;
 };
 
 type Directions = 'Left' | 'Right';

@@ -15,7 +15,7 @@ export const mockedCarouselItems: CarouselData[] = [
   },
   {
     id: '889299',
-    imageUrl: 'assets/hotelno-restor.png',
+    imageUrl: 'assets/hotelno-restor.jpg',
     title: 'Готельно-рестораний текстиль',
     btnText: 'Сауна, СПА, басейн',
     isCurrent: false,

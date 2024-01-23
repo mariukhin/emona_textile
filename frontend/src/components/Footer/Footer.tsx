@@ -68,7 +68,7 @@ const Footer = () => (
         subItems={secondBlock.subItems}
       />
 
-      <BlockContainer isFooter>
+      <BlockContainer isFooter title={'Контакти'}>
         <BlockHeading>Контакти</BlockHeading>
         <ContactsBlock isFooter />
       </BlockContainer>
@@ -78,7 +78,7 @@ const Footer = () => (
 
     <DevelopersInfoWrapper>
       <AllRightsReserved>
-        © 2022 - ООО "Эмона Текстиль". Всі права захищені
+        © 2024 - ООО "Эмона Текстиль". Всі права захищені
       </AllRightsReserved>
 
       <DevelopersInfoContainer>

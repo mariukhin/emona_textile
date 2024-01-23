@@ -78,9 +78,9 @@ export const CatalogItemImageWrapper = styled.div`
 `;
 
 export const CatalogButton = styled(Button)`
-  max-width: 75%;
+  display: flex;
   background-color: ${colors.button.default};
-  border-radius: 12px;
+  border-radius: 24px;
   opacity: 0.8;
 
   span:first-of-type {
@@ -88,8 +88,16 @@ export const CatalogButton = styled(Button)`
   }
 
   :hover span:first-of-type {
-    margin-top: 8px;
     display: block;
     transition: display 5s;
+    line-height: 0.7;
+  }
+
+  @media ${device.mobile} {
+    width: 95%;
+  }
+
+  @media ${device.laptop} {
+    width: 80%;
   }
 `;

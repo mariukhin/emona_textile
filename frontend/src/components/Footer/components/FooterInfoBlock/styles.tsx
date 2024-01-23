@@ -3,7 +3,7 @@ import { colors } from 'utils/color';
 import { device } from 'utils/deviceBreakpoints';
 import { Typography, Link } from '@mui/material';
 
-export const ContactsBlockContainer = styled.div`
+export const ContactsBlockContainer = styled.div<{ isFooter: boolean; }>`
   display: flex;
   flex-direction: column;
 
@@ -12,26 +12,28 @@ export const ContactsBlockContainer = styled.div`
     align-items: center;
   }
 
-  @media ${device.laptopL} {
-    justify-content: flex-start;
-    align-items: flex-start;
+  @media ${device.tablet} {
+    justify-content: ${props => props.isFooter && 'flex-start'};
+    align-items: ${props => props.isFooter && 'flex-start'};
   }
 `;
 
-export const BlockContainer = styled.div<{ isFooter: boolean; }>`
+export const BlockContainer = styled.div<{ isFooter: boolean; title: string }>`
   flex-direction: column;
   justify-content: flex-start;
 
   @media ${device.mobile} {
     display: ${props => props.isFooter ? 'none' : 'flex'};
-    margin-bottom: 60px;
+    margin-bottom: ${props => props.title === 'Каталог'  ? '32px' : '60px'};
   }
 
   @media ${device.tablet} {
+    display: ${props => props.title === 'Сторінки' || props.title === 'Каталог'  ? 'none' : 'flex'};
+    max-width: ${props => props.isFooter && '280px'};
     margin-bottom: 0;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.laptop} {
     display: flex;
   }
 `;
@@ -73,7 +75,6 @@ export const ContactBlockTextLink = styled(Link)`
   margin-left: 15px;
   font-family: 'Montserrat';
   text-decoration: none;
-  text-align: center;
 
   :hover {
     text-decoration: underline;

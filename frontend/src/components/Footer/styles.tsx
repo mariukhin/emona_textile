@@ -8,18 +8,22 @@ export const FooterWrapper = styled.footer`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  background-color: ${colors.background.green};
+  background-color: ${colors.background.greenDark};
 
   @media ${device.mobile} {
     padding: 60px 0 0;
   }
 
   @media ${device.tablet} {
-    padding: 60px 24px 0;
+    padding: 30px 24px 0;
   }
 
   @media ${device.laptop} {
-    padding: 60px 64px 0;
+    padding: 60px 24px 0;
+  }
+
+  @media ${device.laptopL} {
+    padding: 72px 60px 0;
   }
 `;
 
@@ -36,6 +40,7 @@ export const InfoWrapper = styled.div`
 
   @media ${device.tablet} {
     flex-direction: row;
+    align-self: stretch;
     padding: 0 0 64px;
   }
 `;
@@ -54,11 +59,10 @@ export const LogoContainer = styled.div`
 
   @media ${device.mobile} {
     align-content: center;
-    text-align: center;
     width: 100%;
-    min-height: 115px;
+    min-height: 125px;
     max-height: 130px;
-    margin-bottom: 50px;
+    margin-bottom: 32px;
   }
 
   @media ${device.tablet} {
@@ -87,11 +91,10 @@ export const LogoContainer = styled.div`
 `;
 
 export const StyledDivider = styled(Divider)`
-  border: 1px solid #4CAF50;
+  border: 1px solid ${colors.background.green};
 
   @media ${device.mobile} {
-    margin-left: 60px;
-    margin-right: 60px;
+    margin: 0 20px;
   }
 
   @media ${device.tablet} {
@@ -101,19 +104,28 @@ export const StyledDivider = styled(Divider)`
 
 export const DevelopersInfoWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   text-align: center;
 
   @media ${device.mobile} {
-    margin: 20px auto;
+    margin: 32px auto;
+    flex-direction: column;
     width: 339px;
   }
 
   @media ${device.tablet} {
-    width: 530px;
+    width: 100%;
     margin: 32px auto;
+    align-items: flex-start;
   }
+
+  @media ${device.laptop} {
+    width: 100%;
+    margin: 32px auto;
+    align-items: center;
+    flex-direction: row;
+  }
+
 `;
 
 export const AllRightsReserved = styled(Typography)`
@@ -127,15 +139,21 @@ export const DevelopersInfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 18px;
 
   @media ${device.mobile} {
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
   }
 
   @media ${device.tablet} {
     flex-direction: row;
+    margin-top: 10px;
+    width: 525px;
+  }
+
+  @media ${device.laptop} {
+    margin-top: 0;
   }
 `;
 
