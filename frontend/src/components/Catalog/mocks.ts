@@ -10,7 +10,7 @@ export const mockedCatalogItems: CatalogData[] = [
     title: 'Столова білизна',
   },
   { id: 1542, imageUrl: 'assets/CataloguePhotos/Махрові-вироби.png', title: 'Махрові вироби' },
-  { id: 3488, imageUrl: 'assets/CataloguePhotos/Постільні-речі.png', title: 'Постільні речі' },
+  { id: 3488, imageUrl: 'assets/CataloguePhotos/Постільні-речі.png', title: 'SPA & Resorts' },
   {
     id: 2499,
     imageUrl: 'assets/CataloguePhotos/рекламно-сувенірна-продукція.png',

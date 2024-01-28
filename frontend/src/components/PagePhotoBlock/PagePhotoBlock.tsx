@@ -20,7 +20,7 @@ const PagePhotoBlock: React.FC<PagePhotoBlockProps> = ({
   btnText,
   imageUrl,
 }) => (
-  <PagePhotoBlockContainer style={{ backgroundImage: `url(${imageUrl})` }}>
+  <PagePhotoBlockContainer imageUrl={ imageUrl }>
     <InfoBlock>
       <Heading>{heading}</Heading>
       <StyledButton color="warning" size="large" variant="contained">

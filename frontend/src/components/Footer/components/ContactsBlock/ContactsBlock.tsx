@@ -33,7 +33,7 @@ const ContactsBlock: React.FC<ContactsBlockType> = ({ isFooter = false }) => {
           target="_blank"
           sx={{ color: textColor }}
         >
-          Київ, вул. Дмитрівська 82, офіс 1
+          Україна, 01135, Київ, вул. Дмитрівська 82, офіс 86
         </ContactBlockTextLink>
       </ContactItem>
       <ContactItem>

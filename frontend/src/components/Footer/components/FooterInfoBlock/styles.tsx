@@ -6,16 +6,8 @@ import { Typography, Link } from '@mui/material';
 export const ContactsBlockContainer = styled.div<{ isFooter: boolean; }>`
   display: flex;
   flex-direction: column;
-
-  @media ${device.mobile} {
-    justify-content: center;
-    align-items: center;
-  }
-
-  @media ${device.tablet} {
-    justify-content: ${props => props.isFooter && 'flex-start'};
-    align-items: ${props => props.isFooter && 'flex-start'};
-  }
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 
 export const BlockContainer = styled.div<{ isFooter: boolean; title: string }>`
@@ -51,7 +43,7 @@ export const BlockSubItem = styled(Link)`
   font-size: 16px;
   line-height: 22px;
   color: ${colors.text.grey};
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   text-decoration: none;
   cursor: pointer;
   font-family: 'Montserrat';

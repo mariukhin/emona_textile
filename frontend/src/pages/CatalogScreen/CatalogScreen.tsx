@@ -7,7 +7,7 @@ import PagePhotoBlock from 'components/PagePhotoBlock';
 const CatalogScreenView = () => {
   return (
     <div>
-      <PagePhotoBlock heading="Каталог" btnText="Якісні товари" imageUrl='assets/hotelno-restor.png'/>
+      <PagePhotoBlock heading="Каталог" btnText="Якісні товари" imageUrl='assets/hotelno-restor-old.png'/>
       <Catalog />
     </div>
   );

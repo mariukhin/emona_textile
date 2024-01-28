@@ -27,11 +27,7 @@ const Carousel = () => {
   if (!carouselItems) return null;
 
   return (
-    <CarouselContainer
-      theme={{
-        main: currentItem?.imageUrl,
-      }}
-    >
+    <CarouselContainer imageUrl={ currentItem?.imageUrl || '' } backgroundColor={ currentItem?.backgroundColor || '' }>
       <ContentWrapper>
         <InfoBlock>
           <CarouselHeading>{currentItem?.title}</CarouselHeading>

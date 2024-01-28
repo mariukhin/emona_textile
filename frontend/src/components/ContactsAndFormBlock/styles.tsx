@@ -33,7 +33,7 @@ export const InfoContainer = styled.div`
   @media ${device.mobile} {
     padding: 60px 0 0;
     width: 100%;
-    height: 430px;
+    height: 445px;
     align-items: center;
   }
 

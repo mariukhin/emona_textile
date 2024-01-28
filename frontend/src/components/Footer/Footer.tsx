@@ -41,9 +41,9 @@ const secondBlock: FooterData = {
   title: 'Каталог',
   subItems: [
     { label: 'Постільна білизна', href: ROUTES.HOME },
-    { label: 'Постільні пріналежності', href: ROUTES.HOME },
     { label: 'Столова білизна', href: ROUTES.HOME },
     { label: 'Махрові вироби', href: ROUTES.HOME },
+    { label: 'SPA & Resorts', href: ROUTES.HOME },
     { label: 'Рекламно-сувенірне', href: ROUTES.HOME },
     { label: 'Стрейчові чохли', href: ROUTES.HOME },
   ],

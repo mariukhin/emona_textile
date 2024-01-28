@@ -3,6 +3,7 @@ type CarouselData = {
   imageUrl: string;
   title: string;
   btnText: string;
+  backgroundColor: string;
   isCurrent: boolean;
   image?: string;
 };

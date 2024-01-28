@@ -7,19 +7,19 @@ export const AboutUsBlockWrapper = styled.div`
   position: relative;
 
   @media ${device.mobile} {
-    margin: 0 0 1820px;
+    margin: 0 0 1040px;
   }
 
   @media ${device.tablet} {
-    margin: 0 0 800px;
+    margin: 0 0 570px;
   }
 
   @media ${device.laptop} {
-    margin: 0 0 450px;
+    margin: 0 0 210px;
   }
 
   @media ${device.laptopL} {
-    margin: 0 0 400px;
+    margin: 0 0 160px;
   }
 `;
 
@@ -68,42 +68,55 @@ export const StyledPaper = styled(Paper)`
     left: 16px;
     top: 159px;
     width: 359px;
-    height: 1900px;
+    height: 1110px;
   }
 
   @media ${device.tablet} {
     left: 124px;
     top: 249px;
     width: 620px;
-    height: 1060px;
+    height: 800px;
   }
 
   @media ${device.laptop} {
     left: 397px;
     top: 52px;
     width: 610px;
-    height: 1080px;
+    height: 800px;
   }
 
   @media ${device.laptopL} {
     left: 620px;
     top: 52px;
     width: 757px;
-    height: 940px;
+    height: 730px;
   }
 `;
 
 export const PaperWrapper = styled.div`
-  padding: 32px 40px;
+  @media ${device.mobile} {
+    padding: 24px;
+  }
+
+  @media ${device.tablet} {
+    padding: 32px 40px;
+  }
 `;
 
 export const BlockText = styled(Typography)`
+  margin: 28px 0;
+`;
+
+export const BlockTextItem = styled(Typography)`
   font-size: 16px;
   line-height: 24px;
   color: ${colors.text.greyLight};
-  margin: 28px 0;
   font-family: 'Montserrat';
   font-weight: 400;
+
+  @media ${device.tablet} {
+    margin-bottom: 10px;
+  }
 `;
 
 export const BannerContainer = styled.div`
@@ -118,10 +131,11 @@ export const BannerContainer = styled.div`
 
   @media ${device.tablet} {
     margin-bottom: 44px;
+    width: 75%;
   }
 
   @media ${device.laptopL} {
-    width: 80%;
+    width: 60%;
   }
 `;
 

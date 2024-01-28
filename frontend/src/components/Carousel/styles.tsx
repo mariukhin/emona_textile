@@ -3,21 +3,14 @@ import { colors } from 'utils/color';
 import { device } from 'utils/deviceBreakpoints';
 import { Button, Typography, Stack, Fab } from '@mui/material';
 
-export const CarouselContainer = styled.div`
+export const CarouselContainer = styled.div<{ imageUrl: string; backgroundColor: string; }>`
   width: 100%;
   height: 100%;
-  background-image: url(${props => props.theme.main});
+  background-image: url(${props => props.imageUrl});
+  background-color: ${props => props.backgroundColor};
   background-repeat: no-repeat;
-
-  @media ${device.mobile} {
-    background-position: top;
-    background-size: cover;
-  }
-
-  @media ${device.tablet} {
-    background-size: cover;
-    background-position: top;
-  }
+  background-size: contain;
+  background-position: center;
 `;
 
 export const ContentWrapper = styled.div`

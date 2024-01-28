@@ -6,19 +6,20 @@ import { Typography } from '@mui/material';
 export const BannerContainer = styled.div`
   border: 2px solid ${colors.background.green};
   border-radius: 20px;
-  height: 106px;
 
   @media ${device.mobile} {
     margin-bottom: 20px;
+    width: 100%;
   }
 
   @media ${device.tablet} {
     margin-bottom: 0;
+    width: auto;
   }
 `;
 
 export const BannerWrapper = styled.div`
-  padding: 16px 20px;
+  padding: 12px 20px 16px 20px;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -31,13 +32,8 @@ export const BannerHeading = styled(Typography)`
   font-weight: 700;
 
   @media ${device.mobile} {
-    font-size: 30px;
-    line-height: 35px;
-  }
-
-  @media ${device.tablet} {
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 36px;
   }
 `;
 
