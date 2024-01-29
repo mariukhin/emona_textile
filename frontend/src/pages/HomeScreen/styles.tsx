@@ -21,20 +21,22 @@ export const ClientTicker = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+
+  @media ${device.mobile} {
+    height: 150px;
+  }
+  
+  @media ${device.laptopL} {
+    height: 100px;
+  }
 `;
 
 export const TickerWrapper = styled.div`
   overflow: hidden;
   width: 100%;
   margin-top: 40px;
-
-  @media ${device.mobile} {
-    display: none;
-  }
-
-  @media ${device.laptopL} {
-    display: block;
-  }
+  display: block;
+  position: relative;
 `;
 
 export const LogoContainer = styled.div`
@@ -57,29 +59,25 @@ export const LogoContainer = styled.div`
 `
 
 export const TickerImage = styled.img`
-  max-height: 100px;
-
   @media ${device.mobile} {
     vertical-align: middle;
     width: 42%;
     max-width: 171px;
-    margin-right: 12px;
+    margin-right: 30px;
     margin-bottom: 50px;
+    max-height: 150px;
   }
 
   @media ${device.tablet} {
     vertical-align: middle;
     width: 18%;
     max-width: 190px;
-    margin-right: 12px;
+    margin-right: 50px;
     margin-bottom: 68px;
   }
 
   @media ${device.laptop} {
     width: 20%;
-    max-width: 190px;
-    margin-right: 10px;
-    margin-bottom: 68px;
   }
   
 
@@ -87,6 +85,7 @@ export const TickerImage = styled.img`
     margin-right: 50px;
     margin-bottom: 0;
     max-width: 235px;
+    max-height: 100px;
 
     filter: saturate(0);
 

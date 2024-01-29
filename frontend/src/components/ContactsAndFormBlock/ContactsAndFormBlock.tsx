@@ -17,6 +17,7 @@ import {
   StyledPaper,
   PaperWrapper,
   FormHeader,
+  FormBlock,
   StyledButton,
   StyledButtonText,
   StyledFormControl,
@@ -102,19 +103,13 @@ const ContactsAndFormBlock = () => {
           </Wrapper>
         </InfoContainer>
 
-        <StyledPaper sx={{ height: !R.isEmpty(errors) ? '550px' : '484px' }}>
+        <StyledPaper isErrors={ !R.isEmpty(errors) }>
           <PaperWrapper>
             <FormHeader>Заповніть форму</FormHeader>
 
             <Box component="form" autoComplete="off">
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  marginTop: '20px',
-                }}
-              >
-                <StyledFormControl style={{ width: '48%' }}>
+              <FormBlock>
+                <StyledFormControl width={'48%'}>
                   <InputLabel htmlFor="name">Ім'я</InputLabel>
                   <OutlinedInput
                     id="name"
@@ -128,7 +123,7 @@ const ContactsAndFormBlock = () => {
                   />
                   {errors.name && <FormHelperText error>{errors.name}</FormHelperText>}
                 </StyledFormControl>
-                <StyledFormControl style={{ width: '48%' }}>
+                <StyledFormControl width={'48%'}>
                   <InputLabel htmlFor="phone">Телефон</InputLabel>
                   <OutlinedInput
                     id="phone"
@@ -142,8 +137,8 @@ const ContactsAndFormBlock = () => {
                   />
                   {errors.phone && <FormHelperText error>{errors.phone}</FormHelperText>}
                 </StyledFormControl>
-              </div>
-              <StyledFormControl style={{ marginTop: '12px', width: '100%' }}>
+              </FormBlock>
+              <StyledFormControl width={'100%'} marginCustom={'12px 0 0'}>
                 <InputLabel htmlFor="email">Електронна пошта</InputLabel>
                 <OutlinedInput
                   id="email"
@@ -158,7 +153,7 @@ const ContactsAndFormBlock = () => {
                 />
                 {errors.email && <FormHelperText error>{errors.email}</FormHelperText>}
               </StyledFormControl>
-              <StyledFormControl style={{ margin: '12px 0', width: '100%' }}>
+              <StyledFormControl width={'100%'} marginCustom={'12px 0'}>
                 <InputLabel htmlFor="name">Опис замовлення</InputLabel>
                 <OutlinedInput
                   id="description"

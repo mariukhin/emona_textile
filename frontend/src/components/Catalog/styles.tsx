@@ -3,13 +3,14 @@ import { colors } from 'utils/color';
 import { device } from 'utils/deviceBreakpoints';
 import { Grid, Paper, Button } from '@mui/material';
 
-export const CatalogWrapper = styled.div`
+export const CatalogWrapper = styled.div<{ isMainPage: boolean; }>`
   @media ${device.mobile} {
-    margin: 100px 12px;
+    margin: 60px 12px;
+    margin-top: ${props => !props.isMainPage && '40px'} !important;
   }
 
   @media ${device.tablet} {
-    margin: 120px 22px;
+    margin: 80px 22px;
   }
 
   @media ${device.laptopL} {
@@ -72,6 +73,7 @@ export const CatalogItemImageWrapper = styled.div`
   border-radius: 20px;
   background-image: url(${props => props.theme.main});
   background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;

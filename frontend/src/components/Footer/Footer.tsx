@@ -44,8 +44,8 @@ const secondBlock: FooterData = {
     { label: 'Столова білизна', href: ROUTES.HOME },
     { label: 'Махрові вироби', href: ROUTES.HOME },
     { label: 'SPA & Resorts', href: ROUTES.HOME },
-    { label: 'Рекламно-сувенірне', href: ROUTES.HOME },
-    { label: 'Стрейчові чохли', href: ROUTES.HOME },
+    { label: 'Рекламно-сувенірні вироби', href: ROUTES.HOME },
+    { label: 'Чохли на меблі та декоративні вироби', href: ROUTES.HOME },
   ],
 };
 
@@ -62,10 +62,12 @@ const Footer = () => (
       <FooterInfoBlock
         title={firstBlock.title}
         subItems={firstBlock.subItems}
+        isFooter
       />
       <FooterInfoBlock
         title={secondBlock.title}
         subItems={secondBlock.subItems}
+        isFooter
       />
 
       <BlockContainer isFooter title={'Контакти'}>

@@ -1,7 +1,7 @@
 // node modules
 import { createBrowserHistory } from 'history';
 import { syncHistoryWithStore } from 'mobx-react-router';
-import { parse, stringify, StringifyOptions } from 'query-string';
+import { stringify, StringifyOptions } from 'query-string';
 // store
 import RoutingStore from './store';
 
@@ -36,6 +36,9 @@ class RoutingService extends RoutingStore {
       return this.openInNewTab(path);
     }
 
+    console.log('path', path);
+    
+
     this.push(path);
   };
 
@@ -48,31 +51,6 @@ class RoutingService extends RoutingStore {
   };
 
   public openInNewTab = (url: string) => window.open(url, '_blank');
-
-  public changeQuery = <K extends QueryRouterKeys>(
-    key: keyof QueryRoutes[K],
-    value: string,
-  ) => {
-    const search = stringify({
-      ...this.getQuery(),
-      [key]: value,
-    });
-
-    this.push({ search });
-  };
-
-  public getQuery = <K extends QueryRouterKeys>(search?: string) =>
-    parse(search || this.location.search) as QueryRoutes[K];
-
-  public deleteQuery<K extends QueryRouterKeys>(key: keyof QueryRoutes[K]) {
-    const queryObj = this.getQuery<K>();
-
-    delete queryObj[key];
-
-    const queryString = this.stringifyQuery(queryObj);
-
-    this.push({ search: queryString });
-  }
 
   isOnRoute = (route: RouteKeys) => this.location.pathname.includes(route);
 

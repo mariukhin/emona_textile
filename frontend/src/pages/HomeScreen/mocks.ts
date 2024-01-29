@@ -1,7 +1,7 @@
 export const logos: string[] = [
   'assets/ClientLogos/image-1.svg',
-  'assets/ClientLogos/image-2.svg',
   'assets/ClientLogos/image-3.svg',
+  'assets/ClientLogos/image-2.svg',
   'assets/ClientLogos/image-4.svg',
   'assets/ClientLogos/image-5.svg',
   'assets/ClientLogos/image-6.svg',
@@ -20,7 +20,7 @@ export const logos: string[] = [
   'assets/ClientLogos/image-19.svg',
   'assets/ClientLogos/image-20.svg',
   'assets/ClientLogos/image-21.svg',
-  'assets/ClientLogos/image-22.svg',
+  // 'assets/ClientLogos/image-22.svg',
   'assets/ClientLogos/image-23.svg',
   'assets/ClientLogos/image-24.svg',
 ];

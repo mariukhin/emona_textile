@@ -107,7 +107,8 @@ export const BlockText = styled(Typography)`
   margin: 28px 0;
 `;
 
-export const BlockTextItem = styled(Typography)`
+export const BlockTextItem = styled.span`
+  display: block;
   font-size: 16px;
   line-height: 24px;
   color: ${colors.text.greyLight};

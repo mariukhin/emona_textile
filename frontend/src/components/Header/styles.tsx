@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
 import { device } from 'utils/deviceBreakpoints';
-import { Button, Toolbar, Stack, IconButton, Typography, List, ListItemButton } from '@mui/material';
+import { Button, Toolbar, Stack, IconButton, Typography, List, ListItemButton, Link } from '@mui/material';
 import {
   ContactBlockTextLink,
 } from 'components/Footer/components/FooterInfoBlock/styles';
@@ -10,6 +10,7 @@ export const StyledToolbar = styled(Toolbar)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background-color: ${colors.background.white};
   box-shadow: none;
 
@@ -26,26 +27,19 @@ export const StyledToolbar = styled(Toolbar)`
   }
 `;
 
-export const StyledLogo = styled(IconButton)`
+export const StyledLogo = styled(Link)`
   padding: 0;
 
   @media ${device.mobile} {
     img {
-      width: 128px;
-      height: 30px;
+      width: 126px;
+      height: 24px;
     }
   }
 
   @media ${device.tablet} {
     img {
-      width: 213px;
-      height: 36px;
-    }
-  }
-
-  @media ${device.laptopL} {
-    img {
-      width: 241px;
+      width: 208px;
       height: 40px;
     }
   }
@@ -173,7 +167,7 @@ export const StyledDrawerList = styled(List)`
   padding-top: 50%;
 `;
 
-export const StyledDrawerButton = styled(ListItemButton)`
+export const StyledDrawerButton = styled(ListItemButton)<{ href: string; }>`
   justify-content: center;
 `;
 

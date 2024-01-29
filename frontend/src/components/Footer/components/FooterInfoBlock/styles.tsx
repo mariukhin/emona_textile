@@ -27,6 +27,7 @@ export const BlockContainer = styled.div<{ isFooter: boolean; title: string }>`
 
   @media ${device.laptop} {
     display: flex;
+    max-width: ${props => props.isFooter && props.title === 'Каталог' && '220px'};
   }
 `;
 

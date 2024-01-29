@@ -75,17 +75,19 @@ export const StyledMapComponent = styled.div`
   }
 `;
 
-export const StyledPaper = styled(Paper)`
+export const StyledPaper = styled(Paper)<{ isErrors: boolean; }>`
   border-radius: 20px;
   box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.12);
   background-color: #fff;
 
   @media ${device.mobile} {
     width: 100%;
+    height: ${props => props.isErrors ? '650px' : '564px'};
   }
 
   @media ${device.tablet} {
     width: 536px;
+    height: ${props => props.isErrors ? '550px' : '484px'};
   }
 `;
 
@@ -103,7 +105,40 @@ export const FormHeader = styled(Typography)`
   text-align: center;
 `;
 
-export const StyledFormControl = styled(FormControl)`
+export const FormBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+  }
+
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
+`;
+
+export const StyledFormControl = styled(FormControl)<{ width: string; marginCustom?: string; }>`
+
+  @media ${device.mobile} {
+    width: 100%;
+
+    :not(:first-of-type) {
+      margin: 12px 0 0;
+    }
+
+    :last-of-type {
+      margin: 12px 0;
+    }
+  }
+
+  @media ${device.tablet} {
+    width: ${ props => props.width};
+    margin: ${ props => props.marginCustom || 0} !important;
+  }
+
   .Mui-focused {
     color: ${colors.background.green};
 

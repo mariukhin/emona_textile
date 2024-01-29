@@ -20,7 +20,7 @@ const Catalog: React.FC<CatalogProps> = ({ isMainPage = false }) => {
   const { catalogItems } = useStore('CatalogStore');
 
   return (
-    <CatalogWrapper style={{ marginTop: isMainPage ? '120px' : '40px' }}>
+    <CatalogWrapper isMainPage={ isMainPage }>
       {isMainPage && <BlockInfoComponent title="Каталог"/>}
   
       <StyledGridContainer container spacing={3}>

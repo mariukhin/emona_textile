@@ -55,7 +55,7 @@ const headersData: HeadersData[] = [
 ];
 
 const Header = () => {
-  const { isOnRoute, goToRoute } = useStore('RoutingStore');
+  const { isOnRoute } = useStore('RoutingStore');
   const [open, setOpen] = useState(false);
 
   const drawerWidth = 326;
@@ -72,12 +72,10 @@ const Header = () => {
     setOpen(!open);
   };
 
-  const handleLogoClick = () => goToRoute(ROUTES.HOME);
-
   return (
       <AppBar position="fixed">
         <StyledToolbar>
-          <StyledLogo onClick={handleLogoClick}>
+          <StyledLogo href="/">
             <img src='assets/logo.svg' alt="Emona logo" />
           </StyledLogo>
     
@@ -138,10 +136,7 @@ const Header = () => {
           <StyledDrawerList>
             {headersData.slice(0, -1).map(({ label, href, color }) => (
               <ListItem key={label} disablePadding>
-                <StyledDrawerButton onClick={() => {
-                  goToRoute(href);
-                  toggleDrawer();
-                }}>
+                <StyledDrawerButton href={ href }>
                   <StyledButtonTextDrawer color={getItemColor(href, color)}>
                     {label}
                   </StyledButtonTextDrawer>
