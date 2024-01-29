@@ -121,16 +121,11 @@ export const FormBlock = styled.div`
 `;
 
 export const StyledFormControl = styled(FormControl)<{ width: string; marginCustom?: string; }>`
-
   @media ${device.mobile} {
     width: 100%;
 
     :not(:first-of-type) {
       margin: 12px 0 0;
-    }
-
-    :last-of-type {
-      margin: 12px 0;
     }
   }
 
@@ -151,6 +146,14 @@ export const StyledFormControl = styled(FormControl)<{ width: string; marginCust
 export const StyledButton = styled(Button)`
   padding: 10px 20px 10px 28px;
   width: 100%;
+
+  @media ${device.mobile} {
+    margin-top: 12px;
+  }
+
+  @media ${device.tablet} {
+    margin-top: 0;
+  }
 `;
 
 export const StyledButtonText = styled(Typography)`

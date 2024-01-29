@@ -15,7 +15,7 @@ export const BlockContainer = styled.div<{ isFooter: boolean; title: string }>`
   justify-content: flex-start;
 
   @media ${device.mobile} {
-    display: ${props => props.isFooter ? 'none' : 'flex'};
+    display: ${props => (props.isFooter && props.title === 'Контакти') ? 'none' : 'flex'};
     margin-bottom: ${props => props.title === 'Каталог'  ? '32px' : '60px'};
   }
 
