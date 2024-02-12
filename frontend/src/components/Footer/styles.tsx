@@ -50,6 +50,7 @@ export const LogoDescription = styled(Typography)`
   font-weight: 400;
   color: ${colors.text.white};
   font-family: 'Montserrat';
+  padding-top: 20px;
 `;
 
 export const LogoContainer = styled.div`
@@ -61,7 +62,7 @@ export const LogoContainer = styled.div`
     align-content: center;
     width: 100%;
     min-height: 125px;
-    max-height: 130px;
+    max-height: 190px;
     margin-bottom: 32px;
   }
 
@@ -84,7 +85,7 @@ export const LogoContainer = styled.div`
 
   @media ${device.laptopL} {
     width: 20%;
-    max-width: 250px;
+    max-width: 290px;
     min-height: 100px;
     max-height: 110px;
   }

@@ -13,6 +13,7 @@ import { history } from './service';
 const HomeScreen = React.lazy(() => import('../pages/HomeScreen'));
 const CatalogScreen = React.lazy(() => import('../pages/CatalogScreen'));
 const AboutUsScreen = React.lazy(() => import('../pages/AboutUsScreen'));
+const CatalogItemScreen = React.lazy(() => import('../pages/CatalogItemScreen'));
 // <-- Lazy Components
 
 export const CustomRouter = memo(() => (
@@ -26,6 +27,11 @@ export const CustomRouter = memo(() => (
             exact
             path={ROUTES.CATALOG}
             component={CatalogScreen}
+          />
+          <Route
+            exact
+            path={ROUTES.CATALOG_ITEM}
+            component={CatalogItemScreen}
           />
           <Route
             exact

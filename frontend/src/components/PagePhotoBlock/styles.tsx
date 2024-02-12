@@ -32,7 +32,7 @@ export const InfoBlock = styled.div`
   }
 
   @media ${device.laptop} {
-    width: 30%;
+    width: 50%;
   }
 
   @media ${device.laptopL} {

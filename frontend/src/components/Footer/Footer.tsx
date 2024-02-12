@@ -55,7 +55,7 @@ const Footer = () => (
       <LogoContainer>
         <img src="assets/logo-white.svg" alt="Emona logo" />
         <LogoDescription>
-          Ми такі-то, займаємось тим-то та раді співпрацювати з вами
+          Emona textile - компанія з продажу тканин та пошиття текстильних виробів для підприємств у сфері HoReCa. Надійність - це головна перевага нашої компанії.
         </LogoDescription>
       </LogoContainer>
 
@@ -80,7 +80,7 @@ const Footer = () => (
 
     <DevelopersInfoWrapper>
       <AllRightsReserved>
-        © 2024 - ООО "Эмона Текстиль". Всі права захищені
+        © 2024 - ООО "Емона Текстиль". Всі права захищені
       </AllRightsReserved>
 
       <DevelopersInfoContainer>

@@ -41,7 +41,7 @@ module.exports = {
   devServer: {
     ...config.devServer,
     host: 'localhost',
-    port: 443,
+    port: 5050,
     open: true,
   },
   output: {
