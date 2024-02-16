@@ -5,9 +5,10 @@ import Banner from 'components/Banner';
 import PagePhotoBlock from 'components/PagePhotoBlock';
 // styles
 import { AboutUsWrapper, AboutUsText, BannerContainer, BlockImage } from './styles';
+import { PageWrapper } from 'utils/styles';
 
 const AboutUsScreenView = () => (
-  <div>
+  <PageWrapper>
     <PagePhotoBlock
       heading="Про нас"
       btnText="Досвід компанії"
@@ -50,7 +51,7 @@ const AboutUsScreenView = () => (
 
       <BlockImage src="assets/CataloguePhotos/рекламно-сувенірна-продукція.png"/>
     </AboutUsWrapper>
-  </div>
+  </PageWrapper>
 );
 
 export default AboutUsScreenView;

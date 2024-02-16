@@ -5,6 +5,7 @@ const palette = {
   grey: '#101010',
   grey2: '#F5F5F5',
   greyLight: '#424242',
+  greyInputText: '#616161',
   orange: '#FB8C00'
 };
 
@@ -24,6 +25,7 @@ export const colors = {
     orange: palette.orange,
     greyLight: palette.greyLight,
     greyDark: palette.grey,
+    greyInputText: palette.greyInputText
   },
   button: {
     default: palette.green,
@@ -45,6 +47,7 @@ declare global {
     | 'text.orange'
     | 'text.greyLight'
     | 'text.greyDark'
+    | 'text.greyInputText'
     | 'button.default'
     | 'button.carousel';
 }

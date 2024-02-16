@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
 import { device } from 'utils/deviceBreakpoints';
-import { Paper, Button, Typography, FormControl } from '@mui/material';
+import { Paper, Button, Typography, FormControl, OutlinedInput } from '@mui/material';
 
 export const ContactsAndFormBlockWrapper = styled.div`
   margin: 0 0 80px;
@@ -142,6 +142,12 @@ export const StyledFormControl = styled(FormControl)<{ width: string; marginCust
     }
   }
 `;
+
+export const StyledOutlinedInput = styled(OutlinedInput)`
+  input, textarea {
+    color: ${colors.text.greyInputText};
+  }
+`
 
 export const StyledButton = styled(Button)`
   padding: 10px 20px 10px 28px;

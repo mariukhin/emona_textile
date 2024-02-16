@@ -4,8 +4,8 @@ import React from 'react';
 import { colors } from 'utils/color';
 // components
 import {
-  CallOutlined,
-  LocationOnOutlined,
+  Call,
+  LocationOn,
   EmailOutlined,
 } from '@mui/icons-material';
 // styles
@@ -27,7 +27,7 @@ const ContactsBlock: React.FC<ContactsBlockType> = ({ isFooter = false }) => {
   return (
     <ContactsBlockContainer isFooter={ isFooter }>
       <ContactItem>
-        <LocationOnOutlined sx={{ color: iconColor }} />
+        <LocationOn sx={{ color: iconColor }} />
         <ContactBlockTextLink
           href="https://maps.google.com?q=50.454905968545766, 30.48833512571684"
           target="_blank"
@@ -37,7 +37,7 @@ const ContactsBlock: React.FC<ContactsBlockType> = ({ isFooter = false }) => {
         </ContactBlockTextLink>
       </ContactItem>
       <ContactItem>
-        <CallOutlined sx={{ color: iconColor }} />
+        <Call sx={{ color: iconColor }} />
         <ContactItemPhoneBlock>
           <ContactBlockTextLink href="tel:+380444868610" sx={{ color: textColor }}>
             +38 044 486 86 10

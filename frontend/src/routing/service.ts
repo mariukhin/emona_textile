@@ -39,7 +39,7 @@ class RoutingService extends RoutingStore {
     console.log('path', path);
     
 
-    this.push(path);
+    this.history.push(path);
   };
 
   public goBack = (useHistory = false) => {

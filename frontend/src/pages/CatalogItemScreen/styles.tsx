@@ -6,7 +6,6 @@ import { Grid, Paper, Button, Typography } from '@mui/material';
 export const CatalogWrapper = styled.div<{ isMainPage: boolean; }>`
   @media ${device.mobile} {
     margin: 60px 12px;
-    margin-top: ${props => !props.isMainPage && '40px'} !important;
   }
 
   @media ${device.tablet} {
@@ -14,52 +13,24 @@ export const CatalogWrapper = styled.div<{ isMainPage: boolean; }>`
   }
 
   @media ${device.laptopL} {
-    margin: 120px 59px;
+    margin: 46px 60px 120px 37px;
   }
 `;
 
 export const StyledGridContainer = styled(Grid)`
   margin: 0 auto;
-  margin-top: 20px;
   width: 100%;
 `;
 
 export const StyledGrid = styled(Grid)`
-  padding-top: 0 !important;
-  @media ${device.mobile} {
-    height: 272px;
-    padding-left: 0 !important;
-  }
-
-  @media ${device.tablet} {
-    padding-left: 18px !important;
-
-    :nth-of-type(2n+1) {
-      padding-left: 0 !important;
-    }
-  }
-
-  @media ${device.laptop} {
-    padding-left: 24px !important;
-    height: 248px;
-  }
-
-  @media ${device.laptopL} {
-    :nth-of-type(3n+1) {
-      padding-left: 0 !important;
-    }
-
-    :nth-of-type(2n+1):not(:first-of-type) {
-      padding-left: 24px !important;
-    }
-  }
+  max-height: 272px;
 `;
 
 export const StyledPaper = styled(Paper)`
   height: 100%;
   width: 100%;
   border-radius: 20px;
-  box-shadow: 0px 4px 4px 0px #00000040;
+  box-shadow: 6px 0px 24px 0px rgba(0,0,0,0.12);
 `;
 
 export const ItemContainer = styled.div`
@@ -75,7 +46,6 @@ export const ItemImage = styled.div`
   border-radius: 20px;
   background-image: url(${props => props.theme.main});
   background-size: cover;
-  background-position: center;
 `;
 
 export const ItemInfoBlock = styled.div`
@@ -94,7 +64,7 @@ export const ItemInfoBlockTitle = styled(Typography)`
 
 export const ItemInfoDescriptionList = styled.ul`
   margin: 0;
-  padding-left: 20px;
+  padding-left: 25px;
 `;
 
 export const ItemInfoDescriptionListItem = styled.li`
@@ -104,6 +74,7 @@ export const ItemInfoDescriptionListItem = styled.li`
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 3%;
+  color: ${colors.text.greyDark};
 `;
 
 export const ItemButton = styled(Button)`

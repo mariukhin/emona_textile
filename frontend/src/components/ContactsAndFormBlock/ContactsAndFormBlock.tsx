@@ -2,11 +2,12 @@
 import * as R from 'ramda';
 import React, { useRef, useEffect, RefObject } from 'react';
 import { observer } from 'mobx-react';
+import { IMaskInput } from 'react-imask';
 // components
 import BlockInfoComponent from 'components/BlockInfoComponent';
 import ContactsBlock from 'components/Footer/components/ContactsBlock';
 import { Wrapper } from '@googlemaps/react-wrapper';
-import { Box, InputLabel, OutlinedInput, FormHelperText } from '@mui/material';
+import { Box, InputLabel, FormHelperText } from '@mui/material';
 import { useStore } from 'modules/Stores';
 // styles
 import {
@@ -21,6 +22,7 @@ import {
   StyledButton,
   StyledButtonText,
   StyledFormControl,
+  StyledOutlinedInput
 } from './styles';
 import { colors } from 'utils/color';
 
@@ -44,7 +46,29 @@ const MapComponent = () => {
   );
 };
 
-const ContactsAndFormBlock = () => {
+const TextMaskCustom = React.forwardRef<HTMLInputElement, {
+  onChange: (event: { target: { id: string; value: string } }) => void;
+  name: string;
+}>(
+  function TextMaskCustom(props, ref) {
+    const { onChange, ...other } = props;
+    return (
+      <IMaskInput
+        {...other}
+        mask="+38\0 (00) - 000 - 00 - 00"
+        definitions={{
+          '#': /[1-9]/,
+        }}
+        lazy={false}
+        inputRef={ref}
+        onAccept={(value: any) => onChange({ target: { id: 'phone', value } })}
+        overwrite
+      />
+    );
+  },
+);
+
+const ContactsAndFormBlock = ({isCatalogItemPage = false}) => {
   const {
     name,
     phone,
@@ -59,6 +83,8 @@ const ContactsAndFormBlock = () => {
     handleValidateForm,
     sendEmail,
   } = useStore('ContactsAndFormBlockStore');
+
+  const blockTitle = isCatalogItemPage ? 'Замовити' : 'Контакти';
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
@@ -92,7 +118,7 @@ const ContactsAndFormBlock = () => {
 
   return (
     <ContactsAndFormBlockWrapper>
-      <BlockInfoComponent title="Контакти" subtitle="Зв'язатися з нами" />
+      <BlockInfoComponent title={ blockTitle } subtitle="Зв'язатися з нами" />
 
       <BlockContainer>
         <InfoContainer>
@@ -103,7 +129,7 @@ const ContactsAndFormBlock = () => {
           </Wrapper>
         </InfoContainer>
 
-        <StyledPaper isErrors={ !R.isEmpty(errors) }>
+        <StyledPaper isErrors={ !R.isEmpty(errors) } id="contact-form-anchor">
           <PaperWrapper>
             <FormHeader>Заповніть форму</FormHeader>
 
@@ -111,7 +137,7 @@ const ContactsAndFormBlock = () => {
               <FormBlock>
                 <StyledFormControl width={'48%'}>
                   <InputLabel htmlFor="name">Ім'я</InputLabel>
-                  <OutlinedInput
+                  <StyledOutlinedInput
                     id="name"
                     value={name}
                     onChange={handleChange}
@@ -124,15 +150,13 @@ const ContactsAndFormBlock = () => {
                   {errors.name && <FormHelperText error>{errors.name}</FormHelperText>}
                 </StyledFormControl>
                 <StyledFormControl width={'48%'}>
-                  <InputLabel htmlFor="phone">Телефон</InputLabel>
-                  <OutlinedInput
+                  <StyledOutlinedInput
                     id="phone"
                     value={phone}
                     onChange={handleChange}
                     onFocus={handleFocus}
-                    margin="dense"
+                    inputComponent={TextMaskCustom as any}
                     type="tel"
-                    label="Телефон"
                     error={!!errors.phone}
                   />
                   {errors.phone && <FormHelperText error>{errors.phone}</FormHelperText>}
@@ -140,7 +164,7 @@ const ContactsAndFormBlock = () => {
               </FormBlock>
               <StyledFormControl width={'100%'} marginCustom={'12px 0 0'}>
                 <InputLabel htmlFor="email">Електронна пошта</InputLabel>
-                <OutlinedInput
+                <StyledOutlinedInput
                   id="email"
                   value={email}
                   onChange={handleChange}
@@ -155,7 +179,7 @@ const ContactsAndFormBlock = () => {
               </StyledFormControl>
               <StyledFormControl width={'100%'} marginCustom={'12px 0'}>
                 <InputLabel htmlFor="name">Опис замовлення</InputLabel>
-                <OutlinedInput
+                <StyledOutlinedInput
                   id="description"
                   value={description}
                   onChange={handleChange}

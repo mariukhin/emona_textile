@@ -20,6 +20,7 @@ import {
   TickerWrapper,
   TickerImage,
 } from './styles';
+import { PageWrapper } from 'utils/styles';
 
 const HomePageView = () => {
   const [isMouseOverTicker, setIsMouseOverTicker] = useState(true);
@@ -52,7 +53,7 @@ const HomePageView = () => {
     ))
 
   return (
-    <div>
+    <PageWrapper>
       <Carousel />
       <Catalog isMainPage />
   
@@ -79,7 +80,7 @@ const HomePageView = () => {
       <AboutUsBlock />
 
       <ContactsAndFormBlock />
-    </div>
+    </PageWrapper>
   );
 };
 
