@@ -147,5 +147,164 @@ export const mockedCatalogItems: CatalogItemData[] = [
         ]
       }
     ]
+  },
+  {
+    id: 3,
+    title: 'Махрові вироби',
+    buttonText: 'Текстиль для ...',
+    imageUrl: 'assets/CataloguePhotos/Махрові-вироби.png',
+    items: [
+      {
+        id: 1,
+        title: 'Махрові рушники',
+        imageUrl: 'assets/CatalogItemPhotos/MahrovaBilysna/mahrovi-rushnyky.jpg',
+        description: [
+          'Гладкі, пряжа 16/1',
+          '100% бавовна, 500 г/м2',
+          'Розміри, (см) - 30*30, 30*50, 50*90, 70*140',
+          'Туреччина'
+        ]
+      },
+      {
+        id: 2,
+        title: 'Килимок для ніг 50*70',
+        imageUrl: 'assets/CatalogItemPhotos/MahrovaBilysna/',
+        description: [
+          'Жакардовий "Ніжки", пряжа 20/2',
+          '100% бавовна, 650 г/м2',
+          'Туреччина'
+        ]
+      },
+      {
+        id: 3,
+        title: 'Килимок для ніг 50*80',
+        imageUrl: 'assets/CatalogItemPhotos/MahrovaBilysna/kylymok-dlya-nig.jpg',
+        description: [
+          'Жакардовий "Рамка", пряжа 20/2',
+          '100% бавовна, 700 г/м2',
+          'Португалія'
+        ]
+      },
+      {
+        id: 4,
+        title: 'Халат махровий з шалевим коміром',
+        imageUrl: 'assets/CatalogItemPhotos/MahrovaBilysna/mahroviy-halat.jpg',
+        description: [
+          '100% бавовна, 380 г/м2',
+          'Розмір XXL',
+          'Під замовлення від S до 5XL',
+          'Туреччина'
+        ]
+      },
+      {
+        id: 5,
+        title: 'Халат махровий дитячий з шалевим коміром',
+        imageUrl: 'assets/CatalogItemPhotos/MahrovaBilysna/dytyachiy-halat.jpg',
+        description: [
+          '100% бавовна, 380 г/м2',
+          'Розмір 5р, 7р, 10р, 12р',
+          'Україна'
+        ]
+      },
+      {
+        id: 6,
+        title: 'Халат велюровий з шалевим коміром',
+        imageUrl: 'assets/CatalogItemPhotos/MahrovaBilysna/velur-halat.jpg',
+        description: [
+          '100% бавовна, 430 г/м2',
+          'Розмір XXL',
+          'Португалія'
+        ]
+      },
+    ]
+  },
+  {
+    id: 4,
+    title: 'SPA & Resorts',
+    buttonText: 'СПА, ОЗДОРОВЛЕННЯ, ВІДПОЧИНОК',
+    imageUrl: 'assets/CataloguePhotos/spa-and-resorts.jpg',
+    items: [
+      {
+        id: 1,
+        title: 'Тканина вафельна біла',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/tkanyna-vafelna-bila.jpg',
+        description: [
+          'шир. 150 см, щіл. 210 г/м2',
+          '100% бавовна',
+          'Чехія'
+        ]
+      },
+      {
+        id: 2,
+        title: 'Тканина вафельна темно-сіра',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/tkanyna-vafelna-temno-sira.jpg',
+        description: [
+          'шир. 155 см, щіл. 200 г/м2',
+          '100% бавовна',
+          'Туреччина'
+        ]
+      },
+      {
+        id: 3,
+        title: 'Кімоно',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/kimono.jpg',
+        description: [
+          'Всі розміри, а також дитячі',
+          'Під замовлення клієнта'
+        ]
+      },
+      {
+        id: 4,
+        title: 'Рушники',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/rushnyky.jpg',
+        description: [
+          'Розміри 30*50, 45*80, 100*150 та ін',
+          'Під замовлення клієнта'
+        ]
+      },
+      {
+        id: 5,
+        title: 'Пляжні рушники махрові пістрявоткані',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/rushnyky.jpg',
+        description: [
+          '100% бавовна, щіл. 430 г/м2',
+          'Розмір 50*100, 70*140, 70*200',
+          'Під замовлення клієнта',
+          'Німеччина'
+        ]
+      },
+      {
+        id: 6,
+        title: 'Рушники махрові гладкофарбовані',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/mahrovi-rushnyky.jpg',
+        description: [
+          '100% бавовна, щіл. 400-600 г/м2',
+          'Розмір 50*100, 70*140, 100*150',
+          'Під замовлення клієнта',
+          'Туреччина, Україна'
+        ]
+      },
+      {
+        id: 7,
+        title: 'Рушники махрові жакардові (лого)',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/rushnyky-logo.jpg',
+        description: [
+          '100% бавовна, щіл. 400-600 г/м2',
+          'Розмір 70*140, 100*150, 80*180 та ін',
+          'Кольори та дизайни під замовлення',
+          'Туреччина'
+        ]
+      },
+      {
+        id: 8,
+        title: 'Махрові рушники з зображенням',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/rushnyky-zobr.jpg',
+        description: [
+          'Нанесенням друкованого зображення',
+          'На бордюр або повністю',
+          'Під замовлення клієнта'
+        ]
+      }
+    ]
   }
 ]

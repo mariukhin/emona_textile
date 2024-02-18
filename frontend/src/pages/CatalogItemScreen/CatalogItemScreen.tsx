@@ -29,6 +29,9 @@ const CatalogItemScreenView = () => {
   const searchParams = new URLSearchParams(window.location.search);
   const titleSearchParam = searchParams.get('title');
 
+  console.log('titleSearchParam', titleSearchParam);
+  
+
   const currentItem = getCurrentCatalogItem(titleSearchParam);
 
   const onOrderButtonClick = (item: PageItems) => {
@@ -51,9 +54,9 @@ const CatalogItemScreenView = () => {
         <>
           <PagePhotoBlock heading={ currentItem.title } btnText={ currentItem.buttonText } imageUrl={ currentItem.imageUrl } />
           <CatalogWrapper isMainPage>
-            <StyledGridContainer container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3, lg: 3 }}>
+            <StyledGridContainer container rowSpacing={3} columnSpacing={{ xs: 0, sm: 0, md: 0, lg: 3 }}>
               {currentItem.items.map((item) => (
-                <StyledGrid key={ item.id } item xs={12} sm={6} md={6} lg={6}>
+                <StyledGrid key={ item.id } item xs={12} lg={6}>
                   <StyledPaper>
                     <ItemContainer>
                       <ItemImage

@@ -40,7 +40,7 @@ const CatalogItem: React.FC<CatalogItem> = ({ title, imageUrl }) => {
               textTransform="none"
               fontSize={20}
               fontWeight={700}
-              sx={{ fontFamily: 'Comfortaa' }}
+              sx={{ fontFamily: 'Comfortaa', textAlign: 'center' }}
             >
               {title}
             </Typography>

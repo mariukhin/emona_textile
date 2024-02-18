@@ -9,7 +9,7 @@ export const CatalogWrapper = styled.div<{ isMainPage: boolean; }>`
   }
 
   @media ${device.tablet} {
-    margin: 80px 22px;
+    margin: 46px 22px 80px;
   }
 
   @media ${device.laptopL} {
@@ -22,9 +22,7 @@ export const StyledGridContainer = styled(Grid)`
   width: 100%;
 `;
 
-export const StyledGrid = styled(Grid)`
-  max-height: 272px;
-`;
+export const StyledGrid = styled(Grid)``;
 
 export const StyledPaper = styled(Paper)`
   height: 100%;
@@ -34,25 +32,41 @@ export const StyledPaper = styled(Paper)`
 `;
 
 export const ItemContainer = styled.div`
-  padding: 24px;
   display: flex;
-  justify-content: flex-start;
-  gap: 24px;
+  padding: 24px;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 24px;
+  }
 `;
 
 export const ItemImage = styled.div`
-  width: 200px;
   height: 200px;
   border-radius: 20px;
   background-image: url(${props => props.theme.main});
   background-size: cover;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
+
+  @media ${device.tablet} {
+    width: 200px;
+  }
 `;
 
 export const ItemInfoBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-height: 200px;
 `;
 
 export const ItemInfoBlockTitle = styled(Typography)`
@@ -60,11 +74,19 @@ export const ItemInfoBlockTitle = styled(Typography)`
   font-weight: 700;
   font-size: 24px;
   color: ${colors.text.greyDark};
+  line-height: 1.2;
 `;
 
 export const ItemInfoDescriptionList = styled.ul`
-  margin: 0;
   padding-left: 25px;
+
+  @media ${device.mobile} {
+    margin-top: 10px;
+  }
+
+  @media ${device.tablet} {
+    margin: 0;
+  }
 `;
 
 export const ItemInfoDescriptionListItem = styled.li`
@@ -80,6 +102,7 @@ export const ItemInfoDescriptionListItem = styled.li`
 export const ItemButton = styled(Button)`
   display: flex;
   max-width: 117px;
+  padding: 0;
 
   span:first-of-type {
     display: block;
