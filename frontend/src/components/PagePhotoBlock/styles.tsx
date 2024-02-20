@@ -26,16 +26,16 @@ export const InfoBlock = styled.div`
   text-align: center;
 
   @media ${device.mobile} {
-    height: 110px;
+    max-width: 85%;
   }
 
   @media ${device.tablet} {
     height: 128px;
-    width: 35%;
+    max-width: 85%;
   }
 
   @media ${device.laptop} {
-    width: 50%;
+    max-width: 70%;
   }
 
   @media ${device.laptopL} {
@@ -67,9 +67,9 @@ export const Heading = styled(Typography)`
 
 export const StyledButton = styled(Button)`
   padding: 6px 18px;
-  height: 38px;
   background-color: ${colors.button.carousel};
   border-radius: 12px;
+  max-width: 85%;
 `;
 
 export const StyledButtonText = styled(Typography)`

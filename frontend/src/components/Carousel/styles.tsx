@@ -9,12 +9,8 @@ export const CarouselContainer = styled.div<{ imageUrl: string; backgroundColor:
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
-
-  @media ${device.mobile} {
-    margin: 0 12px;
-  }
-
-  @media ${device.tablet} {
+  
+  @media ${device.laptop} {
     margin: 0 22px;
   }
 

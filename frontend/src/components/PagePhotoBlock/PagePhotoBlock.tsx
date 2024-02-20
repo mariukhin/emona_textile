@@ -11,7 +11,7 @@ import {
 
 type PagePhotoBlockProps = {
   heading: string;
-  btnText: string;
+  btnText?: string;
   imageUrl: string;
 };
 
@@ -23,9 +23,11 @@ const PagePhotoBlock: React.FC<PagePhotoBlockProps> = ({
   <PagePhotoBlockContainer imageUrl={ imageUrl }>
     <InfoBlock>
       <Heading>{heading}</Heading>
-      <StyledButton color="warning" size="large" variant="contained">
-        <StyledButtonText>{btnText}</StyledButtonText>
-      </StyledButton>
+      { btnText && (
+        <StyledButton color="warning" size="large" variant="contained">
+          <StyledButtonText>{btnText}</StyledButtonText>
+        </StyledButton>
+      )}
     </InfoBlock>
   </PagePhotoBlockContainer>
 );

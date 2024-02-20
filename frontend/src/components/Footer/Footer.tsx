@@ -40,12 +40,12 @@ const firstBlock: FooterData = {
 const secondBlock: FooterData = {
   title: 'Каталог',
   subItems: [
-    { label: 'Постільна білизна', href: ROUTES.HOME },
-    { label: 'Столова білизна', href: ROUTES.HOME },
-    { label: 'Махрові вироби', href: ROUTES.HOME },
-    { label: 'SPA & Resorts', href: ROUTES.HOME },
-    { label: 'Рекламно-сувенірні вироби', href: ROUTES.HOME },
-    { label: 'Чохли на меблі та декоративні вироби', href: ROUTES.HOME },
+    { label: 'Постільна білизна', href: `${ROUTES.CATALOG_ITEM}?title=Постільна білизна` },
+    { label: 'Столова білизна', href: `${ROUTES.CATALOG_ITEM}?title=Столова білизна` },
+    { label: 'Махрові вироби', href: `${ROUTES.CATALOG_ITEM}?title=Махрові вироби` },
+    { label: 'SPA & Resorts', href: `${ROUTES.CATALOG_ITEM}?title=SPA & Resorts` },
+    { label: 'Рекламно-сувенірні вироби', href: `${ROUTES.CATALOG_ITEM}?title=Рекламно-сувенірні вироби` },
+    { label: 'Чохли на меблі та декоративні вироби', href: `${ROUTES.CATALOG_ITEM}?title=Чохли на меблі та декоративні вироби` },
   ],
 };
 

@@ -1,7 +1,7 @@
 type CatalogItemData = {
   id: number;
   title: string;
-  buttonText: string;
+  buttonText?: string;
   imageUrl: string;
   items: PageItems[];
 };

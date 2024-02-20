@@ -34,6 +34,7 @@ export const StyledLogo = styled(Link)`
     img {
       width: 126px;
       height: 24px;
+      margin-top: 8px;
     }
   }
 
@@ -41,6 +42,7 @@ export const StyledLogo = styled(Link)`
     img {
       width: 208px;
       height: 40px;
+      margin-top: 0;
     }
   }
 `;

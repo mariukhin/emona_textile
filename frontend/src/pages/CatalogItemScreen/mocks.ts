@@ -151,7 +151,6 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 3,
     title: 'Махрові вироби',
-    buttonText: 'Текстиль для ...',
     imageUrl: 'assets/CataloguePhotos/Махрові-вироби.png',
     items: [
       {
@@ -221,7 +220,6 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 4,
     title: 'SPA & Resorts',
-    buttonText: 'СПА, ОЗДОРОВЛЕННЯ, ВІДПОЧИНОК',
     imageUrl: 'assets/CataloguePhotos/spa-and-resorts.jpg',
     items: [
       {
@@ -306,5 +304,17 @@ export const mockedCatalogItems: CatalogItemData[] = [
         ]
       }
     ]
+  },
+  {
+    id: 5,
+    title: 'Чохли на меблі та декоративні вироби',
+    imageUrl: 'assets/CataloguePhotos/Чохли-на-меблі.png',
+    items: []
+  },
+  {
+    id: 6,
+    title: 'Рекламно-сувенірні вироби',
+    imageUrl: 'assets/CataloguePhotos/рекламно-сувенірна-продукція.png',
+    items: []
   }
 ]
