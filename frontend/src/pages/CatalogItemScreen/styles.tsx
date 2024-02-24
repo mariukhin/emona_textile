@@ -53,6 +53,8 @@ export const ItemImage = styled.div`
   border-radius: 20px;
   background-image: url(${props => props.theme.main});
   background-size: cover;
+  // background-repeat: no-repeat;
+  // background-postion: center;
 
   @media ${device.mobile} {
     width: 100%;
@@ -67,6 +69,15 @@ export const ItemInfoBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
+
+  @media ${device.tablet} {
+    max-width: 420px;
+  }
+
 `;
 
 export const ItemInfoBlockTitle = styled(Typography)`

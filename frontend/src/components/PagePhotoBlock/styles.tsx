@@ -21,7 +21,7 @@ export const PagePhotoBlockContainer = styled.div<{ imageUrl: string; }>`
 export const InfoBlock = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-align: center;
 
@@ -46,7 +46,6 @@ export const InfoBlock = styled.div`
 export const Heading = styled(Typography)`
   color: ${colors.text.white};
   text-shadow: 0px 2px 24px #000000;
-  margin-bottom: 20px;
   font-family: 'Comfortaa';
 
   @media ${device.mobile} {

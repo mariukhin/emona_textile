@@ -30,7 +30,7 @@ export const BannerContainer = styled.div`
   flex-wrap: wrap;
 
   @media ${device.mobile} {
-    height: 382px;
+    height: 220px;
     justify-content: space-evenly;
     align-content: space-between;
     width: 95%;
@@ -40,17 +40,10 @@ export const BannerContainer = styled.div`
   }
 
   @media ${device.tablet} {
-    height: 244px;
-    width: 80%;
-  }
-
-  @media ${device.laptop} {
+    justify-content: center;
+    gap: 20px;
     height: 106px;
     width: 100%;
-  }
-
-  @media ${device.laptopL} {
-    justify-content: space-between;
   }
 `;
 

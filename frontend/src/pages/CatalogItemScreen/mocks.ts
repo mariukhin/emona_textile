@@ -2,7 +2,6 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 1,
     title: 'Постільна білизна',
-    buttonText: 'Текстиль для готелів',
     imageUrl: 'assets/CataloguePhotos/Постільна-білизна.png',
     items: [
       {
@@ -85,7 +84,6 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 2,
     title: 'Столова білизна',
-    buttonText: 'Текстиль для ресторанів',
     imageUrl: 'assets/CataloguePhotos/Столовий-текстиль.png',
     items: [
       {
@@ -105,7 +103,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
         title: 'Argos-Серветка',
         imageUrl: 'assets/CatalogItemPhotos/StolovaBilysna/argos-servetka.jpg',
         description: [
-          'з бордюром 50*50',
+          'З бордюром 50*50',
           'Нитка подвійного кручення',
           'ТС 260, 200 г/м2',
           '100% бавовна',
@@ -119,7 +117,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
         description: [
           'Сатин',
           'ТС 300, 220 г/м2',
-          'ш.340 см, 100% бавовна',
+          'ш.300 см, 100% бавовна',
           'Португалія'
         ]
       },
@@ -145,6 +143,17 @@ export const mockedCatalogItems: CatalogItemData[] = [
           'кольори в асортименті - під замовлення',
           'Португалія'
         ]
+      },
+      {
+        id: 6,
+        title: 'Damasko',
+        imageUrl: 'assets/CatalogItemPhotos/StolovaBilysna/',
+        description: [
+          'Жакард',
+          'ТС 300, 220 г/м2',
+          'ш.320 см, 50%/50% (бавовна/ПЕС)',
+          'Португалія'
+        ]
       }
     ]
   },
@@ -167,7 +176,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
       {
         id: 2,
         title: 'Килимок для ніг 50*70',
-        imageUrl: 'assets/CatalogItemPhotos/MahrovaBilysna/',
+        imageUrl: 'assets/CatalogItemPhotos/MahrovaBilysna/kylymok-50-na-70.jpg',
         description: [
           'Жакардовий "Ніжки", пряжа 20/2',
           '100% бавовна, 650 г/м2',
@@ -192,7 +201,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
           '100% бавовна, 380 г/м2',
           'Розмір XXL',
           'Під замовлення від S до 5XL',
-          'Туреччина'
+          'Туреччина, Україна'
         ]
       },
       {
@@ -244,7 +253,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
       },
       {
         id: 3,
-        title: 'Кімоно',
+        title: 'Халат-кімоно',
         imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/kimono.jpg',
         description: [
           'Всі розміри, а також дитячі',
@@ -263,7 +272,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
       {
         id: 5,
         title: 'Пляжні рушники махрові пістрявоткані',
-        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/rushnyky.jpg',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/plyazhni-rushnyky.png',
         description: [
           '100% бавовна, щіл. 430 г/м2',
           'Розмір 50*100, 70*140, 70*200',
@@ -309,7 +318,78 @@ export const mockedCatalogItems: CatalogItemData[] = [
     id: 5,
     title: 'Чохли на меблі та декоративні вироби',
     imageUrl: 'assets/CataloguePhotos/Чохли-на-меблі.png',
-    items: []
+    items: [
+      {
+        id: 1,
+        title: 'Чохол стрейчовий на круглий фуршетний стіл D60см-D80см',
+        imageUrl: 'assets/CatalogItemPhotos/ChohlyTaDekorVyroby/onyx.jpg',
+        description: [
+          'Матеріал - Стрейчова тканина',
+          '100% ПЕС',
+          'Кольори в асортименті'
+        ]
+      },
+      {
+        id: 2,
+        title: 'Чохол стрейчовий на прямокутний (сервірувальний) стіл або на парту для конференцій',
+        imageUrl: 'assets/CatalogItemPhotos/ChohlyTaDekorVyroby/opal.jpg',
+        description: [
+          'Матеріал - Стрейчова тканина',
+          '100% ПЕС',
+          'Кольори в асортименті'
+        ]
+      },
+      {
+        id: 3,
+        title: 'Чохол стрейчовий на круглий фуршетний стіл D60см-D1.50см вільний крій (спідниця)',
+        imageUrl: 'assets/CatalogItemPhotos/ChohlyTaDekorVyroby/gala.jpg',
+        description: [
+          'Матеріал - Стрейчова тканина',
+          '100% ПЕС',
+          'Кольори в асортименті'
+        ]
+      },
+      {
+        id: 4,
+        title: 'Чохол на прямокутний стіл, на парти для конференцій',
+        imageUrl: 'assets/CatalogItemPhotos/ChohlyTaDekorVyroby/madrid.jpg',
+        description: [
+          'Матеріал - Декоративна тканина (Габардин)',
+          '100% ПЕС',
+          'Кольори в асортименті'
+        ]
+      },
+      {
+        id: 5,
+        title: 'Чохол на круглий фуршетний стіл ',
+        imageUrl: 'assets/CatalogItemPhotos/ChohlyTaDekorVyroby/venice.jpg',
+        description: [
+          'Матеріал - Декоративна тканина (Габардин)',
+          '100% ПЕС',
+          'Кольори в асортименті'
+        ]
+      },
+      {
+        id: 6,
+        title: 'Спідниця в складки на липучці',
+        imageUrl: 'assets/CatalogItemPhotos/ChohlyTaDekorVyroby/spidnytsya.jpg',
+        description: [
+          'Матеріал - Декоративна тканина (Габардин)',
+          '100% ПЕС',
+          'Кольори в асортименті'
+        ]
+      },
+      {
+        id: 7,
+        title: 'Чохли на стільці',
+        imageUrl: 'assets/CatalogItemPhotos/ChohlyTaDekorVyroby/chohly-na-stilci.jpg',
+        description: [
+          'Матеріал - Стрейчова тканина',
+          '100% ПЕС',
+          'Кольори в асортименті'
+        ]
+      }
+    ]
   },
   {
     id: 6,

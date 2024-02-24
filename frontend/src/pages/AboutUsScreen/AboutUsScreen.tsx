@@ -26,7 +26,6 @@ const AboutUsScreenView = () => (
       <BannerContainer>
         <Banner title="96% клієнтів" subtitle="стають постійними" />
         <Banner title="20 років" subtitle="досвіду" />
-        <Banner title="800 замовлень" subtitle="виготовлено" />
       </BannerContainer>
 
       <AboutUsText marginBottom="40px">
