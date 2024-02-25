@@ -75,9 +75,8 @@ export const ItemInfoBlock = styled.div`
   }
 
   @media ${device.tablet} {
-    max-width: 420px;
+    max-width: 450px;
   }
-
 `;
 
 export const ItemInfoBlockTitle = styled(Typography)`

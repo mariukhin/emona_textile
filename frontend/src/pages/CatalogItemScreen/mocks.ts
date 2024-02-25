@@ -395,6 +395,96 @@ export const mockedCatalogItems: CatalogItemData[] = [
     id: 6,
     title: 'Рекламно-сувенірні вироби',
     imageUrl: 'assets/CataloguePhotos/рекламно-сувенірна-продукція.png',
-    items: []
+    items: [
+      {
+        id: 1,
+        title: 'Beach Towels',
+        imageUrl: 'assets/CatalogItemPhotos/ReklamnoSuvenyrnyVyroby/beach-towels.png',
+        description: [
+          'Повноформатний друк',
+          'Матеріал - двостороння махрова тканина',
+          'Верхня сторона - велюр, 100% мікрофібра',
+          'Зворотня сторона - махрова, 100% бавовна',
+          'Розміри: 100*180см, 80*160см, 70*140см'
+        ]
+      },
+      {
+        id: 2,
+        title: 'Fan, Sport & Gym Towels',
+        imageUrl: 'assets/CatalogItemPhotos/ReklamnoSuvenyrnyVyroby/sport-towels.png',
+        description: [
+          'Повноформатний друк',
+          'Матеріал - двостороння махрова тканина',
+          'Верхня сторона - велюр, 100% мікрофібра',
+          'Зворотня сторона - махрова, 100% бавовна',
+          'Розміри: 30*130см'
+        ]
+      },
+      {
+        id: 3,
+        title: 'Bar Towels',
+        imageUrl: 'assets/CatalogItemPhotos/ReklamnoSuvenyrnyVyroby/bar-towels.png',
+        description: [
+          'Повноформатний друк',
+          'Матеріал - двостороння махрова тканина',
+          'Верхня сторона - велюр, 100% мікрофібра',
+          'Зворотня сторона - махрова, 100% бавовна',
+          'Розміри: 30*50см'
+        ]
+      },
+      {
+        id: 4,
+        title: 'Друк в бордюрі (сублімаційний)',
+        imageUrl: 'assets/CatalogItemPhotos/SpaAndResorts/rushnyky-zobr.jpg',
+        description: [
+          'Матеріал - махрова тканина',
+          '100% бавовна, бордюр 50%/50% (бавовна/ПЕС)',
+          'щіл. 400-600 г/м2',
+          'Розміри: 30*50см, 50*100см, 70*140см'
+        ]
+      },
+      {
+        id: 5,
+        title: 'Махровий рушник з плетеним LOGO в бордюрі',
+        imageUrl: 'assets/CatalogItemPhotos/ReklamnoSuvenyrnyVyroby/rushnyk-z-logo.png',
+        description: [
+          'Жакардове плетіння',
+          '100% бавовна',
+          'Розміри: 50*100см, 70*140см, 80*180см та інші на замовлення'
+        ]
+      },
+      {
+        id: 6,
+        title: 'Махровий рушник з плетеним лого з ефектом тиснення',
+        imageUrl: 'assets/CatalogItemPhotos/ReklamnoSuvenyrnyVyroby/rushnyk-bez-logo.png',
+        description: [
+          'Жакардове плетіння',
+          '100% бавовна',
+          'Розміри: 50*100см, 70*140см, 80*180см та інші на замовлення'
+        ]
+      },
+      {
+        id: 7,
+        title: 'Вишивка на готових виробах',
+        imageUrl: 'assets/CatalogItemPhotos/ReklamnoSuvenyrnyVyroby/vyshyvka-na-mahrovyh.png',
+        description: [
+          'Халати махрові, халати вафельні',
+          'Рушники',
+          'Постільна білизна',
+          'Столовий текстиль'
+        ]
+      },
+      {
+        id: 8,
+        title: 'Сумки та Мішки для готелів',
+        imageUrl: 'assets/CatalogItemPhotos/ReklamnoSuvenyrnyVyroby/sumky-ta-mishky.png',
+        description: [
+          'Для прання, для взуття, для фена, та інші',
+          'Матеріал - Спанбонд (нетканий матеріал). Лого - друк',
+          'Матеріал - бязь сурова. Лого - вишивка',
+          'Кольори в асортименті'
+        ]
+      }
+    ]
   }
 ]
