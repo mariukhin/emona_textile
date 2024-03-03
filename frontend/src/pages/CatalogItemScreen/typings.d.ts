@@ -10,5 +10,6 @@ type PageItems = {
   id: number;
   title: string;
   imageUrl: string;
+  containImage?: boolean;
   description: string[];
 }

@@ -29,6 +29,7 @@ export const colors = {
   },
   button: {
     default: palette.green,
+    hover: palette.greenDark,
     carousel: palette.orange,
   }
 };
@@ -49,5 +50,6 @@ declare global {
     | 'text.greyDark'
     | 'text.greyInputText'
     | 'button.default'
+    | 'button.hover'
     | 'button.carousel';
 }

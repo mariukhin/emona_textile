@@ -34,8 +34,8 @@ export const InfoWrapper = styled.div`
 
   @media ${device.mobile} {
     flex-direction: column;
-    padding-left: 77px;
-    padding-right: 77px;
+    padding-left: 52px;
+    padding-right: 52px;
   }
 
   @media ${device.tablet} {
@@ -45,10 +45,23 @@ export const InfoWrapper = styled.div`
   }
 `;
 
+export const Logo = styled.img`
+  height: 40px;
+  width: 204px;
+
+  @media ${device.mobile} {
+    margin: 0 auto;
+  }
+
+  @media ${device.tablet} {
+    margin: 0;
+  }
+`;
+
 export const LogoDescription = styled(Typography)`
   font-size: 14px;
   font-weight: 400;
-  color: ${colors.text.white};
+  color: ${colors.text.grey};
   font-family: 'Montserrat';
   padding-top: 20px;
 `;

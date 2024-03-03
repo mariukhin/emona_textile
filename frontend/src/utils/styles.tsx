@@ -2,6 +2,6 @@ import styled from 'styled-components';
 // import { size } from 'utils/deviceBreakpoints';
 
 export const PageWrapper = styled.div`
-  max-width: 2000px;
+  max-width: 1440px;
   margin: 0 auto;
 `;

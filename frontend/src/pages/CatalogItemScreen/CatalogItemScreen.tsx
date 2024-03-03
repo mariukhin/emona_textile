@@ -27,10 +27,7 @@ const CatalogItemScreenView = () => {
   const { getCurrentCatalogItem } = useStore('CatalogItemStore');
   const { setDescription } = useStore('ContactsAndFormBlockStore');
   const searchParams = new URLSearchParams(window.location.search);
-  const titleSearchParam = searchParams.get('title');
-
-  console.log('titleSearchParam', titleSearchParam);
-  
+  const titleSearchParam = searchParams.get('title');  
 
   const currentItem = getCurrentCatalogItem(titleSearchParam);
 
@@ -59,11 +56,7 @@ const CatalogItemScreenView = () => {
                 <StyledGrid key={ item.id } item xs={12} lg={6}>
                   <StyledPaper>
                     <ItemContainer>
-                      <ItemImage
-                        theme={{
-                          main: item.imageUrl,
-                        }}
-                      />
+                      <ItemImage imageUrl={ item.imageUrl } containImage={ item.containImage || false } />
                       <ItemInfoBlock>
                         <ItemInfoBlockTitle>{ item.title }</ItemInfoBlockTitle>
                         <ItemInfoDescriptionList>

@@ -11,6 +11,7 @@ import { LinkedIn, Telegram } from '@mui/icons-material';
 // styles
 import {
   FooterWrapper,
+  Logo,
   LogoContainer,
   LogoDescription,
   InfoWrapper,
@@ -53,7 +54,7 @@ const Footer = () => (
   <FooterWrapper>
     <InfoWrapper>
       <LogoContainer>
-        <img src="assets/logo-white.svg" alt="Emona logo" />
+        <Logo src="assets/logo-white.svg" alt="Emona logo" />
         <LogoDescription>
           Emona textile - компанія з продажу тканин та пошиття текстильних виробів для підприємств у сфері HoReCa. Надійність - це головна перевага нашої компанії.
         </LogoDescription>

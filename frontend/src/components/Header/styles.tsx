@@ -19,7 +19,7 @@ export const StyledToolbar = styled(Toolbar)`
   }
 
   @media ${device.tablet} {
-    padding: 12px 24px;
+    padding: 9px 24px;
   }
 
   @media ${device.laptopL} {
@@ -29,6 +29,7 @@ export const StyledToolbar = styled(Toolbar)`
 
 export const StyledLogo = styled(Link)`
   padding: 0;
+  height: 40px;
 
   @media ${device.mobile} {
     img {
@@ -58,13 +59,13 @@ export const StyledStack = styled(Stack)`
       display: none;
     }
 
-    a:last-child {
+    button:last-child {
       margin-right: 30px;
     }
   }
 
   @media ${device.tablet} {
-    a:last-child {
+    button:last-child {
       margin-right: 35px;
     }
   }
@@ -76,7 +77,7 @@ export const StyledStack = styled(Stack)`
       display: block;
     }
 
-    a:last-child {
+    button:last-child {
       margin-right: 0;
     }
   }

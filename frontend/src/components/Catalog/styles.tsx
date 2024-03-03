@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
 import { device } from 'utils/deviceBreakpoints';
-import { Grid, Paper, Button } from '@mui/material';
+import { Grid } from '@mui/material';
 
 export const CatalogWrapper = styled.div<{ isMainPage: boolean; }>`
   @media ${device.mobile} {
@@ -54,52 +54,49 @@ export const StyledGrid = styled(Grid)`
   }
 `;
 
-export const StyledPaper = styled(Paper)`
-  position: relative;
+export const CatalogItemWrapper = styled.a`
   height: 100%;
   width: 100%;
   border-radius: 20px;
   box-shadow: 0px 4px 4px 0px #00000040;
+  text-decoration: none;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  transition: filter 300ms 100ms;
+
+  :hover {
+    cursor: pointer;
+    filter: drop-shadow(0px 6px 32px rgba(0, 0, 0, 0.36));
+  }
+
+  :hover > div {
+    background-color: ${colors.button.hover};
+  }
+`
+
+export const CatalogItemImage = styled.img`
+  width: 100%;
+  min-height: 7%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 `;
 
-export const CatalogItemImageWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  width: 98%;
-  height: 97%;
-  border-radius: 20px;
-  background-image: url(${props => props.theme.main});
-  background-size: cover;
-  background-position: center;
+export const CatalogButton = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-`;
-
-export const CatalogButton = styled(Button)`
-  display: flex;
+  padding: 3px 0;
   background-color: ${colors.button.default};
-  border-radius: 24px;
-  opacity: 0.8;
-
-  span:first-of-type {
-    display: none;
-  }
-
-  :hover span:first-of-type {
-    display: block;
-    transition: display 5s;
-    line-height: 0.7;
-  }
-
-  @media ${device.mobile} {
-    width: 95%;
-  }
-
-  @media ${device.laptop} {
-    width: 80%;
-  }
+  font-family: 'Comfortaa';
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  font-style: normal;
+  color: ${colors.text.white};
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 100%;
+  transition: background-color 300ms 100ms;
+  text-decoration: none;
 `;

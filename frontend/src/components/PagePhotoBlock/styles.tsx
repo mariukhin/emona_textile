@@ -4,7 +4,7 @@ import { device } from 'utils/deviceBreakpoints';
 import { Button, Typography } from '@mui/material';
 
 export const PagePhotoBlockContainer = styled.div<{ imageUrl: string; }>`
-  height: 366px;
+  height: 450px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -12,6 +12,18 @@ export const PagePhotoBlockContainer = styled.div<{ imageUrl: string; }>`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media ${device.mobile} {
+    height: 350px;
+  }
+
+  @media ${device.tablet} {
+    height: 400px;
+  }
+
+  @media ${device.laptop} {
+    height: 450px;
+  }
 
   @media ${device.laptopL} {
     margin: 0 59px;

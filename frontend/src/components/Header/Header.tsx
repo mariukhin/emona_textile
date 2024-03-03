@@ -48,7 +48,6 @@ const headersData: HeadersData[] = [
   },
   {
     label: 'Зв’язатися',
-    href: ROUTES.HOME,
     variant: 'contained',
     color: colors.text.white,
   },
@@ -71,6 +70,17 @@ const Header = () => {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const onConnectButtonClick = () => {
+    const anchor = document.querySelector('#contact-form-anchor');
+
+    if (anchor) {
+      anchor.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+  }
 
   return (
       <AppBar position="fixed">
@@ -98,9 +108,9 @@ const Header = () => {
                 {...{
                   key: useId(),
                   color: 'success',
-                  href,
                   variant,
                   size: 'small',
+                  ...(href ? {href} : {onClick: () => onConnectButtonClick()})
                   // endIcon:  
                   //   label === 'Каталог' && 
                   //     <KeyboardArrowDown
@@ -108,7 +118,7 @@ const Header = () => {
                   //     />,
                 }}
               >
-                <StyledButtonText color={getItemColor(href, color)}>
+                <StyledButtonText color={getItemColor(href || 'null', color)}>
                   {label}
                 </StyledButtonText>
               </StyledButton>
@@ -136,8 +146,8 @@ const Header = () => {
           <StyledDrawerList>
             {headersData.slice(0, -1).map(({ label, href, color }) => (
               <ListItem key={label} disablePadding>
-                <StyledDrawerButton href={ href }>
-                  <StyledButtonTextDrawer color={getItemColor(href, color)}>
+                <StyledDrawerButton href={ href || '' }>
+                  <StyledButtonTextDrawer color={getItemColor(href || 'null', color)}>
                     {label}
                   </StyledButtonTextDrawer>
                 </StyledDrawerButton>

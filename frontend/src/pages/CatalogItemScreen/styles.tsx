@@ -45,23 +45,24 @@ export const ItemContainer = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     gap: 24px;
+    height: 100%;
   }
 `;
 
-export const ItemImage = styled.div`
-  height: 200px;
+export const ItemImage = styled.div<{ imageUrl: string; containImage: boolean; }>`
+  min-height: 200px;
   border-radius: 20px;
-  background-image: url(${props => props.theme.main});
-  background-size: cover;
-  // background-repeat: no-repeat;
-  // background-postion: center;
+  background-image: url(${props => props.imageUrl});
+  background-size:  ${props => props.containImage ? 'contain' : 'cover'};
+  background-repeat: no-repeat;
+  background-position: ${props => props.containImage ? 'center' : 'initial'};;
 
   @media ${device.mobile} {
     width: 100%;
   }
 
   @media ${device.tablet} {
-    width: 200px;
+    max-width: 200px;
   }
 `;
 
@@ -95,7 +96,7 @@ export const ItemInfoDescriptionList = styled.ul`
   }
 
   @media ${device.tablet} {
-    margin: 0;
+    margin: 10px 0;
   }
 `;
 
