@@ -8,7 +8,7 @@ import { useStore } from 'modules/Stores';
 // components
 import { KeyboardArrowDown, Close } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { AppBar, SwipeableDrawer, IconButton, ListItem, Menu, MenuItem } from '@mui/material';
+import { AppBar, SwipeableDrawer, IconButton, ListItem } from '@mui/material';
 // styles
 import {
   StyledToolbar,

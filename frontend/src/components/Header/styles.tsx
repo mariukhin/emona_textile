@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
 import { device } from 'utils/deviceBreakpoints';
-import { Button, Toolbar, Stack, IconButton, Typography, List, ListItemButton, Link, Menu } from '@mui/material';
+import { Button, Toolbar, Stack, IconButton, Typography, List, ListItemButton, Link } from '@mui/material';
 import {
   ContactBlockTextLink,
 } from 'components/Footer/components/FooterInfoBlock/styles';

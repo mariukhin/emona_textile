@@ -70,8 +70,6 @@ const HomePageView = () => {
               )}
             </Ticker>
           </TickerWrapper>
-
-          {/* <LogoContainer>{mappedTickerItems}</LogoContainer> */}
         </ClientsBlockTitleWrapper>
       </ClientsBlockWrapper>
 

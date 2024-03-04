@@ -6,6 +6,7 @@ import AdvantagesBlockItem from './components/AdvantagesBlockItem';
 // styles
 import { AdvantagesBlockWrapper, StyledGridContainer, StyledButton } from './styles';
 import { StyledButtonText, StyledButtonWrapper } from 'components/Header/styles';
+// import ContactUsButton from 'components/ContactUsButton';
 import { colors } from 'utils/color';
 
 type AdvantagesBlockProps = {
@@ -31,6 +32,7 @@ const AdvantagesBlock: React.FC<AdvantagesBlockProps> = ({
 
     <StyledButtonWrapper>
       <StyledButton color="success" variant="contained" size="small">
+      {/* <ContactUsButton buttonElem={ () => <StyledButton color="success" variant="contained" size="small"/> }> */}
         <StyledButtonText color={colors.text.white}>
           Зв’язатися з нами
         </StyledButtonText>
