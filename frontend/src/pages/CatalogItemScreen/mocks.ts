@@ -2,7 +2,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 1,
     title: 'Постільна білизна',
-    imageUrl: 'assets/CataloguePhotos/Постільна-білизна.png',
+    imageUrl: 'assets/CatalogItemPhotos/Постільна-білизна.png',
     items: [
       {
         id: 1,
@@ -84,7 +84,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 2,
     title: 'Столова білизна',
-    imageUrl: 'assets/CataloguePhotos/Столовий-текстиль.png',
+    imageUrl: 'assets/CatalogItemPhotos/столовий-текстиль.jpg',
     items: [
       {
         id: 1,
@@ -160,7 +160,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 3,
     title: 'Махрові вироби',
-    imageUrl: 'assets/CataloguePhotos/Махрові-вироби.png',
+    imageUrl: 'assets/CatalogItemPhotos/Махрові-вироби.png',
     items: [
       {
         id: 1,
@@ -229,7 +229,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 4,
     title: 'SPA & Resorts',
-    imageUrl: 'assets/CataloguePhotos/spa-and-resorts.jpg',
+    imageUrl: 'assets/CatalogItemPhotos/spa-and-resorts.jpg',
     items: [
       {
         id: 1,
@@ -322,7 +322,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 5,
     title: 'Чохли на меблі та декоративні вироби',
-    imageUrl: 'assets/CataloguePhotos/Чохли-на-меблі.png',
+    imageUrl: 'assets/CatalogItemPhotos/Чохли-на-меблі.png',
     items: [
       {
         id: 1,
@@ -417,7 +417,7 @@ export const mockedCatalogItems: CatalogItemData[] = [
   {
     id: 6,
     title: 'Рекламно-сувенірні вироби',
-    imageUrl: 'assets/CataloguePhotos/рекламно-сувенірна-продукція.png',
+    imageUrl: 'assets/CatalogItemPhotos/рекламно-сувенірна-продукція.png',
     items: [
       {
         id: 1,

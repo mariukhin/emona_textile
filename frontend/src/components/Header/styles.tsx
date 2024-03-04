@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from 'utils/color';
 import { device } from 'utils/deviceBreakpoints';
-import { Button, Toolbar, Stack, IconButton, Typography, List, ListItemButton, Link } from '@mui/material';
+import { Button, Toolbar, Stack, IconButton, Typography, List, ListItemButton, Link, Menu } from '@mui/material';
 import {
   ContactBlockTextLink,
 } from 'components/Footer/components/FooterInfoBlock/styles';
@@ -77,30 +77,43 @@ export const StyledStack = styled(Stack)`
       display: block;
     }
 
+    a:nth-child(2n+1) {
+      display: flex;
+    }
+
     button:last-child {
       margin-right: 0;
     }
   }
 `;
 
-export const StyledButton = styled(Button)`
+export const StyledButton = styled(Button)<{ labelColor?: string; }>`
   padding: 6px 18px;
-  height: 38px;
   background-color: ${props => props.variant === 'text' ? 'inherit' : colors.button.default};
 
   span {
     margin-left: 4px;
 
     svg {
-      color: ${colors.text.default};
+      color: ${props => props.labelColor};
       font-size: 24px !important;
     }
+  }
+
+  p {
+    color: ${props => props.labelColor};
   }
 
   :hover{
     background-color: ${props => props.variant === 'text' ? 'inherit' : colors.button.default};
     p {
       color: ${props => props.variant === 'text' ? colors.text.orange : 'inherit'}
+    }
+
+    span {
+      svg {
+        color: ${colors.text.orange};
+      }
     }
   }
 

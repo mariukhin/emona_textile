@@ -6,9 +6,9 @@ import { ROUTES } from 'routing/registration';
 import { colors } from 'utils/color';
 import { useStore } from 'modules/Stores';
 // components
-import { /* KeyboardArrowDown, */ Close } from '@mui/icons-material';
+import { KeyboardArrowDown, Close } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { AppBar, SwipeableDrawer, IconButton, ListItem } from '@mui/material';
+import { AppBar, SwipeableDrawer, IconButton, ListItem, Menu, MenuItem } from '@mui/material';
 // styles
 import {
   StyledToolbar,
@@ -26,6 +26,7 @@ import {
   StyledContactItemPhoneBlock,
   StyledContactBlockTextLink,
 } from './styles';
+// import { mockedCatalogItems } from 'components/Catalog/mocks';
 
 const headersData: HeadersData[] = [
   {
@@ -82,6 +83,36 @@ const Header = () => {
     }
   }
 
+  // const [anchorEl, setAnchorEl] = useState(null);
+  // const [openDrop, setOpenDrop] = useState(false);
+
+  // const handleOpen = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  //   setOpenDrop(true);
+  // };
+
+  // const handleClose = (e) => {
+  //   if (e.currentTarget.localName !== "ul") {
+  //     const menu = document.getElementById("simple-menu").children[2];
+  //     const menuBoundary = {
+  //       left: menu.offsetLeft,
+  //       top: e.currentTarget.offsetTop + e.currentTarget.offsetHeight,
+  //       right: menu.offsetLeft + menu.offsetHeight,
+  //       bottom: menu.offsetTop + menu.offsetHeight
+  //     };
+  //     if (
+  //       e.clientX >= menuBoundary.left &&
+  //       e.clientX <= menuBoundary.right &&
+  //       e.clientY <= menuBoundary.bottom &&
+  //       e.clientY >= menuBoundary.top
+  //     ) {
+  //       return;
+  //     }
+  //   }
+
+  //   setOpenDrop(false);
+  // };
+
   return (
       <AppBar position="fixed">
         <StyledToolbar>
@@ -110,19 +141,38 @@ const Header = () => {
                   color: 'success',
                   variant,
                   size: 'small',
-                  ...(href ? {href} : {onClick: () => onConnectButtonClick()})
-                  // endIcon:  
-                  //   label === 'Каталог' && 
-                  //     <KeyboardArrowDown
-                  //       fontSize="large"
-                  //     />,
+                  labelColor: getItemColor(href || 'null', color),
+                  ...(href ? {href} : {onClick: () => onConnectButtonClick()}),
+                  ...(label === 'Каталог' && {
+                    // 'aria-haspopup': 'true',
+                    // onMouseOver: (e) => handleOpen(e),
+                    // onMouseLeave: (e) => handleClose(e),
+                    endIcon: <KeyboardArrowDown fontSize="large" />
+                  })
                 }}
               >
-                <StyledButtonText color={getItemColor(href || 'null', color)}>
+                <StyledButtonText>
                   {label}
                 </StyledButtonText>
               </StyledButton>
             ))}
+            {/* <Menu
+              anchorEl={anchorEl}
+              open={openDrop}
+              MenuListProps={{
+                onMouseLeave: handleClose,
+              }}
+              // anchorOrigin={{
+              //   vertical: "bottom",
+              //   horizontal: "center"
+              // }}
+              // transformOrigin={{
+              //   vertical: "top",
+              //   horizontal: "right"
+              // }}
+            >
+              { mockedCatalogItems.map(item => <MenuItem>{ item.title }</MenuItem>) }
+            </Menu> */}
           </StyledStack>
         </StyledToolbar>
         <SwipeableDrawer

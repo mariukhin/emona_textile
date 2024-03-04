@@ -26,7 +26,7 @@ export const StyledGridContainer = styled(Grid)`
 
 export const StyledGrid = styled(Grid)`
   @media ${device.mobile} {
-    height: 272px;
+    height: 300px;
     padding-left: 0 !important;
   }
 
@@ -40,7 +40,7 @@ export const StyledGrid = styled(Grid)`
 
   @media ${device.laptop} {
     padding-left: 24px !important;
-    height: 312px;
+    height: 350px;
   }
 
   @media ${device.laptopL} {
@@ -78,14 +78,23 @@ export const CatalogItemWrapper = styled.a`
 
 export const CatalogItemImage = styled.img`
   width: 100%;
-  min-height: 7%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+
+  @media ${device.mobile} {
+    min-height: 60%;
+  }
+
+  @media ${device.laptop} {
+    min-height: 75%;
+  }
 `;
 
 export const CatalogButton = styled.div`
   display: flex;
+  flex: auto;
   justify-content: center;
+  align-items: center;
   padding: 3px 0;
   background-color: ${colors.button.default};
   font-family: 'Comfortaa';
