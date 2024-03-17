@@ -5,5 +5,6 @@ type FooterData = {
 
 type FooterSubItem = {
   label: string;
-  href: string;
+  href?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement> & MouseEventHandler<HTMLSpanElement>;
 };

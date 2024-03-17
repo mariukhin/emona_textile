@@ -21,6 +21,11 @@ import {
   TickerImage,
 } from './styles';
 import { PageWrapper } from 'utils/styles';
+// import {Logo1, Logo2, Logo3} from 'utils/clientLogos';
+
+// const logos = [
+//   Logo2
+// ];
 
 const HomePageView = () => {
   const [isMouseOverTicker, setIsMouseOverTicker] = useState(true);

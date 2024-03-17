@@ -4,10 +4,10 @@ import React from 'react';
 import BlockInfoComponent from 'components/BlockInfoComponent';
 import AdvantagesBlockItem from './components/AdvantagesBlockItem';
 // styles
-import { AdvantagesBlockWrapper, StyledGridContainer, StyledButton } from './styles';
-import { StyledButtonText, StyledButtonWrapper } from 'components/Header/styles';
-// import ContactUsButton from 'components/ContactUsButton';
+import { AdvantagesBlockWrapper, StyledGridContainer } from './styles';
+import { StyledButtonText, StyledButtonWrapper, StyledButton } from 'components/Header/styles';
 import { colors } from 'utils/color';
+import { goToForm } from 'modules';
 
 type AdvantagesBlockProps = {
   advantageItems: AdvantagesBlockData[];
@@ -18,7 +18,7 @@ const AdvantagesBlock: React.FC<AdvantagesBlockProps> = ({
 }) => (
   <AdvantagesBlockWrapper>
     <BlockInfoComponent title="Наші переваги" subtitle="Чому саме EMONA" />
-
+  
     <StyledGridContainer>
       {advantageItems.map((item) => (
         <AdvantagesBlockItem
@@ -29,16 +29,15 @@ const AdvantagesBlock: React.FC<AdvantagesBlockProps> = ({
         />
       ))}
     </StyledGridContainer>
-
+  
     <StyledButtonWrapper>
-      <StyledButton color="success" variant="contained" size="small">
-      {/* <ContactUsButton buttonElem={ () => <StyledButton color="success" variant="contained" size="small"/> }> */}
+      <StyledButton onClick={ () => goToForm()} color="success" variant="contained" size="small">
         <StyledButtonText color={colors.text.white}>
           Зв’язатися з нами
         </StyledButtonText>
       </StyledButton>
     </StyledButtonWrapper>
   </AdvantagesBlockWrapper>
-);
+  ) 
 
 export default AdvantagesBlock;

@@ -5,6 +5,7 @@ import { observer } from 'mobx-react';
 import { ROUTES } from 'routing/registration';
 import { colors } from 'utils/color';
 import { useStore } from 'modules/Stores';
+import { goToForm } from 'modules';
 // components
 import { KeyboardArrowDown, Close } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -72,17 +73,6 @@ const Header = () => {
     setOpen(!open);
   };
 
-  const onConnectButtonClick = () => {
-    const anchor = document.querySelector('#contact-form-anchor');
-
-    if (anchor) {
-      anchor.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }
-  }
-
   // const [anchorEl, setAnchorEl] = useState(null);
   // const [openDrop, setOpenDrop] = useState(false);
 
@@ -142,7 +132,7 @@ const Header = () => {
                   variant,
                   size: 'small',
                   labelColor: getItemColor(href || 'null', color),
-                  ...(href ? {href} : {onClick: () => onConnectButtonClick()}),
+                  ...(href ? {href} : {onClick: () => goToForm()}),
                   ...(label === 'Каталог' && {
                     // 'aria-haspopup': 'true',
                     // onMouseOver: (e) => handleOpen(e),

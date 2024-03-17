@@ -17,7 +17,7 @@ const FooterInfoBlock: React.FC<FooterInfoBlockComponentProps> = ({ title, subIt
   <BlockContainer isFooter={ isFooter } title={ title }>
     <BlockHeading>{title}</BlockHeading>
 
-    {subItems.map(item => <BlockSubItem key={useId()} href={item.href}>{item.label}</BlockSubItem> )}
+    {subItems.map(item => <BlockSubItem key={useId()} onClick={ item.onClick && item.onClick } href={item.href && item.href}>{item.label}</BlockSubItem> )}
   </BlockContainer>
 );
 

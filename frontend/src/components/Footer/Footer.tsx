@@ -27,6 +27,7 @@ import {
   BlockContainer,
   BlockHeading,
 } from './components/FooterInfoBlock/styles';
+import { goToForm } from 'modules';
 
 const firstBlock: FooterData = {
   title: 'Сторінки',
@@ -34,7 +35,7 @@ const firstBlock: FooterData = {
     { label: 'Головна', href: ROUTES.HOME },
     { label: 'Каталог', href: ROUTES.CATALOG },
     { label: 'Про нас', href: ROUTES.ABOUT },
-    { label: 'Контакти', href: ROUTES.HOME },
+    { label: 'Контакти', onClick: () => goToForm() },
   ],
 };
 

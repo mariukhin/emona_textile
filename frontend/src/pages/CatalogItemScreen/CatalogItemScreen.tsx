@@ -2,6 +2,7 @@
 import React from 'react';
 // modules
 import { useStore } from 'modules/Stores';
+import { goToForm } from 'modules';
 // components
 import PagePhotoBlock from 'components/PagePhotoBlock';
 import { ArrowForward } from '@mui/icons-material';
@@ -33,15 +34,7 @@ const CatalogItemScreenView = () => {
 
   const onOrderButtonClick = (item: PageItems) => {
     setDescription(item.title);
-
-    const anchor = document.querySelector('#contact-form-anchor');
-
-    if (anchor) {
-      anchor.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }
+    goToForm();
   }
   
 

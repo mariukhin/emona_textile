@@ -1,4 +1,11 @@
+// import Logo1 from 'assets/ClientLogos/logo-1';
+// import Logo2 from 'assets/ClientLogos/logo-2';
+// import Logo3 from 'assets/ClientLogos/logo-3';
+
 export const logos: string[] = [
+  // Logo1,
+  // Logo2,
+  // Logo3
   'assets/ClientLogos/image-1.svg',
   'assets/ClientLogos/image-3.svg',
   'assets/ClientLogos/image-2.svg',
