@@ -13,7 +13,7 @@ class CarouselService extends CarouselStore {
     } 
   }
 
-  changeCurrentItem = (direction: Directions) => {
+  changeCurrentItem = (direction: Directions): any => {
     if (!this.carouselItems) return null;
 
     let updatedItemIdx = -1;

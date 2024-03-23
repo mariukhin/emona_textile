@@ -61,7 +61,6 @@ export const LogoContainer = styled.div`
 export const TickerImage = styled.img`
   @media ${device.mobile} {
     vertical-align: middle;
-    width: 42%;
     max-width: 171px;
     margin-right: 30px;
     margin-bottom: 50px;
@@ -69,15 +68,9 @@ export const TickerImage = styled.img`
   }
 
   @media ${device.tablet} {
-    vertical-align: middle;
-    width: 18%;
     max-width: 190px;
     margin-right: 50px;
     margin-bottom: 68px;
-  }
-
-  @media ${device.laptop} {
-    width: 20%;
   }
   
 

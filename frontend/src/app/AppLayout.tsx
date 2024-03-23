@@ -75,7 +75,7 @@ const AppLayout: React.FC<LayoutProps> = ({ children }) => (
     <CssBaseline />
     
     <Header />
-    <Toolbar id="back-to-top-anchor" />
+    <Toolbar sx={{ minHeight: '1px !important' }} variant='dense' id="back-to-top-anchor" />
 
     <ChildrenWrapper>
       {children}

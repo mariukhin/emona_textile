@@ -226,3 +226,8 @@ export const StyledBurger = styled(IconButton)`
     display: none;
   }
 `;
+
+export const StyledCatalogItemLink = styled.a`
+  text-decoration: none;
+  color: ${colors.text.greyLight};
+`

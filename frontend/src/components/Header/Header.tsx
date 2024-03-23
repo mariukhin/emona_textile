@@ -9,7 +9,7 @@ import { goToForm } from 'modules';
 // components
 import { KeyboardArrowDown, Close } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { AppBar, SwipeableDrawer, IconButton, ListItem } from '@mui/material';
+import { AppBar, SwipeableDrawer, IconButton, ListItem, Menu, MenuItem } from '@mui/material';
 // styles
 import {
   StyledToolbar,
@@ -26,8 +26,9 @@ import {
   StyledButtonTextAnd,
   StyledContactItemPhoneBlock,
   StyledContactBlockTextLink,
+  StyledCatalogItemLink
 } from './styles';
-// import { mockedCatalogItems } from 'components/Catalog/mocks';
+import { mockedCatalogItems } from 'components/Catalog/mocks';
 
 const headersData: HeadersData[] = [
   {
@@ -58,11 +59,18 @@ const headersData: HeadersData[] = [
 const Header = () => {
   const { isOnRoute } = useStore('RoutingStore');
   const [open, setOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<EventTarget & HTMLButtonElement | null>(null);
+  const [openDrop, setOpenDrop] = useState(false);
 
   const drawerWidth = 326;
 
+  const searchParams = new URLSearchParams(window.location.search);
+  const titleSearchParam = searchParams.get('title'); 
+  
   const getItemColor = (href: string, itemColor: string) => {
     if (href !== ROUTES.HOME && isOnRoute(href)) {
+      return colors.text.orange;
+    } else if (href === ROUTES.CATALOG && openDrop) {
       return colors.text.orange;
     } else {
       return itemColor;
@@ -73,38 +81,35 @@ const Header = () => {
     setOpen(!open);
   };
 
-  // const [anchorEl, setAnchorEl] = useState(null);
-  // const [openDrop, setOpenDrop] = useState(false);
+  const handleOpen = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    setAnchorEl(event.currentTarget);
+    setOpenDrop(true);
+  };
 
-  // const handleOpen = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  //   setOpenDrop(true);
-  // };
+  const handleClose = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    if (e.currentTarget.localName !== "ul") {
+      const menu = document.getElementById("simple-menu").children[2] as HTMLElement;
+      const menuBoundary = {
+        left: menu.offsetLeft,
+        top: e.currentTarget.offsetTop + e.currentTarget.offsetHeight,
+        right: menu.offsetLeft + menu.offsetHeight,
+        bottom: menu.offsetTop + menu.offsetHeight
+      };
+      if (
+        e.clientX >= menuBoundary.left &&
+        e.clientX <= menuBoundary.right &&
+        e.clientY <= menuBoundary.bottom &&
+        e.clientY >= menuBoundary.top
+      ) {
+        return;
+      }
+    }
 
-  // const handleClose = (e) => {
-  //   if (e.currentTarget.localName !== "ul") {
-  //     const menu = document.getElementById("simple-menu").children[2];
-  //     const menuBoundary = {
-  //       left: menu.offsetLeft,
-  //       top: e.currentTarget.offsetTop + e.currentTarget.offsetHeight,
-  //       right: menu.offsetLeft + menu.offsetHeight,
-  //       bottom: menu.offsetTop + menu.offsetHeight
-  //     };
-  //     if (
-  //       e.clientX >= menuBoundary.left &&
-  //       e.clientX <= menuBoundary.right &&
-  //       e.clientY <= menuBoundary.bottom &&
-  //       e.clientY >= menuBoundary.top
-  //     ) {
-  //       return;
-  //     }
-  //   }
-
-  //   setOpenDrop(false);
-  // };
+    setOpenDrop(false);
+  };
 
   return (
-      <AppBar position="fixed">
+      <AppBar position="sticky">
         <StyledToolbar>
           <StyledLogo href="/">
             <img src='assets/logo.svg' alt="Emona logo" />
@@ -134,9 +139,9 @@ const Header = () => {
                   labelColor: getItemColor(href || 'null', color),
                   ...(href ? {href} : {onClick: () => goToForm()}),
                   ...(label === 'Каталог' && {
-                    // 'aria-haspopup': 'true',
-                    // onMouseOver: (e) => handleOpen(e),
-                    // onMouseLeave: (e) => handleClose(e),
+                    'aria-haspopup': 'true',
+                    onMouseOver: (e) => handleOpen(e),
+                    onMouseLeave: (e) => handleClose(e),
                     endIcon: <KeyboardArrowDown fontSize="large" />
                   })
                 }}
@@ -146,23 +151,6 @@ const Header = () => {
                 </StyledButtonText>
               </StyledButton>
             ))}
-            {/* <Menu
-              anchorEl={anchorEl}
-              open={openDrop}
-              MenuListProps={{
-                onMouseLeave: handleClose,
-              }}
-              // anchorOrigin={{
-              //   vertical: "bottom",
-              //   horizontal: "center"
-              // }}
-              // transformOrigin={{
-              //   vertical: "top",
-              //   horizontal: "right"
-              // }}
-            >
-              { mockedCatalogItems.map(item => <MenuItem>{ item.title }</MenuItem>) }
-            </Menu> */}
           </StyledStack>
         </StyledToolbar>
         <SwipeableDrawer
@@ -211,6 +199,19 @@ const Header = () => {
             </StyledContactItemPhoneBlock>
           </StyledDrawerList>
         </SwipeableDrawer>
+        <Menu
+          anchorEl={anchorEl}
+          open={openDrop}
+          MenuListProps={{
+            onMouseLeave: handleClose,
+          }}
+        >
+          { mockedCatalogItems.map(item => (
+            <MenuItem selected={ item.title.includes(titleSearchParam || 'false') || false }>
+              <StyledCatalogItemLink href={`${ROUTES.CATALOG_ITEM}?title=${item.title}`}>{ item.title }</StyledCatalogItemLink>
+            </MenuItem>
+          ))}
+        </Menu>
       </AppBar>
   );
 };
