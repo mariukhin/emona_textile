@@ -29,12 +29,12 @@ class ContactsBlockService extends ContactsBlockStore {
       this.setErrors('name', 'Необхідно заповнити');
     }
 
-    if (this.name) {
-      if (!this.name.match(/^[a-zA-Z]+$/)) {
-        currentFormIsValid = false;
-        this.setErrors('name', 'Має містити тільки букви');
-      }
-    }
+    // if (this.name) {
+    //   if (!this.name.match(/^[a-zA-Z]+$/)) {
+    //     currentFormIsValid = false;
+    //     this.setErrors('name', 'Має містити тільки букви');
+    //   }
+    // }
 
      //Phone
      if (!this.phone) {
@@ -42,12 +42,12 @@ class ContactsBlockService extends ContactsBlockStore {
       this.setErrors('phone', 'Необхідно заповнити');
     }
 
-    if (this.phone) {
-      if (!this.phone.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)) {
-        currentFormIsValid = false;
-        this.setErrors('phone', 'Має бути номер телефону');
-      }
-    }
+    // if (this.phone) {
+    //   if (!this.phone.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)) {
+    //     currentFormIsValid = false;
+    //     this.setErrors('phone', 'Має бути номер телефону');
+    //   }
+    // }
 
     //Email
     if (!this.email) {

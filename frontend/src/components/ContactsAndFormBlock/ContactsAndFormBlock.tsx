@@ -26,15 +26,35 @@ import {
 } from './styles';
 import { colors } from 'utils/color';
 
+export const addSingleMarkers = ({
+  locations,
+  map,
+}: {
+  locations: ReadonlyArray<google.maps.LatLngLiteral>;
+  map: google.maps.Map | null | undefined;
+}) =>
+  locations.map(
+    position =>
+      new google.maps.Marker({
+        position,
+        map,
+      }),
+  );
+
 const MapComponent = () => {
   const ref = useRef();
 
   useEffect(() => {
     if (ref.current) {
-      new window.google.maps.Map(ref.current, {
-        center: { lat: 50.454906, lng: 30.488335 },
+      const map = new window.google.maps.Map(ref.current, {
+        center: { lat: 50.4549785, lng: 30.4884064 },
         zoom: 17,
       });
+
+      new google.maps.Marker({
+        position: { lat: 50.45499, lng: 30.48842 },
+        map,
+      })
     }
   });
 
@@ -124,7 +144,7 @@ const ContactsAndFormBlock = ({isCatalogItemPage = false}) => {
         <InfoContainer>
           <ContactsBlock />
 
-          <Wrapper apiKey="AIzaSyBCpmLQv2zdquHe3Pk2Jh_qNpscEkkKhWE">
+          <Wrapper apiKey="AIzaSyDXL3kpn2D415JAefS9_tYo-Jvz6Sb0ZRQ">
             <MapComponent />
           </Wrapper>
         </InfoContainer>
