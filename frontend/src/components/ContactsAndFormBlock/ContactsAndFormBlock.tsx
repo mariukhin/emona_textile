@@ -25,6 +25,7 @@ import {
   StyledOutlinedInput
 } from './styles';
 import { colors } from 'utils/color';
+import { useAnalyticsEventTracker } from 'modules';
 
 export const addSingleMarkers = ({
   locations,
@@ -103,6 +104,7 @@ const ContactsAndFormBlock = ({isCatalogItemPage = false}) => {
     handleValidateForm,
     sendEmail,
   } = useStore('ContactsAndFormBlockStore');
+  const gaEventTracker = useAnalyticsEventTracker('Надіслати замовлення');
 
   const blockTitle = isCatalogItemPage ? 'Замовити' : 'Контакти';
 
@@ -132,6 +134,7 @@ const ContactsAndFormBlock = ({isCatalogItemPage = false}) => {
     const formIsValid = handleValidateForm();
 
     if (formIsValid) {
+      gaEventTracker('Нове замовлення', description);
       sendEmail();
     }
   }

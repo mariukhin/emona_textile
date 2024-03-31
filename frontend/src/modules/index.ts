@@ -1,1 +1,1 @@
-export { goToForm } from './helpers';
+export { goToForm, useAnalyticsEventTracker } from './helpers';

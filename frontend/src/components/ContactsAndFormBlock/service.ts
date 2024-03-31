@@ -8,7 +8,7 @@ class ContactsBlockService extends ContactsBlockStore {
     const form = {
       name: this.name,
       description: this.description,
-      phone: this.phone,
+      phone: this.phone.replace(/\D/g, ""),
       email: this.email,
     };
 

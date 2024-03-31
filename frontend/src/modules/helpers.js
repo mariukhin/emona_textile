@@ -1,4 +1,4 @@
-// import ReactGA from "react-ga";
+import ReactGA from "react-ga";
 
 export const goToForm = () => {
   const anchor = document.querySelector('#contact-form-anchor');
@@ -12,8 +12,8 @@ export const goToForm = () => {
 }
 
 export const useAnalyticsEventTracker = (category="Blog category") => {
-  // const eventTracker = (action = "test action", label = "test label") => {
-  //   ReactGA.event({category, action, label});
-  // }
-  // return eventTracker;
+  const eventTracker = (action = "test action", label = "test label") => {
+    ReactGA.event({category, action, label});
+  }
+  return eventTracker;
 }

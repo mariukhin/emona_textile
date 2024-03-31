@@ -1,6 +1,7 @@
 // node modules
-import React from 'react';
+import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
+import ReactGA from "react-ga";
 // components
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -70,20 +71,26 @@ const theme = createTheme({
   },
 });
 
-const AppLayout: React.FC<LayoutProps> = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    
-    <Header />
-    <Toolbar sx={{ minHeight: '1px !important' }} variant='dense' id="back-to-top-anchor" />
+const AppLayout: React.FC<LayoutProps> = ({ children }) => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
-    <ChildrenWrapper>
-      {children}
-    </ChildrenWrapper>
-
-    <ScrollToTop />
-    <Footer />
-  </ThemeProvider>
-);
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      
+      <Header />
+      <Toolbar sx={{ minHeight: '1px !important' }} variant='dense' id="back-to-top-anchor" />
+  
+      <ChildrenWrapper>
+        {children}
+      </ChildrenWrapper>
+  
+      <ScrollToTop />
+      <Footer />
+    </ThemeProvider>
+  ) 
+};
 
 export default observer(AppLayout);
