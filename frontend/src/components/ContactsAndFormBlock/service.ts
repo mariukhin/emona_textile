@@ -1,5 +1,7 @@
 // node modules
 import { send } from 'emailjs-com';
+// config
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from 'config';
 // store
 import ContactsBlockStore from './store';
 
@@ -12,11 +14,9 @@ class ContactsBlockService extends ContactsBlockStore {
       email: this.email,
     };
 
-    send('service_t92asb2', 'template_rfkanrl', form, 'ZS1c3SKSTN5IRcFmW')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
+    send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, EMAILJS_PUBLIC_KEY)
+      .catch(() => {
+        console.error('Failed to send the contact form');
       });
   }
 

@@ -26,6 +26,8 @@ import {
 } from './styles';
 import { colors } from 'utils/color';
 import { useAnalyticsEventTracker } from 'modules';
+// config
+import { GOOGLE_MAPS_API_KEY } from 'config';
 
 export const addSingleMarkers = ({
   locations,
@@ -147,7 +149,7 @@ const ContactsAndFormBlock = ({isCatalogItemPage = false}) => {
         <InfoContainer>
           <ContactsBlock />
 
-          <Wrapper apiKey="AIzaSyDXL3kpn2D415JAefS9_tYo-Jvz6Sb0ZRQ">
+          <Wrapper apiKey={GOOGLE_MAPS_API_KEY}>
             <MapComponent />
           </Wrapper>
         </InfoContainer>

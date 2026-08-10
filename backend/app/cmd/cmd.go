@@ -7,6 +7,6 @@ type CommonOptionsCommander interface {
 }
 
 type MongoDBCommand struct {
-	MongoURI      string `long:"mongo-uri" env:"MONGO_URI" default:"mongodb+srv://zorkiy:admin@emonacluster.udns5gz.mongodb.net/?retryWrites=true&w=majority"`
+	MongoURI      string `long:"mongo-uri" env:"MONGO_URI" default:"mongodb://localhost:27017" description:"MongoDB connection URI"`
 	MongoDatabase string `long:"mongo-database" env:"MONGO_DB" default:"EmonaDB" description:"MongoDB database name"`
 }

@@ -7,7 +7,9 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -42,9 +44,36 @@ func httpJsonResponseCode(w http.ResponseWriter, resp interface{}, code int) {
 	}
 }
 
-type MongoDBCommand struct {
-	MongoURI      string `long:"mongo-uri" env:"MONGO_URI" default:"mongodb+srv://zorkiy:admin@emonacluster.udns5gz.mongodb.net/?retryWrites=true&w=majority"`
-	MongoDatabase string `long:"mongo-database" env:"MONGO_DB" default:"EmonaDB" description:"MongoDB database name"`
+const (
+	defaultMongoURI      = "mongodb://localhost:27017"
+	defaultMongoDatabase = "EmonaDB"
+)
+
+// mongoConfig holds the MongoDB connection settings. The values come from the
+// environment and default to a local instance, so no credentials ever have to
+// be stored in the repository.
+type mongoConfig struct {
+	URI      string
+	Database string
+}
+
+func mongoConfigFromEnv() mongoConfig {
+	return mongoConfig{
+		URI:      envOrDefault("MONGO_URI", defaultMongoURI),
+		Database: envOrDefault("MONGO_DB", defaultMongoDatabase),
+	}
+}
+
+func envOrDefault(key, fallback string) string {
+	if value := os.Getenv(key); value != "" {
+		return value
+	}
+	return fallback
+}
+
+// app carries the dependencies shared by the HTTP handlers.
+type app struct {
+	mongo mongoConfig
 }
 
 type Carousel struct {
@@ -63,54 +92,53 @@ type Catalog struct {
 	ImageUrl   string `bson:"imageUrl" json:"imageUrl"`
 }
 
-func carousel(w http.ResponseWriter, r *http.Request) {
-	ctx, _ := context.WithTimeout(context.TODO(), time.Second*10)
-
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb+srv://zorkiy:admin@emonacluster.udns5gz.mongodb.net/?retryWrites=true&w=majority"))
+// fetchCollection connects to MongoDB and decodes every document of the given
+// collection into items, which must be a pointer to a slice.
+func (a *app) fetchCollection(ctx context.Context, collection string, items interface{}) error {
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(a.mongo.URI))
 	if err != nil {
-		panic(err)
+		return fmt.Errorf("fail to connect to mongo - %w", err)
 	}
 	defer func() {
 		if err := client.Disconnect(ctx); err != nil {
-			panic(err)
+			log.Printf("[ERROR] fail to disconnect from mongo - %v", err)
 		}
 	}()
 
-	coll := client.Database("EmonaDB").Collection("carousel")
+	cursor, err := client.Database(a.mongo.Database).Collection(collection).Find(ctx, bson.D{})
+	if err != nil {
+		return fmt.Errorf("fail to query %s - %w", collection, err)
+	}
+
+	if err := cursor.All(ctx, items); err != nil {
+		return fmt.Errorf("fail to decode %s - %w", collection, err)
+	}
+
+	return nil
+}
+
+func (a *app) carousel(w http.ResponseWriter, r *http.Request) {
+	ctx, cancel := context.WithTimeout(r.Context(), time.Second*10)
+	defer cancel()
 
 	carouselItems := make([]*Carousel, 0)
-	cursor, err := coll.Find(context.TODO(), bson.D{})
-
-	err = cursor.All(ctx, &carouselItems)
-	if err != nil {
-		http.NotFound(w, r)
+	if err := a.fetchCollection(ctx, "carousel", &carouselItems); err != nil {
+		log.Printf("[ERROR] %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 
 	httpJsonResponse(w, carouselItems)
 }
 
-func catalog(w http.ResponseWriter, r *http.Request) {
-	ctx, _ := context.WithTimeout(context.TODO(), time.Second*10)
-
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb+srv://zorkiy:admin@emonacluster.udns5gz.mongodb.net/?retryWrites=true&w=majority"))
-	if err != nil {
-		panic(err)
-	}
-	defer func() {
-		if err := client.Disconnect(ctx); err != nil {
-			panic(err)
-		}
-	}()
-
-	coll := client.Database("EmonaDB").Collection("catalog")
+func (a *app) catalog(w http.ResponseWriter, r *http.Request) {
+	ctx, cancel := context.WithTimeout(r.Context(), time.Second*10)
+	defer cancel()
 
 	catalogItems := make([]*Catalog, 0)
-	cursor, err := coll.Find(context.TODO(), bson.D{})
-
-	err = cursor.All(ctx, &catalogItems)
-	if err != nil {
-		http.NotFound(w, r)
+	if err := a.fetchCollection(ctx, "catalog", &catalogItems); err != nil {
+		log.Printf("[ERROR] %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 

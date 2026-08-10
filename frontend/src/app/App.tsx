@@ -7,11 +7,13 @@ import { CustomRouter as Router } from '../routing/Routing';
 import { Provider } from 'mobx-react';
 import { configure } from 'mobx';
 import STORES from './stores';
+import { GA_TRACKING_ID } from 'config';
 import 'axios/axiosDefaults';
 import './style.css';
 
-const TRACKING_ID = "G-KL3H0GMWKB";
-ReactGA.initialize(TRACKING_ID);
+if (GA_TRACKING_ID) {
+  ReactGA.initialize(GA_TRACKING_ID);
+}
 
 configure({
   computedRequiresReaction: true,

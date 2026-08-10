@@ -48,6 +48,8 @@ func main() {
 	// otherwise it will always contain the default value of ":4000". If any errors are // encountered during parsing the application will be terminated.
 	flag.Parse()
 
+	a := &app{mongo: mongoConfigFromEnv()}
+
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
@@ -61,8 +63,8 @@ func main() {
 	}))
 
 	r.Get("/", home)
-	r.Get("/carousel", carousel)
-	r.Get("/catalog", catalog)
+	r.Get("/carousel", a.carousel)
+	r.Get("/catalog", a.catalog)
 	//r.Post("/create", createSnippet)
 
 	log.Printf("Starting server on %s", *addr)
